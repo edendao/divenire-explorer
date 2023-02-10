@@ -1,8 +1,8 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 // @mui
-import { Box, BoxProps } from '@mui/material';
+import { Box, BoxProps } from "@mui/material";
 // components
-import Link from './Link';
+import Link from "./Link";
 // ----------------------------------------------------------------------
 
 export type LogoProps = BoxProps & {
@@ -16,7 +16,7 @@ const Logo = forwardRef(
         ref={ref}
         component="img"
         src="/logo.png"
-        sx={{ height: 40, cursor: 'pointer', p: 1, ...sx }}
+        sx={{ height: 40, cursor: "pointer", p: 1, ...sx }}
         {...other}
       />
     );
@@ -26,11 +26,11 @@ const Logo = forwardRef(
     }
 
     return (
-      <Link href="/" sx={{ display: 'contents' }}>
+      <Link href="/" sx={{ display: "contents" }}>
         {logo}
       </Link>
     );
-  }
+  },
 );
 
 export default Logo;

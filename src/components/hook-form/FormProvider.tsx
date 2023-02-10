@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 // form
-import { FormProvider as Form, UseFormReturn } from 'react-hook-form';
+import { FormProvider as Form, UseFormReturn } from "react-hook-form";
 
 // ----------------------------------------------------------------------
 

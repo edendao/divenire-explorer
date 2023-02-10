@@ -1,14 +1,14 @@
 // @mui
-import { Button, ButtonProps } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
+import { Button, ButtonProps } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
 // rainbowkit
-import { ConnectButton as BaseConnectButton } from '@rainbow-me/rainbowkit';
+import { ConnectButton as BaseConnectButton } from "@rainbow-me/rainbowkit";
 
-const NetworkIcon = styled('img')(({ theme }) => ({
+const NetworkIcon = styled("img")(({ theme }) => ({
   width: 24,
   height: 24,
-  borderRadius: '50%',
+  borderRadius: "50%",
 }));
 
 export default function ConnectButton(props: ButtonProps) {
@@ -25,16 +25,16 @@ export default function ConnectButton(props: ButtonProps) {
       }) => {
         // Note: If your app doesn't use authentication, you
         // can remove all 'authenticationStatus' checks
-        const ready = mounted && authenticationStatus !== 'loading';
+        const ready = mounted && authenticationStatus !== "loading";
         const connected =
           ready &&
           account &&
           chain &&
-          (!authenticationStatus || authenticationStatus === 'authenticated');
+          (!authenticationStatus || authenticationStatus === "authenticated");
 
         const buttonProps: ButtonProps = {
           ...props,
-          variant: 'contained',
+          variant: "contained",
           disableElevation: true,
         };
 

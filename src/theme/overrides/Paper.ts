@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material/styles';
+import { Theme } from "@mui/material/styles";
 
 // ----------------------------------------------------------------------
 
@@ -10,13 +10,13 @@ export default function Paper(theme: Theme) {
       },
       variants: [
         {
-          props: { variant: 'outlined' },
+          props: { variant: "outlined" },
           style: { borderColor: theme.palette.grey[500_12] },
         },
       ],
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
+          backgroundImage: "none",
         },
       },
     },

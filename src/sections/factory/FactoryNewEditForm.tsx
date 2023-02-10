@@ -1,19 +1,19 @@
-import { z } from 'zod';
+import { z } from "zod";
 // @mui
-import { Card, Stack, Box } from '@mui/material';
+import { Card, Stack, Box } from "@mui/material";
 // form
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from "@hookform/resolvers/zod";
 // hooks
 import {
   useFormController,
   UseFormControllerProps,
-} from '../../hooks/useFormController';
+} from "../../hooks/useFormController";
 // components
 import {
   FormProvider,
   SubmitButton,
   RHFTextField,
-} from '../../components/hook-form';
+} from "../../components/hook-form";
 
 // ----------------------------------------------------------------------
 
@@ -25,7 +25,7 @@ const FormValuesSchema = z.object({
 export type FormValues = z.infer<typeof FormValuesSchema>;
 
 export type Factory = {
-  type: 'generators' | 'methodologies';
+  type: "generators" | "methodologies";
   address: `0x${string}`;
 };
 
@@ -53,7 +53,7 @@ export function FactoryNewEditForm({
           <Box textAlign="right">
             <SubmitButton
               fullWidth={false}
-              label={!isEdit ? 'Create' : 'Save Changes'}
+              label={!isEdit ? "Create" : "Save Changes"}
             />
           </Box>
         </Stack>

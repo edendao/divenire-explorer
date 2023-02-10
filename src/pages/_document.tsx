@@ -1,11 +1,11 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
-import createEmotionServer from '@emotion/server/create-instance';
-import { inter } from '../theme/fonts';
-import palette from '../theme/palette';
-import createEmotionCache from '../utils/createEmotionCache';
-import { APP } from '../config';
+import createEmotionServer from "@emotion/server/create-instance";
+import { APP } from "~/config";
+import { inter } from "~/theme/fonts";
+import palette from "~/theme/palette";
+import createEmotionCache from "~/utils/createEmotionCache";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
-export default class MyDocument extends Document {
+export default class AppDocument extends Document {
   render() {
     return (
       <Html lang="en" className={inter.className}>
@@ -16,7 +16,7 @@ export default class MyDocument extends Document {
           <meta name="emotion-insertion-point" content="" />
           {/* SEO */}
           <meta name="description" content={APP.description} />
-          <meta name="keywords" content={APP.keywords.join(',')} />
+          <meta name="keywords" content={APP.keywords.join(",")} />
           {/* Inject MUI styles first to match with the configuration. */}
           {(this.props as any).emotionStyleTags}
         </Head>
@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with static-site generation (SSG).
-MyDocument.getInitialProps = async (ctx) => {
+AppDocument.getInitialProps = async ctx => {
   const originalRenderPage = ctx.renderPage;
 
   // You can consider sharing the same Emotion cache between all the SSR requests to speed up performance.
@@ -41,10 +41,8 @@ MyDocument.getInitialProps = async (ctx) => {
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: (App: any) =>
-        function EnhanceApp(props) {
-          return <App emotionCache={cache} {...props} />;
-        },
+      enhanceApp: (App: any) => props =>
+        <App emotionCache={cache} {...props} />,
     });
 
   const initialProps = await Document.getInitialProps(ctx);
@@ -52,9 +50,9 @@ MyDocument.getInitialProps = async (ctx) => {
   // This is important. It prevents Emotion to render invalid HTML.
   // See https://github.com/mui/material-ui/issues/26561#issuecomment-855286153
   const emotionStyles = extractCriticalToChunks(initialProps.html);
-  const emotionStyleTags = emotionStyles.styles.map((style) => (
+  const emotionStyleTags = emotionStyles.styles.map(style => (
     <style
-      data-emotion={`${style.key} ${style.ids.join(' ')}`}
+      data-emotion={`${style.key} ${style.ids.join(" ")}`}
       key={style.key}
       // eslint-disable-next-line react/no-danger
       dangerouslySetInnerHTML={{ __html: style.css }}

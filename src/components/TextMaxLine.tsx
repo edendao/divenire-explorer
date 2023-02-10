@@ -1,9 +1,9 @@
-import { forwardRef, ReactNode } from 'react';
+import { forwardRef, ReactNode } from "react";
 // @mui
-import { Variant } from '@mui/material/styles/createTypography';
-import { Typography, TypographyProps, LinkProps, Link } from '@mui/material';
+import { Variant } from "@mui/material/styles/createTypography";
+import { Typography, TypographyProps, LinkProps, Link } from "@mui/material";
 // utils
-import GetFontValue from '../utils/getFontValue';
+import GetFontValue from "../utils/getFontValue";
 
 // ----------------------------------------------------------------------
 
@@ -21,23 +21,23 @@ const TextMaxLine = forwardRef<HTMLAnchorElement, Props>(
   (
     {
       asLink,
-      variant = 'body1',
+      variant = "body1",
       line = 2,
       persistent = false,
       children,
       sx,
       ...other
     },
-    ref
+    ref,
   ) => {
     const { lineHeight } = GetFontValue(variant);
 
     const style = {
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      display: '-webkit-box',
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
       WebkitLineClamp: line,
-      WebkitBoxOrient: 'vertical',
+      WebkitBoxOrient: "vertical",
       ...(persistent && {
         height: lineHeight * line,
       }),
@@ -63,7 +63,7 @@ const TextMaxLine = forwardRef<HTMLAnchorElement, Props>(
         {children}
       </Typography>
     );
-  }
+  },
 );
 
 export default TextMaxLine;

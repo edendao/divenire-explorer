@@ -1,5 +1,5 @@
 // @mui
-import { alpha, styled } from '@mui/material/styles';
+import { alpha, styled } from "@mui/material/styles";
 import {
   ListItemText,
   ListItemIcon,
@@ -7,9 +7,9 @@ import {
   ListItemButton,
   ListItemTextProps,
   ListItemButtonProps,
-} from '@mui/material';
+} from "@mui/material";
 // config
-import { NAVBAR } from '../../../config';
+import { NAVBAR } from "../../../config";
 
 // ----------------------------------------------------------------------
 
@@ -19,10 +19,10 @@ export interface ListItemStyleProps extends ListItemButtonProps {
 }
 
 export const ListItemStyle = styled(ListItemButton, {
-  shouldForwardProp: (prop) => prop !== 'active',
+  shouldForwardProp: prop => prop !== "active",
 })<ListItemStyleProps>(({ active, depth, theme }) => ({
-  position: 'relative',
-  textTransform: 'capitalize',
+  position: "relative",
+  textTransform: "capitalize",
   paddingLeft: theme.spacing(2),
   paddingRight: theme.spacing(1.5),
   marginBottom: theme.spacing(0.5),
@@ -34,14 +34,14 @@ export const ListItemStyle = styled(ListItemButton, {
     color: theme.palette.primary.main,
     backgroundColor: alpha(
       theme.palette.primary.main,
-      theme.palette.action.selectedOpacity
+      theme.palette.action.selectedOpacity,
     ),
   }),
   // Active item
   ...(active &&
     depth !== 1 && {
       color: theme.palette.text.primary,
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
     }),
   // Sub item
   ...(depth && {
@@ -61,9 +61,9 @@ interface ListItemTextStyleProps extends ListItemTextProps {
 }
 
 export const ListItemTextStyle = styled(ListItemText, {
-  shouldForwardProp: (prop) => prop !== 'isCollapse',
+  shouldForwardProp: prop => prop !== "isCollapse",
 })<ListItemTextStyleProps>(({ isCollapse, theme }) => ({
-  transition: theme.transitions.create(['width', 'opacity'], {
+  transition: theme.transitions.create(["width", "opacity"], {
     duration: theme.transitions.duration.shorter,
   }),
   ...(isCollapse && {
@@ -75,15 +75,15 @@ export const ListItemTextStyle = styled(ListItemText, {
 // ----------------------------------------------------------------------
 
 export const ListItemIconStyle = styled(ListItemIcon)(({ theme }) => ({
-  minWidth: 'auto',
+  minWidth: "auto",
   marginRight: theme.spacing(2),
   width: 24,
   height: 24,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: 'inherit',
-  '& svg': { width: '100%', height: '100%' },
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  color: "inherit",
+  "& svg": { width: "100%", height: "100%" },
 }));
 
 // ----------------------------------------------------------------------
@@ -93,7 +93,7 @@ export const ListSubheaderStyle = styled(ListSubheader)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   padding: theme.spacing(3, 2, 1),
   color: theme.palette.text.secondary,
-  transition: theme.transitions.create('opacity', {
+  transition: theme.transitions.create("opacity", {
     duration: theme.transitions.duration.shorter,
   }),
 }));

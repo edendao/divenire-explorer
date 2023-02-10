@@ -1,13 +1,13 @@
-// next
-import { GetStaticProps, GetStaticPaths } from 'next';
 // @mui
-import { Container } from '@mui/material';
+import { Container } from "@mui/material";
+import HeaderBreadcrumbs from "~/components/HeaderBreadcrumbs";
 // components
-import Page from '../../components/Page';
-import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
+import Page from "~/components/Page";
+import { CONTRACTS } from "~/config";
 // sections
-import { FactoryNewEditForm, Factory } from '../../sections/factory';
-import { CONTRACTS } from '../../config';
+import { Factory, FactoryNewEditForm } from "~/sections/factory";
+// next
+import { GetStaticPaths, GetStaticProps } from "next";
 
 // ----------------------------------------------------------------------
 
@@ -17,9 +17,9 @@ type PageProps = {
 
 type FactoryDetail = { name: string };
 
-const FACTORY: Record<Factory['type'], FactoryDetail> = {
-  generators: { name: 'Credit class' },
-  methodologies: { name: 'Methodology' },
+const FACTORY: Record<Factory["type"], FactoryDetail> = {
+  generators: { name: "Credit class" },
+  methodologies: { name: "Methodology" },
 };
 
 // ----------------------------------------------------------------------
@@ -36,11 +36,11 @@ export default function FactoryNew({ factory }: PageProps) {
         <HeaderBreadcrumbs
           heading={heading}
           links={[
-            { name: 'Factory' },
+            { name: "Factory" },
             {
               name: factoryDetails.name,
             },
-            { name: 'New ' + factoryDetails.name },
+            { name: "New " + factoryDetails.name },
           ]}
         />
         <FactoryNewEditForm factory={factory} onSubmit={handleSubmit} />
@@ -49,9 +49,9 @@ export default function FactoryNew({ factory }: PageProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async context => {
   const factory = context.params?.factory?.toString() as
-    | Factory['type']
+    | Factory["type"]
     | undefined;
 
   const address = factory && (CONTRACTS[factory] as `0x${string}`);
@@ -73,8 +73,8 @@ export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
-      { params: { factory: 'generators' } },
-      { params: { factory: 'methodologies' } },
+      { params: { factory: "generators" } },
+      { params: { factory: "methodologies" } },
     ],
     fallback: false,
   };

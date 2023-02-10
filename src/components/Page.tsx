@@ -1,9 +1,9 @@
-import Head from 'next/head';
-import { forwardRef } from 'react';
+import Head from "next/head";
+import { forwardRef } from "react";
 // @mui
-import { Box, BoxProps } from '@mui/material';
+import { Box, BoxProps } from "@mui/material";
 // config
-import { APP } from '../config';
+import { APP } from "../config";
 // ----------------------------------------------------------------------
 
 type PageProps = BoxProps & {
@@ -12,7 +12,7 @@ type PageProps = BoxProps & {
 };
 
 const Page = forwardRef<HTMLDivElement, PageProps>(
-  ({ children, title = '', meta, ...other }, ref) => (
+  ({ children, title = "", meta, ...other }, ref) => (
     <>
       <Head>
         <title>{`${title} | ${APP.title}`}</title>
@@ -23,7 +23,7 @@ const Page = forwardRef<HTMLDivElement, PageProps>(
         {children}
       </Box>
     </>
-  )
+  ),
 );
 
 export default Page;

@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 // @mui
 import {
   Box,
@@ -6,16 +6,16 @@ import {
   ListItemButtonProps,
   ListItemText,
   ListItemIcon,
-} from '@mui/material';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+} from "@mui/material";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 // config
-import { ICON } from '../../../config';
+import { ICON } from "../../../config";
 //
-import { NavItemProps } from '../type';
-import { ListItemStyle } from './style';
+import { NavItemProps } from "../type";
+import { ListItemStyle } from "./style";
 
 // ----------------------------------------------------------------------
 
@@ -53,7 +53,7 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
           primary={title}
           primaryTypographyProps={{
             noWrap: true,
-            variant: active ? 'subtitle2' : 'body2',
+            variant: active ? "subtitle2" : "body2",
           }}
         />
 
@@ -90,7 +90,7 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
     );
 
     return renderContent;
-  }
+  },
 );
 
 export default NavItem;

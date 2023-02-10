@@ -1,10 +1,13 @@
-export function fAddress(address: string): string {
-  const leadingChars = 4;
-  const trailingChars = 4;
+export const fAddress = (
+  address: string,
+  leadingChars = 4,
+  trailingChars = 4,
+) => {
+  if (address.length < leadingChars + trailingChars) {
+    return address;
+  }
 
-  return address.length < leadingChars + trailingChars
-    ? address
-    : `${address.substring(0, leadingChars)}\u2026${address.substring(
-        address.length - trailingChars
-      )}`;
-}
+  const leading = address.substring(0, leadingChars);
+  const trailing = address.substring(address.length - trailingChars);
+  return `${leading}\u2026${trailing}`;
+};

@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from "react";
+import { useRouter } from "next/router";
 // @mui
-import { List, Collapse, Link } from '@mui/material';
+import { List, Collapse, Link } from "@mui/material";
 //
-import { NavListProps } from '../type';
-import NavItem from './NavItem';
-import { getActive, isExternalLink } from '..';
+import { NavListProps } from "../type";
+import NavItem from "./NavItem";
+import { getActive, isExternalLink } from "..";
 
 // ----------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ type NavListSubProps = {
 function NavSubList({ data, depth }: NavListSubProps) {
   return (
     <>
-      {data.map((list) => (
+      {data.map(list => (
         <NavList
           key={list.title + list.path}
           data={list}

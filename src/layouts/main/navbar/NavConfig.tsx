@@ -1,8 +1,8 @@
 // @mui
-import { SvgIcon } from '@mui/material';
+import { SvgIcon } from "@mui/material";
 
 // components
-import type { NavSectionProps } from '../../../components/nav-section/type';
+import type { NavSectionProps } from "../../../components/nav-section/type";
 
 // ----------------------------------------------------------------------
 
@@ -46,25 +46,25 @@ const icons = {
   ),
 };
 
-const navConfig: NavSectionProps['navConfig'] = [
+const navConfig: NavSectionProps["navConfig"] = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'General',
+    subheader: "General",
     items: [
       {
-        title: 'Dashboard',
-        path: '/dashboard',
+        title: "Dashboard",
+        path: "/dashboard",
         icon: icons.dashboard,
       },
       {
-        title: 'Certificates',
-        path: '/certificates',
+        title: "Certificates",
+        path: "/certificates",
         icon: icons.certificates,
       },
       {
-        title: 'Attestations',
-        path: '/attestations',
+        title: "Attestations",
+        path: "/attestations",
         icon: icons.attestations,
       },
     ],

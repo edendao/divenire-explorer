@@ -1,13 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 // next
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 // @mui
-import { Link } from '@mui/material';
+import { Link } from "@mui/material";
 //
-import { NavListProps } from '../type';
-import { PaperStyle } from './style';
-import NavItem from './NavItem';
-import { getActive, isExternalLink } from '..';
+import { NavListProps } from "../type";
+import { PaperStyle } from "./style";
+import NavItem from "./NavItem";
+import { getActive, isExternalLink } from "..";
 
 // ----------------------------------------------------------------------
 
@@ -76,13 +76,13 @@ export default function NavList({
           anchorEl={menuRef.current}
           anchorOrigin={
             depth === 1
-              ? { vertical: 'bottom', horizontal: 'left' }
-              : { vertical: 'center', horizontal: 'right' }
+              ? { vertical: "bottom", horizontal: "left" }
+              : { vertical: "center", horizontal: "right" }
           }
           transformOrigin={
             depth === 1
-              ? { vertical: 'top', horizontal: 'left' }
-              : { vertical: 'center', horizontal: 'left' }
+              ? { vertical: "top", horizontal: "left" }
+              : { vertical: "center", horizontal: "left" }
           }
           PaperProps={{
             onMouseEnter: handleOpen,
@@ -106,7 +106,7 @@ type NavListSubProps = {
 function NavSubList({ data, depth }: NavListSubProps) {
   return (
     <>
-      {data.map((list) => (
+      {data.map(list => (
         <NavList
           key={list.title + list.path}
           data={list}

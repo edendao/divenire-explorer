@@ -1,5 +1,5 @@
 // @mui
-import { Stack, StackProps, SxProps } from '@mui/material';
+import { Stack, StackProps, SxProps } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ export default function TextIconLabel({
       direction="row"
       alignItems="center"
       sx={{
-        typography: 'body2',
+        typography: "body2",
         ...sx,
       }}
       {...other}
