@@ -1,6 +1,8 @@
-import { useCallback, useState, useMemo } from 'react';
+import { useMemo } from 'react';
 // @mui
 import { Container, Card, Tabs, Tab } from '@mui/material';
+// divenire
+import { useGroup } from '../../divenire';
 // hooks
 import { useTabs } from '../../hooks/useTabs';
 // components
@@ -45,21 +47,21 @@ const ITEMS = [
 ];
 
 export default function DashboardIndex() {
-  const { currentTab, onChangeTab } = useTabs('generator');
+  const { currentTab, onChangeTab } = useTabs('generators');
 
   const TABS = useMemo(
     () =>
       [
         {
-          value: 'generator',
-          label: 'Generators',
-          color: getTabColor(currentTab, 'generator'),
+          value: 'generators',
+          label: 'Credit classes',
+          color: getTabColor(currentTab, 'generators'),
           count: 0,
         },
         {
-          value: 'methodology',
+          value: 'methodologies',
           label: 'Methodologies',
-          color: getTabColor(currentTab, 'methodology'),
+          color: getTabColor(currentTab, 'methodologies'),
           count: 0,
         },
       ] as const,
