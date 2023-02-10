@@ -14,6 +14,7 @@ import ThemeProvider from '../theme';
 import createEmotionCache from '../utils/createEmotionCache';
 import MainLayout from '../layouts/main';
 import CollapseDrawerProvider from '../components/CollapseDrawerProvider';
+import NotistackProvider from '../components/NotistackProvider';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -33,9 +34,11 @@ export default function App(props: AppProps) {
 
         <CollapseDrawerProvider>
           <ThemeProvider>
-            <MainLayout>
-              <Component {...pageProps} />
-            </MainLayout>
+            <NotistackProvider>
+              <MainLayout>
+                <Component {...pageProps} />
+              </MainLayout>
+            </NotistackProvider>
           </ThemeProvider>
         </CollapseDrawerProvider>
       </CacheProvider>

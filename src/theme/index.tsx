@@ -6,8 +6,7 @@ import {
   ThemeProvider as MUIThemeProvider,
   createTheme,
 } from '@mui/material/styles';
-import { chains } from '../wagmi';
-import { I18N } from '../config';
+import { I18N, CHAINS } from '../config';
 //
 import palette from './palette';
 import shadows from './shadows';
@@ -39,7 +38,7 @@ const rainbowKitTheme = rainbowkitTheme(theme);
 export default function ThemeProvider({ children }: React.PropsWithChildren) {
   return (
     <MUIThemeProvider theme={theme}>
-      <RainbowKitProvider chains={chains} theme={rainbowKitTheme}>
+      <RainbowKitProvider chains={CHAINS} theme={rainbowKitTheme}>
         <CssBaseline />
         <GlobalStyles />
         {children}
