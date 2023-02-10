@@ -1,0 +1,14 @@
+tasks:
+  - before: cp .env.example .env
+    init: yarn install
+    command: yarn dev
+
+ports:
+  - port: 3000
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - ms-vscode.vscode-typescript-next
+    - esbenp.prettier-vscode
+    - graphql.vscode-graphql
