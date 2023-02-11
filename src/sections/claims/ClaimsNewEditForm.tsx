@@ -5,6 +5,8 @@ import { Card, Stack, Box } from '@mui/material';
 import { zodResolver } from '@hookform/resolvers/zod';
 // divenire
 import { useGroupCreate, usePrepareGroupCreate } from '../../divenire';
+// utils
+import { getContractAddress } from '../../utils/getContractAddress';
 // hooks
 import {
   useFormController,
@@ -27,17 +29,11 @@ const FormValuesSchema = z.object({
 
 export type FormValues = z.infer<typeof FormValuesSchema>;
 
-export type Factory = {
-  type: 'generators' | 'methodologies';
-  address: `0x${string}`;
-};
-
-export type FactoryNewEditFormProps = Omit<
+export type ClaimsNewEditFormProps = Omit<
   UseFormControllerProps<FormValues>,
   'onSubmit'
 > & {
   isEdit?: boolean;
-  factory: Factory;
 };
 
 const DEFAULT_VALUES: FormValues = {
@@ -46,13 +42,15 @@ const DEFAULT_VALUES: FormValues = {
   symbol: '',
 };
 
-export function FactoryNewEditForm({
-  factory,
+export function ClaimsNewEditForm({
   isEdit,
   defaultValues = DEFAULT_VALUES,
   ...others
-}: FactoryNewEditFormProps) {
-  const { config } = usePrepareGroupCreate({ address: factory.address });
+}: ClaimsNewEditFormProps) {
+  const { config } = usePrepareGroupCreate({
+    address: getContractAddress('generators'),
+  });
+
   const { data, write, status } = useGroupCreate(config);
 
   const [onSubmit, methods] = useFormController({
@@ -82,7 +80,7 @@ export function FactoryNewEditForm({
               alwaysEnabled
               fullWidth={false}
               loading={status === 'loading'}
-              label={!isEdit ? 'Create' : 'Save Changes'}
+              label={!isEdit ? 'Create claim' : 'Save Changes'}
             />
           </Box>
         </Stack>

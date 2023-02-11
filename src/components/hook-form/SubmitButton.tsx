@@ -13,6 +13,7 @@ export type SubmitButtonProps = LoadingButtonProps & {
 export function SubmitButton({
   label = 'Submit',
   children,
+  alwaysEnabled,
   ...others
 }: SubmitButtonProps) {
   const { isSubmitting, isDirty, isValid } = useFormState();
@@ -21,7 +22,7 @@ export function SubmitButton({
     <LoadingButton
       type="submit"
       loading={isSubmitting}
-      disabled={!isDirty || !isValid}
+      disabled={!alwaysEnabled && (!isDirty || !isValid)}
       variant="contained"
       size="large"
       {...others}
