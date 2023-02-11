@@ -30,7 +30,6 @@ export function EvaluationsList() {
           title="No results"
           sx={{
             color: 'text.secondary',
-            '& span.MuiBox-root': { height: 50 },
           }}
         />
       ) : (

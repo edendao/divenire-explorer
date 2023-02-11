@@ -49,7 +49,11 @@ export default function DashboardIndex() {
   return (
     <Page title="General: Dashboard">
       <Container maxWidth={false}>
-        <Stack direction={{ xs: 'column', md: 'row' }} spacing={4}>
+        <Stack
+          direction={{ xs: 'column', md: 'row' }}
+          spacing={4}
+          alignItems="flex-start"
+        >
           <Card sx={{ width: 240 }}>
             <NavSectionVertical pb={3} navConfig={ExplorerNavConfig} />
           </Card>

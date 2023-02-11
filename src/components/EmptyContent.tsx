@@ -32,12 +32,14 @@ export default function EmptyContent({
 }: EmptyContentProps) {
   return (
     <RootStyle {...other}>
-      <Image
-        priority
-        alt="empty content"
-        src={img || '/assets/illustrations/illustration_empty_content.svg'}
-        sx={{ height: 240, mb: 3 }}
-      />
+      <Box sx={{ mb: 3, width: '100%', maxWidth: 640 }}>
+        <Image
+          ratio="21/9"
+          alt="empty content"
+          src={img || '/assets/illustrations/illustration_empty_content.svg'}
+          layout="fill"
+        />
+      </Box>
 
       <Typography variant="h5" gutterBottom>
         {title}

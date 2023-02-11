@@ -29,7 +29,6 @@ export function MethodologiesList() {
           title="No results"
           sx={{
             color: 'text.secondary',
-            '& span.MuiBox-root': { height: 50 },
           }}
         />
       ) : (
