@@ -56,11 +56,11 @@ const navConfig: NavSectionProps['navConfig'] = [
       },
       {
         title: 'Claim',
-        path: '/claims',
+        path: '/claim',
       },
       {
         title: 'Evaluate',
-        path: '/claims',
+        path: '/evaluate',
       },
     ],
   },

@@ -8,13 +8,13 @@ import { ClaimsNewEditForm } from '../../sections/claim';
 
 // ----------------------------------------------------------------------
 
-export default function ClaimsNew() {
+export default function GeneratorsNew() {
   return (
-    <Page title="Claims: Create new">
+    <Page title="Generators: Create new">
       <Container maxWidth="lg">
         <HeaderBreadcrumbs
-          heading="Create a new Claim"
-          links={[{ name: 'Claims' }, { name: 'New claim' }]}
+          heading="Create a new Generator"
+          links={[{ name: 'Generators' }, { name: 'New generator' }]}
         />
         <ClaimsNewEditForm />
       </Container>

@@ -8,13 +8,13 @@ import { ClaimsNewEditForm } from '../../sections/claim';
 
 // ----------------------------------------------------------------------
 
-export default function ClaimsNew() {
+export default function CertificatesNew() {
   return (
-    <Page title="Claims: Create new">
+    <Page title="Certificates: Create new">
       <Container maxWidth="lg">
         <HeaderBreadcrumbs
-          heading="Create a new Claim"
-          links={[{ name: 'Claims' }, { name: 'New claim' }]}
+          heading="Create a new Certificate"
+          links={[{ name: 'Certificates' }, { name: 'New certificate' }]}
         />
         <ClaimsNewEditForm />
       </Container>

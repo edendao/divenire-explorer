@@ -1,0 +1,8 @@
+sources:
+  - name: toucan
+    handler:
+      graphql:
+        endpoint: https://api.studio.thegraph.com/query/42161/divenire-goerli/v0.0.9
+
+documents:
+  - ./src/**/*.graphql

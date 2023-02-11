@@ -1,5 +1,6 @@
 // @mui
 import { Box, Tooltip, ListItemButtonProps } from '@mui/material';
+import { useEffect, useState } from 'react';
 //components
 import Iconify from '../../Iconify';
 //
@@ -19,8 +20,16 @@ export default function NavItem({
   ...other
 }: Props) {
   const { title, icon, info, children, disabled, caption } = item;
+  const [mounted, setMounted] = useState(false);
 
-  const renderContent = (
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+  return (
     <ListItemStyle depth={depth} active={active} disabled={disabled} {...other}>
       {icon && <ListItemIconStyle>{icon}</ListItemIconStyle>}
 
@@ -68,8 +77,6 @@ export default function NavItem({
       )}
     </ListItemStyle>
   );
-
-  return renderContent;
 }
 
 // ----------------------------------------------------------------------

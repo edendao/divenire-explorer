@@ -1,13 +1,14 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 // @mui
 import { Card, Container, Stack, Box } from '@mui/material';
-// hooks
+// path
+import { PATH_DASHBOARD } from '../paths';
 // components
-import Page from '../../components/Page';
-import { NavSectionVertical } from '../../components/nav-section';
+import Page from '../components/Page';
+import { NavSectionVertical } from '../components/nav-section';
 // sections
-import { GeneratorList, ExplorerNavConfig } from '../../sections/dashboard';
+import { GeneratorList, ExplorerNavConfig } from '../sections/dashboard';
 
 // ----------------------------------------------------------------------
 
@@ -16,13 +17,23 @@ const RENDER_MAP: Record<string, () => React.ReactNode> = {
 };
 
 export default function DashboardIndex() {
-  const { query } = useRouter();
-  const type = String(query.type || 'generators');
+  const { query, push } = useRouter();
+  const type = query.type && String(query.type);
 
   const content = useMemo(() => {
+    if (!type) {
+      return null;
+    }
+
     const renderComponent = RENDER_MAP[type];
     return renderComponent ? renderComponent() : null;
   }, [type]);
+
+  useEffect(() => {
+    if (!type) {
+      push(PATH_DASHBOARD.list('generators'));
+    }
+  }, [type]); // eslint-disable-line
 
   return (
     <Page title="General: Dashboard">

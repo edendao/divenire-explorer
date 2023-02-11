@@ -1,0 +1,19 @@
+fragment GeneratorFragment on Generator {
+  id
+  owner {
+    id
+  }
+  uri
+}
+
+query generatorList {
+  generators {
+    ...GeneratorFragment
+  }
+}
+
+query generator($id: ID!) {
+  generator(id: $id) {
+    ...GeneratorFragment
+  }
+}

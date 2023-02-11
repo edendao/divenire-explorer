@@ -1,22 +1,23 @@
 import Iconify from '../../components/Iconify';
+import { PATH_CLAIM } from '../../paths';
 
-export const ClaimsNavConfig = [
+export const ClaimNavConfig = [
   {
     subheader: 'Display',
     items: [
       {
         title: 'Generators',
-        path: '/claims?type=generators',
+        path: PATH_CLAIM.list('generators'),
         icon: <Iconify icon="carbon:3d-mpr-toggle" />,
       },
       {
         title: 'Claims',
-        path: '/claims?type=claims',
+        path: PATH_CLAIM.list('claims'),
         icon: <Iconify icon="carbon:document" />,
       },
       {
         title: 'Certifications',
-        path: '/claims?type=certifications',
+        path: PATH_CLAIM.list('certifications'),
         icon: <Iconify icon="carbon:certificate" />,
       },
     ],
