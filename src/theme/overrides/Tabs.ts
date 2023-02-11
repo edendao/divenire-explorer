@@ -1,4 +1,4 @@
-import { Theme } from "@mui/material/styles";
+import { Theme } from '@mui/material/styles';
 
 // ----------------------------------------------------------------------
 
@@ -8,7 +8,7 @@ export default function Tabs(theme: Theme) {
       styleOverrides: {
         scrollButtons: {
           width: 48,
-          borderRadius: "50%",
+          borderRadius: '50%',
         },
       },
     },
@@ -19,27 +19,27 @@ export default function Tabs(theme: Theme) {
           fontWeight: theme.typography.fontWeightMedium,
           borderTopLeftRadius: theme.shape.borderRadius,
           borderTopRightRadius: theme.shape.borderRadius,
-          "&.Mui-selected": {
+          '&.Mui-selected': {
             color: theme.palette.text.primary,
           },
-          "&:not(:last-of-type)": {
+          '&:not(:last-of-type)': {
             marginRight: theme.spacing(5),
           },
-          "@media (min-width: 600px)": {
+          '@media (min-width: 600px)': {
             minWidth: 48,
           },
         },
         labelIcon: {
           minHeight: 48,
-          flexDirection: "row",
-          "& > *:first-of-type": {
+          flexDirection: 'row',
+          '& > *:first-of-type': {
             marginBottom: 0,
             marginRight: theme.spacing(1),
           },
         },
         wrapped: {
-          flexDirection: "row",
-          whiteSpace: "nowrap",
+          flexDirection: 'row',
+          whiteSpace: 'nowrap',
         },
         textColorInherit: {
           opacity: 1,

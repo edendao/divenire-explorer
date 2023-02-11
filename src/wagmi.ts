@@ -1,7 +1,7 @@
-import { getDefaultWallets } from "@rainbow-me/rainbowkit";
-import { configureChains, createClient } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
-import { APP, CHAINS } from "./config";
+import { getDefaultWallets } from '@rainbow-me/rainbowkit';
+import { configureChains, createClient } from 'wagmi';
+import { publicProvider } from 'wagmi/providers/public';
+import { APP, CHAINS } from './config';
 
 const { chains, provider, webSocketProvider } = configureChains(CHAINS, [
   publicProvider(),

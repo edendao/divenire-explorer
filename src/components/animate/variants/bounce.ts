@@ -1,7 +1,7 @@
 // @types
-import { VariantsType } from "../type";
+import { VariantsType } from '../type';
 //
-import { varTranEnter, varTranExit } from "./transition";
+import { varTranEnter, varTranExit } from './transition';
 
 // ----------------------------------------------------------------------
 

@@ -1,10 +1,10 @@
 // @mui
-import { alpha, styled } from "@mui/material/styles";
-import { Popover, ListItemButton, ListItemButtonProps } from "@mui/material";
+import { alpha, styled } from '@mui/material/styles';
+import { Popover, ListItemButton, ListItemButtonProps } from '@mui/material';
 // utils
-import cssStyles from "../../../utils/cssStyles";
+import cssStyles from '../../../utils/cssStyles';
 // config
-import { NAVBAR } from "../../../config";
+import { NAVBAR } from '../../../config';
 
 // ----------------------------------------------------------------------
 
@@ -15,25 +15,25 @@ export type ListItemStyleProps = ListItemButtonProps & {
 };
 
 export const ListItemStyle = styled(ListItemButton, {
-  shouldForwardProp: prop => prop !== "active" && prop !== "open",
+  shouldForwardProp: (prop) => prop !== 'active' && prop !== 'open',
 })<ListItemStyleProps>(({ active, depth, open, theme }) => {
-  const isLight = theme.palette.mode === "light";
+  const isLight = theme.palette.mode === 'light';
 
   const activeStyle = {
     color: theme.palette.grey[800],
     backgroundColor: theme.palette.common.white,
     boxShadow: `-2px 4px 6px 0 ${alpha(
       isLight ? theme.palette.grey[500] : theme.palette.common.black,
-      0.16,
+      0.16
     )}`,
   };
 
   const activeSubStyle = {
-    boxShadow: "none",
+    boxShadow: 'none',
     color: theme.palette.primary.main,
     backgroundColor: alpha(
       theme.palette.primary.main,
-      theme.palette.action.selectedOpacity,
+      theme.palette.action.selectedOpacity
     ),
   };
 
@@ -44,28 +44,28 @@ export const ListItemStyle = styled(ListItemButton, {
   };
 
   return {
-    textTransform: "capitalize",
+    textTransform: 'capitalize',
     margin: theme.spacing(0, 0.5),
     padding: theme.spacing(0, 1),
     color: theme.palette.text.secondary,
     borderRadius: theme.shape.borderRadius,
     height: NAVBAR.DASHBOARD_ITEM_HORIZONTAL_HEIGHT,
-    "&:hover": hoverStyle,
+    '&:hover': hoverStyle,
     // Active item
     ...(active && {
       ...activeStyle,
-      "&:hover": { ...activeStyle },
+      '&:hover': { ...activeStyle },
     }),
     // Active item sub
     ...(active &&
       depth !== 1 && {
         ...activeSubStyle,
-        "&:hover": { ...activeSubStyle },
+        '&:hover': { ...activeSubStyle },
       }),
     // Sub item
     ...(depth && {
       ...(depth > 1 && {
-        width: "100%",
+        width: '100%',
         margin: 0,
         paddingRight: 0,
         paddingLeft: theme.spacing(1),
@@ -79,10 +79,10 @@ export const ListItemStyle = styled(ListItemButton, {
 // ----------------------------------------------------------------------
 
 export const PaperStyle = styled(Popover)(({ theme }) => ({
-  pointerEvents: "none",
-  "& .MuiPopover-paper": {
+  pointerEvents: 'none',
+  '& .MuiPopover-paper': {
     width: 160,
-    pointerEvents: "auto",
+    pointerEvents: 'auto',
     padding: theme.spacing(1),
     marginTop: theme.spacing(0.5),
     boxShadow: theme.customShadows.dropdown,

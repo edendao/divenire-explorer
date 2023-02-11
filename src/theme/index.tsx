@@ -1,21 +1,21 @@
 // rainbowkit
-import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 // @mui
-import { CssBaseline } from "@mui/material";
+import { CssBaseline } from '@mui/material';
 import {
   ThemeProvider as MUIThemeProvider,
   createTheme,
-} from "@mui/material/styles";
-import { I18N, CHAINS } from "../config";
+} from '@mui/material/styles';
+import { I18N, CHAINS } from '../config';
 //
-import palette from "./palette";
-import shadows from "./shadows";
-import breakpoints from "./breakpoints";
-import typography from "./typography";
-import GlobalStyles from "./globalStyles";
-import { customShadows } from "./customShadows";
-import componentsOverride from "./overrides";
-import rainbowkitTheme from "./rainbowkit";
+import palette from './palette';
+import shadows from './shadows';
+import breakpoints from './breakpoints';
+import typography from './typography';
+import GlobalStyles from './globalStyles';
+import { customShadows } from './customShadows';
+import componentsOverride from './overrides';
+import rainbowkitTheme from './rainbowkit';
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ const theme = createTheme(
     shadows: shadows.light,
     customShadows: customShadows.light,
   },
-  I18N.defaultLang.systemValue,
+  I18N.defaultLang.systemValue
 );
 
 theme.components = componentsOverride(theme);

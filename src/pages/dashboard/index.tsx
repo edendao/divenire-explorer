@@ -3,44 +3,44 @@ import { useMemo } from 'react';
 import { Container, Card, Tabs, Tab } from '@mui/material';
 // hooks
 import { useTabs } from '../../hooks/useTabs';
-import Label from "../../components/Label";
+import Label from '../../components/Label';
 // components
-import Page from "../../components/Page";
+import Page from '../../components/Page';
 // sections
-import { SetListItem } from "../../sections/dashboard";
+import { SetListItem } from '../../sections/dashboard';
 
 // ----------------------------------------------------------------------
 
 const getTabColor = (current: string, value: string) =>
-  current === value ? "primary" : "default";
+  current === value ? 'primary' : 'default';
 
 const ITEMS = [
   {
-    address: "0x1",
-    shortcut: "",
-    system: "system",
+    address: '0x1',
+    shortcut: '',
+    system: 'system',
     price: 5,
     rating: 0,
-    review: "review",
-    name: "name",
+    review: 'review',
+    name: 'name',
   },
   {
-    address: "0x2",
-    shortcut: "",
-    system: "system",
+    address: '0x2',
+    shortcut: '',
+    system: 'system',
     price: 12,
     rating: 2,
-    review: "review",
-    name: "name",
+    review: 'review',
+    name: 'name',
   },
   {
-    address: "0x3",
-    shortcut: "",
-    system: "system",
+    address: '0x3',
+    shortcut: '',
+    system: 'system',
     price: 10,
     rating: 3,
-    review: "review",
-    name: "name",
+    review: 'review',
+    name: 'name',
   },
 ];
 
@@ -63,7 +63,7 @@ export default function DashboardIndex() {
           count: 0,
         },
       ] as const,
-    [currentTab],
+    [currentTab]
   );
 
   return (
@@ -76,9 +76,9 @@ export default function DashboardIndex() {
             scrollButtons="auto"
             value={currentTab}
             onChange={onChangeTab}
-            sx={{ px: 2, bgcolor: "background.neutral" }}
+            sx={{ px: 2, bgcolor: 'background.neutral' }}
           >
-            {TABS.map(tab => (
+            {TABS.map((tab) => (
               <Tab
                 disableRipple
                 key={tab.value}
@@ -88,7 +88,7 @@ export default function DashboardIndex() {
               />
             ))}
           </Tabs>
-          {ITEMS.map(item => (
+          {ITEMS.map((item) => (
             <SetListItem key={item.address} data={item} />
           ))}
         </Card>

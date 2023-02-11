@@ -1,7 +1,7 @@
 export const fAddress = (
   address: string,
   leadingChars = 4,
-  trailingChars = 4,
+  trailingChars = 4
 ) => {
   if (address.length < leadingChars + trailingChars) {
     return address;

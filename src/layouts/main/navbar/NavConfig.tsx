@@ -2,7 +2,7 @@
 import { SvgIcon, Box } from '@mui/material';
 
 // components
-import type { NavSectionProps } from "../../../components/nav-section/type";
+import type { NavSectionProps } from '../../../components/nav-section/type';
 
 // ----------------------------------------------------------------------
 
@@ -75,7 +75,7 @@ const icons = {
   ),
 };
 
-const navConfig: NavSectionProps["navConfig"] = [
+const navConfig: NavSectionProps['navConfig'] = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
@@ -104,8 +104,8 @@ const navConfig: NavSectionProps["navConfig"] = [
         icon: icons.evaluations,
       },
       {
-        title: "Certificates",
-        path: "/certificates",
+        title: 'Certificates',
+        path: '/certificates',
         icon: icons.certificates,
       },
       {

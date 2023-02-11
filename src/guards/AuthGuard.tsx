@@ -1,30 +1,30 @@
 // components
-import ConnectButton from "~/components/ConnectButton";
-import LoadingScreen from "~/components/LoadingScreen";
+import ConnectButton from '~/components/ConnectButton';
+import LoadingScreen from '~/components/LoadingScreen';
 // next
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 // wagmi
-import { useAccount } from "wagmi";
+import { useAccount } from 'wagmi';
 
 // ----------------------------------------------------------------------
 
 export default function AuthGuard({ children }: React.PropsWithChildren) {
   const { status } = useAccount();
   const { pathname, push } = useRouter();
-  const [requestedLocation, setRequestedLocation] = useState<string>("");
+  const [requestedLocation, setRequestedLocation] = useState<string>('');
 
   useEffect(() => {
-    if (status === "connected") {
-      setRequestedLocation("");
+    if (status === 'connected') {
+      setRequestedLocation('');
     } else if (requestedLocation && pathname !== requestedLocation) {
       push(requestedLocation);
     }
   }, [status, pathname, push, requestedLocation]);
 
-  return status === "connecting" || status === "reconnecting" ? (
+  return status === 'connecting' || status === 'reconnecting' ? (
     <LoadingScreen />
-  ) : status !== "connected" ? (
+  ) : status !== 'connected' ? (
     <ConnectButton />
   ) : (
     <>{children}</>

@@ -1,14 +1,14 @@
 /**
  * Adapted from https://github.com/domharrington/js-number-abbreviate
  */
-const units = ["k", "m", "b", "t"];
+const units = ['k', 'm', 'b', 't'];
 
 export const toPrecision = (number: number, precision: number = 1): string =>
   number
     .toString()
-    .replace(new RegExp(`(.+\\.\\d{${precision}})\\d+`), "$1")
-    .replace(/(\.[1-9]*)0+$/, "$1")
-    .replace(/\.$/, "");
+    .replace(new RegExp(`(.+\\.\\d{${precision}})\\d+`), '$1')
+    .replace(/(\.[1-9]*)0+$/, '$1')
+    .replace(/\.$/, '');
 
 export const fBalance = (number: number): string => {
   if (number < 1) return toPrecision(number, 3);

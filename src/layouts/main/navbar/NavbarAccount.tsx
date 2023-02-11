@@ -1,26 +1,26 @@
 // @mui
-import { Box, CardActionArea, Stack, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Box, CardActionArea, Stack, Typography } from '@mui/material';
+import { styled } from '@mui/material/styles';
 // rainbowkit
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 // components
-import EnsAvatar from "~/components/EnsAvatar";
+import EnsAvatar from '~/components/EnsAvatar';
 // hooks
-import { useMainnetEnsName } from "~/hooks/useMainnet";
+import { useMainnetEnsName } from '~/hooks/useMainnet';
 // utils
-import { fAddress } from "~/utils/formatAddress";
-import { fBalance } from "~/utils/formatBalance";
-import { fENS } from "~/utils/formatENS";
+import { fAddress } from '~/utils/formatAddress';
+import { fBalance } from '~/utils/formatBalance';
+import { fENS } from '~/utils/formatENS';
 // wagmi
-import { useAccount, useBalance } from "wagmi";
+import { useAccount, useBalance } from 'wagmi';
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled("div")(({ theme }) => ({
-  overflow: "hidden",
+const RootStyle = styled('div')(({ theme }) => ({
+  overflow: 'hidden',
   borderRadius: Number(theme.shape.borderRadius) * 1.5,
   backgroundColor: theme.palette.grey[500_12],
-  transition: theme.transitions.create("opacity", {
+  transition: theme.transitions.create('opacity', {
     duration: theme.transitions.duration.shorter,
   }),
 }));
@@ -50,7 +50,7 @@ export default function NavbarAccount({ isCollapse }: NavbarAccountProps) {
         <RootStyle
           sx={{
             ...(isCollapse && {
-              bgcolor: "transparent",
+              bgcolor: 'transparent',
             }),
           }}
         >
@@ -60,8 +60,8 @@ export default function NavbarAccount({ isCollapse }: NavbarAccountProps) {
               <Box
                 sx={{
                   ml: 2,
-                  transition: theme =>
-                    theme.transitions.create("width", {
+                  transition: (theme) =>
+                    theme.transitions.create('width', {
                       duration: theme.transitions.duration.shorter,
                     }),
                   ...(isCollapse && {
@@ -76,7 +76,7 @@ export default function NavbarAccount({ isCollapse }: NavbarAccountProps) {
                 <Typography
                   variant="body2"
                   noWrap
-                  sx={{ color: "text.secondary" }}
+                  sx={{ color: 'text.secondary' }}
                 >
                   {displayBalance}
                 </Typography>
