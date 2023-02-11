@@ -26,8 +26,8 @@ export const ExplorerNavConfig = [
         icon: <Iconify icon="carbon:improve-relevance" />,
       },
       {
-        title: 'Certifications',
-        path: PATH_DASHBOARD.list('certifications'),
+        title: 'Certificates',
+        path: PATH_DASHBOARD.list('certificates'),
         icon: <Iconify icon="carbon:certificate" />,
       },
     ],

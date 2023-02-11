@@ -1,21 +1,43 @@
 // @mui
-import { Stack, Box, Typography, Card, CircularProgress } from '@mui/material';
+import {
+  Stack,
+  Box,
+  Typography,
+  Card,
+  CircularProgress,
+  CardActionArea,
+} from '@mui/material';
 // utils
 import { fAddress } from '../../utils/formatAddress';
 // hooks
 import { useGeneratorList, Generator } from '../../hooks/useDivenire';
+import { PATH_GENERATORS } from '../../paths';
+// components
+import EmptyContent from '../../components/EmptyContent';
 
-export function GeneratorList() {
+export function GeneratorsList() {
   const { data, status } = useGeneratorList();
+
+  if (!data) {
+    return <CircularProgress size={40} />;
+  }
 
   return (
     <Stack direction="column" spacing={2}>
-      {!data ? (
-        <CircularProgress size={40} />
+      {!data.length ? (
+        <EmptyContent
+          title="No results"
+          sx={{
+            color: 'text.secondary',
+            '& span.MuiBox-root': { height: 50 },
+          }}
+        />
       ) : (
         data.map((item) => (
-          <Card key={item.id} sx={{ width: '100%', p: 3 }}>
-            <GeneratorListItem data={item} />
+          <Card key={item.id} sx={{ width: '100%' }}>
+            <CardActionArea sx={{ p: 3 }} href={PATH_GENERATORS.view(item.id)}>
+              <GeneratorListItem data={item} />
+            </CardActionArea>
           </Card>
         ))
       )}

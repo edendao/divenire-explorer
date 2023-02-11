@@ -8,12 +8,23 @@ import { PATH_DASHBOARD } from '../paths';
 import Page from '../components/Page';
 import { NavSectionVertical } from '../components/nav-section';
 // sections
-import { GeneratorList, ExplorerNavConfig } from '../sections/dashboard';
+import {
+  GeneratorsList,
+  ClaimsList,
+  ExplorerNavConfig,
+  EvaluationsList,
+  MethodologiesList,
+  CertificatesList,
+} from '../sections/dashboard';
 
 // ----------------------------------------------------------------------
 
 const RENDER_MAP: Record<string, () => React.ReactNode> = {
-  generators: () => <GeneratorList />,
+  generators: () => <GeneratorsList />,
+  claims: () => <ClaimsList />,
+  evaluations: () => <EvaluationsList />,
+  methodologies: () => <MethodologiesList />,
+  certificates: () => <CertificatesList />,
 };
 
 export default function DashboardIndex() {

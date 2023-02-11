@@ -16,8 +16,8 @@ export const EvaluateNavConfig = [
         icon: <Iconify icon="carbon:document" />,
       },
       {
-        title: 'Certifications',
-        path: PATH_EVALUATE.list('certifications'),
+        title: 'Certificates',
+        path: PATH_EVALUATE.list('certificates'),
         icon: <Iconify icon="carbon:certificate" />,
       },
     ],

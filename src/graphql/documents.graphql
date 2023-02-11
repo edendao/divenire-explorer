@@ -6,6 +6,69 @@ fragment GeneratorFragment on Generator {
   uri
 }
 
+fragment ClaimFragment on Claim {
+  id
+  signer {
+    id
+  }
+  validFrom
+  validTo
+  timestamp
+  value
+  uri
+  createdAt
+  revokedAt
+  updatedAt
+}
+
+fragment EvaluationFragment on Evaluation {
+  id
+  signer {
+    id
+  }
+  validFrom
+  validTo
+  timestamp
+  value
+  uri
+  createdAt
+  revokedAt
+  updatedAt
+  claim {
+    id
+  }
+  generator {
+    id
+  }
+  methodology {
+    id
+  }
+}
+
+fragment MethodologyFragment on Methodology {
+  id
+  owner {
+    id
+  }
+  uri
+}
+
+fragment CertificateFragment on Certificate {
+  id
+  claim {
+    id
+  }
+  generator {
+    id
+  }
+  evaluation {
+    id
+  }
+  methodology {
+    id
+  }
+}
+
 query generatorList {
   generators {
     ...GeneratorFragment
@@ -15,5 +78,52 @@ query generatorList {
 query generator($id: ID!) {
   generator(id: $id) {
     ...GeneratorFragment
+  }
+}
+
+query claimList {
+  claims {
+    ...ClaimFragment
+  }
+}
+
+query claim($id: ID!) {
+  claim(id: $id) {
+    ...ClaimFragment
+  }
+}
+
+query evaluationList {
+  evaluations {
+    ...EvaluationFragment
+  }
+}
+
+query evaluation($id: ID!) {
+  evaluation(id: $id) {
+    ...EvaluationFragment
+  }
+}
+query methodologyList {
+  methodologies {
+    ...MethodologyFragment
+  }
+}
+
+query methodology($id: ID!) {
+  methodology(id: $id) {
+    ...MethodologyFragment
+  }
+}
+
+query certificateList {
+  certificates {
+    ...CertificateFragment
+  }
+}
+
+query certificate($id: ID!) {
+  certificate(id: $id) {
+    ...CertificateFragment
   }
 }

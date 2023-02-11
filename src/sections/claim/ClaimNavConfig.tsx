@@ -16,8 +16,8 @@ export const ClaimNavConfig = [
         icon: <Iconify icon="carbon:document" />,
       },
       {
-        title: 'Certifications',
-        path: PATH_CLAIM.list('certifications'),
+        title: 'Certificates',
+        path: PATH_CLAIM.list('certificates'),
         icon: <Iconify icon="carbon:certificate" />,
       },
     ],
