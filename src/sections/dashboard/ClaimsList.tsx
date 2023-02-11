@@ -1,12 +1,5 @@
 // @mui
-import {
-  Stack,
-  Box,
-  Typography,
-  Card,
-  CircularProgress,
-  CardActionArea,
-} from '@mui/material';
+import { Stack, Box, Typography, Card, CardActionArea } from '@mui/material';
 // utils
 import { fAddress } from '../../utils/formatAddress';
 // hooks
@@ -14,34 +7,21 @@ import { useClaimList, Claim } from '../../hooks/useDivenire';
 import { PATH_GENERATORS } from '../../paths';
 import { fDate } from '../../utils/formatTime';
 // components
-import EmptyContent from '../../components/EmptyContent';
+import CardList from '../../components/CardList';
 
 export function ClaimsList() {
   const { data, status } = useClaimList();
 
-  if (!data) {
-    return <CircularProgress size={40} />;
-  }
-
   return (
-    <Stack direction="column" spacing={2}>
-      {!data.length ? (
-        <EmptyContent
-          title="No results"
-          sx={{
-            color: 'text.secondary',
-          }}
-        />
-      ) : (
-        data.map((item) => (
-          <Card key={item.id} sx={{ width: '100%' }}>
-            <CardActionArea sx={{ p: 3 }} href={PATH_GENERATORS.view(item.id)}>
-              <ClaimListItem data={item} />
-            </CardActionArea>
-          </Card>
-        ))
-      )}
-    </Stack>
+    <CardList loading={status === 'loading'} total={data?.length}>
+      {data?.map((item) => (
+        <Card key={item.id} sx={{ width: '100%' }}>
+          <CardActionArea sx={{ p: 3 }} href={PATH_GENERATORS.view(item.id)}>
+            <ClaimListItem data={item} />
+          </CardActionArea>
+        </Card>
+      ))}
+    </CardList>
   );
 }
 

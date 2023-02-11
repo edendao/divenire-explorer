@@ -1,12 +1,5 @@
 // @mui
-import {
-  Stack,
-  Box,
-  Typography,
-  Card,
-  CircularProgress,
-  CardActionArea,
-} from '@mui/material';
+import { Stack, Box, Typography, Card, CardActionArea } from '@mui/material';
 // utils
 import { fDate } from '../../utils/formatTime';
 import { fAddress } from '../../utils/formatAddress';
@@ -14,34 +7,21 @@ import { fAddress } from '../../utils/formatAddress';
 import { useEvaluationList, Evaluation } from '../../hooks/useDivenire';
 import { PATH_EVALUATIONS } from '../../paths';
 // components
-import EmptyContent from '../../components/EmptyContent';
+import CardList from '../../components/CardList';
 
 export function EvaluationsList() {
   const { data, status } = useEvaluationList();
 
-  if (!data) {
-    return <CircularProgress size={40} />;
-  }
-
   return (
-    <Stack direction="column" spacing={2}>
-      {!data.length ? (
-        <EmptyContent
-          title="No results"
-          sx={{
-            color: 'text.secondary',
-          }}
-        />
-      ) : (
-        data.map((item) => (
-          <Card key={item.id} sx={{ width: '100%' }}>
-            <CardActionArea sx={{ p: 3 }} href={PATH_EVALUATIONS.view(item.id)}>
-              <EvaluationListItem data={item} />
-            </CardActionArea>
-          </Card>
-        ))
-      )}
-    </Stack>
+    <CardList loading={status === 'loading'} total={data?.length}>
+      {data?.map((item) => (
+        <Card key={item.id} sx={{ width: '100%' }}>
+          <CardActionArea sx={{ p: 3 }} href={PATH_EVALUATIONS.view(item.id)}>
+            <EvaluationListItem data={item} />
+          </CardActionArea>
+        </Card>
+      ))}
+    </CardList>
   );
 }
 

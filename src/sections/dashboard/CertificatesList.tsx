@@ -1,47 +1,24 @@
 // @mui
-import {
-  Stack,
-  Box,
-  Typography,
-  Card,
-  CircularProgress,
-  CardActionArea,
-} from '@mui/material';
+import { Stack, Box, Typography, Card, CardActionArea } from '@mui/material';
 // hooks
 import { Certificate, useCertificateList } from '../../hooks/useDivenire';
 import { PATH_CERTIFICATES } from '../../paths';
 // components
-import EmptyContent from '../../components/EmptyContent';
+import CardList from '../../components/CardList';
 
 export function CertificatesList() {
   const { data, status } = useCertificateList();
 
-  if (!data) {
-    return <CircularProgress size={40} />;
-  }
-
   return (
-    <Stack direction="column" spacing={2}>
-      {!data.length ? (
-        <EmptyContent
-          title="No results"
-          sx={{
-            color: 'text.secondary',
-          }}
-        />
-      ) : (
-        data.map((item) => (
-          <Card key={item.id} sx={{ width: '100%' }}>
-            <CardActionArea
-              sx={{ p: 3 }}
-              href={PATH_CERTIFICATES.view(item.id)}
-            >
-              <CertificateListItem data={item} />
-            </CardActionArea>
-          </Card>
-        ))
-      )}
-    </Stack>
+    <CardList loading={status === 'loading'} total={data?.length}>
+      {data?.map((item) => (
+        <Card key={item.id} sx={{ width: '100%' }}>
+          <CardActionArea sx={{ p: 3 }} href={PATH_CERTIFICATES.view(item.id)}>
+            <CertificateListItem data={item} />
+          </CardActionArea>
+        </Card>
+      ))}
+    </CardList>
   );
 }
 

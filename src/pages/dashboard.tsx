@@ -28,7 +28,7 @@ const RENDER_MAP: Record<string, () => React.ReactNode> = {
 };
 
 export default function DashboardIndex() {
-  const { query, push } = useRouter();
+  const { query, push, isReady } = useRouter();
   const type = query.type && String(query.type);
 
   const content = useMemo(() => {
@@ -41,10 +41,10 @@ export default function DashboardIndex() {
   }, [type]);
 
   useEffect(() => {
-    if (!type) {
+    if (isReady && !type) {
       push(PATH_DASHBOARD.list('generators'));
     }
-  }, [type]); // eslint-disable-line
+  }, [isReady, type]); // eslint-disable-line
 
   return (
     <Page title="General: Dashboard">
