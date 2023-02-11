@@ -7,12 +7,10 @@ import {
   ListItemText,
   ListItemIcon,
 } from '@mui/material';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
 // config
 import { ICON } from '../../../config';
+// components
+import Iconify from '../../Iconify';
 //
 import { NavItemProps } from '../type';
 import { ListItemStyle } from './style';
@@ -22,10 +20,8 @@ import { ListItemStyle } from './style';
 type Props = NavItemProps & ListItemButtonProps;
 
 const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
-  ({ item, depth, active, open, ...other }, ref) => {
+  function NavItemInner({ item, depth, active, open, ...other }, ref) {
     const { title, icon, info, children, disabled, caption } = item;
-
-    const ArrowIcon = depth > 1 ? ArrowForwardIcon : ArrowDownwardIcon;
 
     const renderContent = (
       <ListItemStyle
@@ -60,7 +56,8 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
         {caption && (
           <Tooltip title={caption} arrow>
             <Box component="span" sx={{ ml: 0.5, lineHeight: 0 }}>
-              <InfoOutlinedIcon
+              <Iconify
+                icon="eva:info-outline"
                 sx={{
                   width: ICON.NAVBAR_ITEM_HORIZONTAL / -4,
                   height: ICON.NAVBAR_ITEM_HORIZONTAL / -4,
@@ -77,7 +74,10 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
         )}
 
         {!!children && (
-          <ArrowIcon
+          <Iconify
+            icon={
+              depth > 1 ? 'eva:chevron-right-fill' : 'eva:chevron-down-fill'
+            }
             sx={{
               ml: 0.5,
               flexShrink: 0,

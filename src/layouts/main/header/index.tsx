@@ -1,7 +1,6 @@
 // @mui
 import { styled } from '@mui/material/styles';
 import { Box, Stack, AppBar, Toolbar } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 // hooks
 import { useOffSetTop } from '../../../hooks/useOffsetTop';
 import { useResponsive } from '../../../hooks/useResponsive';
@@ -11,6 +10,7 @@ import cssStyles from '../../../utils/cssStyles';
 import { HEADER, NAVBAR } from '../../../config';
 // components
 import { IconButtonAnimate } from '../../../components/animate';
+import Iconify from '../../../components/Iconify';
 //
 import ConnectionPopover from './ConnectionPopover';
 import Searchbar from './Searchbar';
@@ -86,7 +86,7 @@ export default function DashboardHeader({
             onClick={onOpenSidebar}
             sx={{ mr: 1, color: 'text.primary' }}
           >
-            <MenuIcon />
+            <Iconify icon="eva:menu-2-fill" />
           </IconButtonAnimate>
         )}
 

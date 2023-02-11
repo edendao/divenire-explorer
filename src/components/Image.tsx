@@ -54,7 +54,7 @@ export default function Image({
       `data:image/svg+xml;base64,${toBase64(
         shimmer(width as number, height as number)
       )}`,
-    []
+    [width, height]
   );
 
   if (ratio) {

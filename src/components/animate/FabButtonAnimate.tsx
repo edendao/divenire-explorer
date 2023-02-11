@@ -20,10 +20,10 @@ interface Props extends Omit<FabProps, 'color'> {
 }
 
 const FabButtonAnimate = forwardRef<HTMLButtonElement, Props>(
-  (
+  function FabButtonAnimateInner(
     { color = 'primary', size = 'large', children, sx, sxWrap, ...other },
     ref
-  ) => {
+  ) {
     const theme = useTheme();
 
     if (

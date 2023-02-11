@@ -3,11 +3,11 @@ import { SnackbarProvider, SnackbarKey } from 'notistack';
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
 import { Box, GlobalStyles } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
 // theme
 import { ColorSchema } from '../theme/palette';
 //
 import { IconButtonAnimate } from './animate';
+import Iconify from './Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -98,7 +98,7 @@ export default function NotistackProvider({
             onClick={onClose(key)}
             sx={{ p: 0.5 }}
           >
-            <CloseIcon />
+            <Iconify icon={'eva:close-fill'} />
           </IconButtonAnimate>
         )}
       >

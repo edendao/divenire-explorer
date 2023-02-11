@@ -18,7 +18,7 @@ interface Props extends IProps {
 }
 
 const TextMaxLine = forwardRef<HTMLAnchorElement, Props>(
-  (
+  function TextMaxLineInner(
     {
       asLink,
       variant = 'body1',
@@ -29,7 +29,7 @@ const TextMaxLine = forwardRef<HTMLAnchorElement, Props>(
       ...other
     },
     ref
-  ) => {
+  ) {
     const { lineHeight } = GetFontValue(variant);
 
     const style = {

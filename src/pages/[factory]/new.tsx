@@ -19,7 +19,7 @@ type PageProps = {
 type FactoryDetail = { name: string };
 
 const FACTORY: Record<Factory['type'], FactoryDetail> = {
-  generators: { name: 'Credit class' },
+  generators: { name: 'Claim class' },
   methodologies: { name: 'Methodology' },
 };
 

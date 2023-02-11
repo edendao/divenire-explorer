@@ -54,13 +54,13 @@ export default function DashboardIndex() {
       [
         {
           value: 'generators',
-          label: 'Credit classes',
+          label: 'Claims',
           color: getTabColor(currentTab, 'generators'),
           count: 0,
         },
         {
           value: 'methodologies',
-          label: 'Methodologies',
+          label: 'Evaluations',
           color: getTabColor(currentTab, 'methodologies'),
           count: 0,
         },

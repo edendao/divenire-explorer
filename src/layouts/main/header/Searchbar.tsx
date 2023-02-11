@@ -8,11 +8,11 @@ import {
   InputAdornment,
   ClickAwayListener,
 } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 // utils
 import cssStyles from '../../../utils/cssStyles';
 // components
 import { IconButtonAnimate } from '../../../components/animate';
+import Iconify from '../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ export default function Searchbar() {
       <div>
         {!isOpen && (
           <IconButtonAnimate onClick={handleOpen}>
-            <SearchIcon width={20} height={20} />
+            <Iconify icon={'eva:search-fill'} width={20} height={20} />
           </IconButtonAnimate>
         )}
 
@@ -68,7 +68,8 @@ export default function Searchbar() {
               placeholder="Search…"
               startAdornment={
                 <InputAdornment position="start">
-                  <SearchIcon
+                  <Iconify
+                    icon="eva:search-fill"
                     sx={{ color: 'text.disabled', width: 20, height: 20 }}
                   />
                 </InputAdornment>

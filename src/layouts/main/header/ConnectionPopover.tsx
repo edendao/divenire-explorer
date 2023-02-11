@@ -1,9 +1,10 @@
 // @mui
 import { Button, ButtonProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
 // rainbowkit
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+// components
+import Iconify from '../../../components/Iconify';
 
 const NetworkIcon = styled('img')(({ theme }) => ({
   width: 24,
@@ -64,7 +65,7 @@ export default function ConnectPopover() {
                 />
               ) : undefined
             }
-            endIcon={<ArrowDropDown />}
+            endIcon={<Iconify icon="ic:round-arrow-drop-down" />}
             onClick={openChainModal}
           >
             {chain.name}
