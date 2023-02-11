@@ -1,6 +1,8 @@
 import { z } from 'zod';
 // @mui
 import { Card, Stack, Box } from '@mui/material';
+// form
+import { zodResolver } from '@hookform/resolvers/zod';
 // hooks
 import {
   useFormController,
@@ -37,7 +39,10 @@ export function FactoryNewEditForm({
   isEdit,
   ...others
 }: FactoryNewEditFormProps) {
-  const [onSubmit, methods] = useFormController(others);
+  const [onSubmit, methods] = useFormController({
+    ...others,
+    resolver: zodResolver(FormValuesSchema),
+  });
 
   return (
     <FormProvider methods={methods} onSubmit={onSubmit}>
