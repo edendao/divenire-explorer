@@ -1,97 +1,33 @@
-import { useCallback, useState, useMemo } from 'react';
+import { useRouter } from 'next/router';
 // @mui
-import { Container, Card, Tabs, Tab } from '@mui/material';
+import { Card, Container, Stack, Box } from '@mui/material';
 // hooks
-import { useTabs } from '../../hooks/useTabs';
 // components
 import Page from '../../components/Page';
-import Label from '../../components/Label';
+import { NavSectionVertical } from '../../components/nav-section';
 // sections
-import { SetListItem } from '../../sections/dashboard';
+import { GeneratorList, ExplorerNavConfig } from '../../sections/dashboard';
 
 // ----------------------------------------------------------------------
 
-const getTabColor = (current: string, value: string) =>
-  current === value ? 'primary' : 'default';
-
-const ITEMS = [
-  {
-    address: '0x1',
-    shortcut: '',
-    system: 'system',
-    price: 5,
-    rating: 0,
-    review: 'review',
-    name: 'name',
-  },
-  {
-    address: '0x2',
-    shortcut: '',
-    system: 'system',
-    price: 12,
-    rating: 2,
-    review: 'review',
-    name: 'name',
-  },
-  {
-    address: '0x3',
-    shortcut: '',
-    system: 'system',
-    price: 10,
-    rating: 3,
-    review: 'review',
-    name: 'name',
-  },
-];
+const RENDER_MAP: Record<string, () => React.ReactNode> = {
+  generators: () => <GeneratorList />,
+};
 
 export default function DashboardIndex() {
-  const { currentTab, onChangeTab } = useTabs('generator');
-
-  const TABS = useMemo(
-    () =>
-      [
-        {
-          value: 'generator',
-          label: 'Generators',
-          color: getTabColor(currentTab, 'generator'),
-          count: 0,
-        },
-        {
-          value: 'methodology',
-          label: 'Methodologies',
-          color: getTabColor(currentTab, 'methodology'),
-          count: 0,
-        },
-      ] as const,
-    [currentTab]
-  );
+  const { query } = useRouter();
+  const type = String(query.type || 'generators');
+  const renderComponent = RENDER_MAP[type];
 
   return (
     <Page title="General: Dashboard">
       <Container maxWidth={false}>
-        <Card>
-          <Tabs
-            allowScrollButtonsMobile
-            variant="scrollable"
-            scrollButtons="auto"
-            value={currentTab}
-            onChange={onChangeTab}
-            sx={{ px: 2, bgcolor: 'background.neutral' }}
-          >
-            {TABS.map((tab) => (
-              <Tab
-                disableRipple
-                key={tab.value}
-                value={tab.value}
-                icon={<Label color={tab.color}> {tab.count} </Label>}
-                label={tab.label}
-              />
-            ))}
-          </Tabs>
-          {ITEMS.map((item) => (
-            <SetListItem key={item.address} data={item} />
-          ))}
-        </Card>
+        <Stack direction={{ xs: 'column', md: 'row' }} spacing={4}>
+          <Card sx={{ width: 240 }}>
+            <NavSectionVertical pb={3} navConfig={ExplorerNavConfig} />
+          </Card>
+          <Box flex="1">{renderComponent && renderComponent()}</Box>
+        </Stack>
       </Container>
     </Page>
   );

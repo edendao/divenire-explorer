@@ -48,22 +48,19 @@ const navConfig: NavSectionProps['navConfig'] = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'General',
+    subheader: '',
     items: [
       {
-        title: 'Dashboard',
+        title: 'Explore',
         path: '/dashboard',
-        icon: icons.dashboard,
       },
       {
-        title: 'Certificates',
-        path: '/certificates',
-        icon: icons.certificates,
+        title: 'Claim',
+        path: '/claims',
       },
       {
-        title: 'Attestations',
-        path: '/attestations',
-        icon: icons.attestations,
+        title: 'Evaluate',
+        path: '/claims',
       },
     ],
   },
