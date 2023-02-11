@@ -1,14 +1,14 @@
 import { AppBar, Container } from "@mui/material";
-// @mui
-import { styled } from "@mui/material/styles";
-// components
-import { NavSectionHorizontal } from "~/components/nav-section";
+
 // config
 import { HEADER } from "~/config";
+// components
+import { NavSectionHorizontal } from "~/components/nav-section";
 import { memo } from "react";
-
 //
 import navConfig from "./NavConfig";
+// @mui
+import { styled } from "@mui/material/styles";
 
 // ----------------------------------------------------------------------
 
@@ -28,14 +28,12 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-function NavbarHorizontal() {
-  return (
-    <RootStyle>
-      <Container maxWidth={false}>
-        <NavSectionHorizontal navConfig={navConfig} />
-      </Container>
-    </RootStyle>
-  );
-}
+const NavbarHorizontal: React.FC = () => (
+  <RootStyle>
+    <Container maxWidth={false}>
+      <NavSectionHorizontal navConfig={navConfig} />
+    </Container>
+  </RootStyle>
+);
 
 export default memo(NavbarHorizontal);

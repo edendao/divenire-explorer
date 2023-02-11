@@ -1,8 +1,7 @@
-// @mui
-import { SvgIcon } from "@mui/material";
-
 // components
 import type { NavSectionProps } from "../../../components/nav-section/type";
+// @mui
+import { SvgIcon } from "@mui/material";
 
 // ----------------------------------------------------------------------
 

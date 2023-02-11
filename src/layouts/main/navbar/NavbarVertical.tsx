@@ -1,25 +1,26 @@
-import { useEffect } from "react";
-// next
-import { useRouter } from "next/router";
-// wagmi
-import { useAccount } from "wagmi";
+import { Box, Drawer, Stack, Typography } from "@mui/material";
 // @mui
 import { styled, useTheme } from "@mui/material/styles";
-import { Box, Stack, Drawer, Typography } from "@mui/material";
-// hooks
-import { useResponsive } from "../../../hooks/useResponsive";
-import { useCollapseDrawer } from "../../../hooks/useCollapseDrawer";
-// utils
-import cssStyles from "../../../utils/cssStyles";
+
+import CollapseButton from "./CollapseButton";
 // config
 import { NAVBAR } from "../../../config";
+import { NavSectionVertical } from "../../../components/nav-section";
+import NavbarAccount from "./NavbarAccount";
 // components
 import Scrollbar from "../../../components/Scrollbar";
-import { NavSectionVertical } from "../../../components/nav-section";
+// utils
+import cssStyles from "../../../utils/cssStyles";
 //
 import navConfig from "./NavConfig";
-import NavbarAccount from "./NavbarAccount";
-import CollapseButton from "./CollapseButton";
+// wagmi
+import { useAccount } from "wagmi";
+import { useCollapseDrawer } from "../../../hooks/useCollapseDrawer";
+import { useEffect } from "react";
+// hooks
+import { useResponsive } from "../../../hooks/useResponsive";
+// next
+import { useRouter } from "next/router";
 
 // ----------------------------------------------------------------------
 
@@ -135,7 +136,6 @@ export default function NavbarVertical({
 
       {isDesktop && (
         <Drawer
-          open
           variant="persistent"
           onMouseEnter={onHoverEnter}
           onMouseLeave={onHoverLeave}
