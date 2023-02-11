@@ -1,16 +1,16 @@
-import { useState, ReactNode } from 'react';
+import { useState, ReactNode } from "react";
 // @mui
-import { styled } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { styled } from "@mui/material/styles";
+import { Box } from "@mui/material";
 // hooks
-import { useCollapseDrawer } from '../../hooks/useCollapseDrawer';
+import { useCollapseDrawer } from "../../hooks/useCollapseDrawer";
 // config
-import { HEADER, NAVBAR } from '../../config';
+import { HEADER, NAVBAR } from "../../config";
 // guard
-import AuthGuard from '../../guards/AuthGuard';
+import AuthGuard from "../../guards/AuthGuard";
 //
-import DashboardHeader from './header';
-import NavbarVertical from './navbar/NavbarVertical';
+import DashboardHeader from "./header";
+import NavbarVertical from "./navbar/NavbarVertical";
 
 // ----------------------------------------------------------------------
 
@@ -18,19 +18,19 @@ type MainStyleProps = {
   collapseClick: boolean;
 };
 
-const MainStyle = styled('main', {
-  shouldForwardProp: (prop) => prop !== 'collapseClick',
+const MainStyle = styled("main", {
+  shouldForwardProp: prop => prop !== "collapseClick",
 })<MainStyleProps>(({ collapseClick, theme }) => ({
   flexGrow: 1,
   paddingTop: HEADER.MOBILE_HEIGHT + 24,
   paddingBottom: HEADER.MOBILE_HEIGHT + 24,
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.up("lg")]: {
     paddingLeft: 16,
     paddingRight: 16,
     paddingTop: HEADER.DASHBOARD_DESKTOP_HEIGHT + 24,
     paddingBottom: HEADER.DASHBOARD_DESKTOP_HEIGHT + 24,
     width: `calc(100% - ${NAVBAR.DASHBOARD_WIDTH}px)`,
-    transition: theme.transitions.create('margin-left', {
+    transition: theme.transitions.create("margin-left", {
       duration: theme.transitions.duration.shorter,
     }),
     ...(collapseClick && {
@@ -53,7 +53,7 @@ export default function DashboardLayout({ children }: Props) {
   return (
     <Box
       sx={{
-        display: { lg: 'flex' },
+        display: { lg: "flex" },
         minHeight: { lg: 1 },
       }}
     >

@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
-import { pxToRem, responsiveFontSizes } from '../utils/getFontValue';
-import { inter } from './fonts';
+import { pxToRem, responsiveFontSizes } from "../utils/getFontValue";
+import { inter } from "./fonts";
 
 const FONT_PRIMARY = inter.style.fontFamily;
 // const FONT_SECONDARY = 'CircularStd, sans-serif';
@@ -72,13 +72,13 @@ const typography = {
     fontWeight: 700,
     lineHeight: 1.5,
     fontSize: pxToRem(11),
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
   },
   button: {
     fontWeight: 700,
     lineHeight: 24 / 14,
     fontSize: pxToRem(14),
-    textTransform: 'none',
+    textTransform: "none",
   },
 } as const;
 

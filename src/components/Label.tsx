@@ -1,23 +1,23 @@
 // @mui
-import { alpha, Theme, useTheme, styled } from '@mui/material/styles';
-import { BoxProps, Box } from '@mui/material';
+import { alpha, Theme, useTheme, styled } from "@mui/material/styles";
+import { BoxProps, Box } from "@mui/material";
 // theme
-import { ColorSchema } from '../theme/palette';
+import { ColorSchema } from "../theme/palette";
 
 // ----------------------------------------------------------------------
 
 type LabelColor =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error';
+  | "default"
+  | "primary"
+  | "secondary"
+  | "info"
+  | "success"
+  | "warning"
+  | "error";
 
-type LabelVariant = 'filled' | 'outlined' | 'ghost';
+type LabelVariant = "filled" | "outlined" | "ghost";
 
-const RootStyle = styled('span')(
+const RootStyle = styled("span")(
   ({
     theme,
     ownerState,
@@ -28,7 +28,7 @@ const RootStyle = styled('span')(
       variant: LabelVariant;
     };
   }) => {
-    const isLight = theme.palette.mode === 'light';
+    const isLight = theme.palette.mode === "light";
     const { color, variant } = ownerState;
 
     const styleFilled = (color: ColorSchema) => ({
@@ -38,12 +38,12 @@ const RootStyle = styled('span')(
 
     const styleOutlined = (color: ColorSchema) => ({
       color: theme.palette[color].main,
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
       border: `1px solid ${theme.palette[color].main}`,
     });
 
     const styleGhost = (color: ColorSchema) => ({
-      color: theme.palette[color][isLight ? 'dark' : 'light'],
+      color: theme.palette[color][isLight ? "dark" : "light"],
       backgroundColor: alpha(theme.palette[color].main, 0.16),
     });
 
@@ -52,11 +52,11 @@ const RootStyle = styled('span')(
       minWidth: 22,
       lineHeight: 0,
       borderRadius: 6,
-      cursor: 'default',
-      alignItems: 'center',
-      whiteSpace: 'nowrap',
-      display: 'inline-flex',
-      justifyContent: 'center',
+      cursor: "default",
+      alignItems: "center",
+      whiteSpace: "nowrap",
+      display: "inline-flex",
+      justifyContent: "center",
       padding: theme.spacing(0, 1),
       color: theme.palette.grey[800],
       fontSize: theme.typography.pxToRem(12),
@@ -64,19 +64,19 @@ const RootStyle = styled('span')(
       backgroundColor: theme.palette.grey[300],
       fontWeight: theme.typography.fontWeightBold,
 
-      ...(color !== 'default'
+      ...(color !== "default"
         ? {
-            ...(variant === 'filled' && { ...styleFilled(color) }),
-            ...(variant === 'outlined' && { ...styleOutlined(color) }),
-            ...(variant === 'ghost' && { ...styleGhost(color) }),
+            ...(variant === "filled" && { ...styleFilled(color) }),
+            ...(variant === "outlined" && { ...styleOutlined(color) }),
+            ...(variant === "ghost" && { ...styleGhost(color) }),
           }
         : {
-            ...(variant === 'outlined' && {
-              backgroundColor: 'transparent',
+            ...(variant === "outlined" && {
+              backgroundColor: "transparent",
               color: theme.palette.text.primary,
               border: `1px solid ${theme.palette.grey[500_32]}`,
             }),
-            ...(variant === 'ghost' && {
+            ...(variant === "ghost" && {
               color: isLight
                 ? theme.palette.text.secondary
                 : theme.palette.common.white,
@@ -84,7 +84,7 @@ const RootStyle = styled('span')(
             }),
           }),
     };
-  }
+  },
 );
 
 // ----------------------------------------------------------------------
@@ -98,8 +98,8 @@ interface Props extends BoxProps {
 
 export default function Label({
   children,
-  color = 'default',
-  variant = 'ghost',
+  color = "default",
+  variant = "ghost",
   startIcon,
   endIcon,
   sx,
@@ -109,7 +109,7 @@ export default function Label({
   const style = {
     width: 16,
     height: 16,
-    '& svg, img': { width: 1, height: 1, objectFit: 'cover' },
+    "& svg, img": { width: 1, height: 1, objectFit: "cover" },
   };
 
   return (

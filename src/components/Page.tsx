@@ -1,9 +1,9 @@
-import Head from 'next/head';
-import { forwardRef } from 'react';
+import Head from "next/head";
+import { forwardRef } from "react";
 // @mui
-import { Box, BoxProps } from '@mui/material';
+import { Box, BoxProps } from "@mui/material";
 // config
-import { APP } from '../config';
+import { APP } from "../config";
 // ----------------------------------------------------------------------
 
 type PageProps = BoxProps & {

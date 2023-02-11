@@ -1,7 +1,7 @@
 // @mui
-import { Box } from '@mui/material';
+import { Box } from "@mui/material";
 // components
-import { IconButtonAnimate } from '../../../components/animate';
+import { IconButtonAnimate } from "~/components/animate";
 
 // ----------------------------------------------------------------------
 
@@ -19,12 +19,12 @@ export default function CollapseButton({
       <Box
         sx={{
           lineHeight: 0,
-          transition: (theme) =>
-            theme.transitions.create('transform', {
+          transition: theme =>
+            theme.transitions.create("transform", {
               duration: theme.transitions.duration.shorter,
             }),
           ...(collapseClick && {
-            transform: 'rotate(180deg)',
+            transform: "rotate(180deg)",
           }),
         }}
       >

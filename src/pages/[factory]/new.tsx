@@ -1,14 +1,14 @@
-// next
-import { GetStaticProps, GetStaticPaths } from 'next';
 // @mui
 import { Container } from '@mui/material';
 // config
 import { CONTRACTS } from '../../config';
 // components
-import Page from '../../components/Page';
-import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
+import Page from "../../components/Page";
+import HeaderBreadcrumbs from "../../components/HeaderBreadcrumbs";
 // sections
 import { FactoryNewEditForm, Factory } from '../../sections/factory';
+// next
+import { GetStaticPaths, GetStaticProps } from "next";
 
 // ----------------------------------------------------------------------
 
@@ -35,11 +35,11 @@ export default function FactoryNew({ factory }: PageProps) {
         <HeaderBreadcrumbs
           heading={heading}
           links={[
-            { name: 'Factory' },
+            { name: "Factory" },
             {
               name: factoryDetails.name,
             },
-            { name: 'New ' + factoryDetails.name },
+            { name: "New " + factoryDetails.name },
           ]}
         />
         <FactoryNewEditForm factory={factory} />
@@ -48,9 +48,9 @@ export default function FactoryNew({ factory }: PageProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async context => {
   const factory = context.params?.factory?.toString() as
-    | Factory['type']
+    | Factory["type"]
     | undefined;
 
   const address = factory && (CONTRACTS[factory] as `0x${string}`);
@@ -72,8 +72,8 @@ export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [
-      { params: { factory: 'generators' } },
-      { params: { factory: 'methodologies' } },
+      { params: { factory: "generators" } },
+      { params: { factory: "methodologies" } },
     ],
     fallback: false,
   };

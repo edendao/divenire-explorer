@@ -1,9 +1,9 @@
 // @mui
-import { List, Box } from '@mui/material';
+import { List, Box } from "@mui/material";
 //
-import { NavSectionProps } from '../type';
-import { ListSubheaderStyle } from './style';
-import NavList from './NavList';
+import { NavSectionProps } from "../type";
+import { ListSubheaderStyle } from "./style";
+import NavList from "./NavList";
 
 // ----------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ export default function NavSectionVertical({
 }: NavSectionProps) {
   return (
     <Box {...other}>
-      {navConfig.map((group) => (
+      {navConfig.map(group => (
         <List key={group.subheader} disablePadding sx={{ px: 2 }}>
           <ListSubheaderStyle
             disableSticky
@@ -27,7 +27,7 @@ export default function NavSectionVertical({
             {group.subheader}
           </ListSubheaderStyle>
 
-          {group.items.map((list) => (
+          {group.items.map(list => (
             <NavList
               key={list.title + list.path}
               data={list}

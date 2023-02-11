@@ -12,8 +12,8 @@ import { HEADER, NAVBAR } from '../../../config';
 import { IconButtonAnimate } from '../../../components/animate';
 import Iconify from '../../../components/Iconify';
 //
-import ConnectionPopover from './ConnectionPopover';
-import Searchbar from './Searchbar';
+import ConnectionPopover from "./ConnectionPopover";
+import Searchbar from "./Searchbar";
 
 // ----------------------------------------------------------------------
 
@@ -24,17 +24,17 @@ type RootStyleProps = {
 };
 
 const RootStyle = styled(AppBar, {
-  shouldForwardProp: (prop) =>
-    prop !== 'isCollapse' && prop !== 'isOffset' && prop !== 'verticalLayout',
+  shouldForwardProp: prop =>
+    prop !== "isCollapse" && prop !== "isOffset" && prop !== "verticalLayout",
 })<RootStyleProps>(({ isCollapse, isOffset, verticalLayout, theme }) => ({
   ...cssStyles(theme).bgBlur(),
-  boxShadow: 'none',
+  boxShadow: "none",
   height: HEADER.MOBILE_HEIGHT,
   zIndex: theme.zIndex.appBar + 1,
-  transition: theme.transitions.create(['width', 'height'], {
+  transition: theme.transitions.create(["width", "height"], {
     duration: theme.transitions.duration.shorter,
   }),
-  [theme.breakpoints.up('lg')]: {
+  [theme.breakpoints.up("lg")]: {
     height: HEADER.DASHBOARD_DESKTOP_HEIGHT,
     width: `calc(100% - ${NAVBAR.DASHBOARD_WIDTH + 1}px)`,
     ...(isCollapse && {
@@ -44,7 +44,7 @@ const RootStyle = styled(AppBar, {
       height: HEADER.DASHBOARD_DESKTOP_OFFSET_HEIGHT,
     }),
     ...(verticalLayout && {
-      width: '100%',
+      width: "100%",
       height: HEADER.DASHBOARD_DESKTOP_OFFSET_HEIGHT,
       backgroundColor: theme.palette.background.default,
     }),
@@ -67,7 +67,7 @@ export default function DashboardHeader({
   const isOffset =
     useOffSetTop(HEADER.DASHBOARD_DESKTOP_HEIGHT) && !verticalLayout;
 
-  const isDesktop = useResponsive('up', 'lg');
+  const isDesktop = useResponsive("up", "lg");
 
   return (
     <RootStyle
@@ -77,14 +77,14 @@ export default function DashboardHeader({
     >
       <Toolbar
         sx={{
-          minHeight: '100% !important',
+          minHeight: "100% !important",
           px: { lg: 5 },
         }}
       >
         {!isDesktop && (
           <IconButtonAnimate
             onClick={onOpenSidebar}
-            sx={{ mr: 1, color: 'text.primary' }}
+            sx={{ mr: 1, color: "text.primary" }}
           >
             <Iconify icon="eva:menu-2-fill" />
           </IconButtonAnimate>
@@ -96,7 +96,7 @@ export default function DashboardHeader({
         <Stack
           direction="row"
           alignItems="center"
-          spacing={{ xs: 0.5, sm: 1.5, color: 'text.primary' }}
+          spacing={{ xs: 0.5, sm: 1.5, color: "text.primary" }}
         >
           <ConnectionPopover />
         </Stack>

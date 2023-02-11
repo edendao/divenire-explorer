@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef } from "react";
 // @mui
 import {
   Box,
@@ -12,8 +12,8 @@ import { ICON } from '../../../config';
 // components
 import Iconify from '../../Iconify';
 //
-import { NavItemProps } from '../type';
-import { ListItemStyle } from './style';
+import { NavItemProps } from "../type";
+import { ListItemStyle } from "./style";
 
 // ----------------------------------------------------------------------
 
@@ -49,7 +49,7 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
           primary={title}
           primaryTypographyProps={{
             noWrap: true,
-            variant: active ? 'subtitle2' : 'body2',
+            variant: active ? "subtitle2" : "body2",
           }}
         />
 
@@ -90,7 +90,7 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
     );
 
     return renderContent;
-  }
+  },
 );
 
 export default NavItem;

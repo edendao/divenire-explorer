@@ -1,7 +1,7 @@
-import { alpha, Theme } from '@mui/material/styles';
+import { alpha, Theme } from "@mui/material/styles";
 
 // ----------------------------------------------------------------------
-declare module '@mui/material/Button' {
+declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
     soft: true;
   }
@@ -13,21 +13,21 @@ export default function Button(theme: Theme) {
     MuiButton: {
       variants: [
         {
-          props: { variant: 'soft' },
+          props: { variant: "soft" },
           style: {
             backgroundColor: alpha(theme.palette.primary.light, 0.16),
             color: theme.palette.primary.light,
-            '&:hover': {
+            "&:hover": {
               backgroundColor: alpha(theme.palette.primary.light, 0.32),
             },
           },
         },
         {
-          props: { variant: 'soft', color: 'secondary' },
+          props: { variant: "soft", color: "secondary" },
           style: {
             backgroundColor: alpha(theme.palette.secondary.light, 0.16),
             color: theme.palette.secondary.light,
-            '&:hover': {
+            "&:hover": {
               backgroundColor: alpha(theme.palette.secondary.light, 0.32),
             },
           },
@@ -35,11 +35,11 @@ export default function Button(theme: Theme) {
       ],
       styleOverrides: {
         root: {
-          '&:first-letter': {
-            textTransform: 'uppercase',
+          "&:first-letter": {
+            textTransform: "uppercase",
           },
-          '&:hover': {
-            boxShadow: 'none',
+          "&:hover": {
+            boxShadow: "none",
           },
         },
         sizeLarge: {
@@ -48,7 +48,7 @@ export default function Button(theme: Theme) {
         containedInherit: {
           color: theme.palette.grey[800],
           boxShadow: theme.customShadows.z8,
-          '&:hover': {
+          "&:hover": {
             backgroundColor: theme.palette.grey[400],
           },
         },
@@ -60,12 +60,12 @@ export default function Button(theme: Theme) {
         },
         outlinedInherit: {
           border: `1px solid ${alpha(theme.palette.grey[500], 0.32)}`,
-          '&:hover': {
+          "&:hover": {
             backgroundColor: theme.palette.action.hover,
           },
         },
         textInherit: {
-          '&:hover': {
+          "&:hover": {
             backgroundColor: theme.palette.action.hover,
           },
         },

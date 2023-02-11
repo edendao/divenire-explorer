@@ -1,32 +1,32 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 // next
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 // wagmi
-import { useAccount } from 'wagmi';
+import { useAccount } from "wagmi";
 // @mui
-import { styled, useTheme } from '@mui/material/styles';
-import { Box, Stack, Drawer, Typography } from '@mui/material';
+import { styled, useTheme } from "@mui/material/styles";
+import { Box, Stack, Drawer, Typography } from "@mui/material";
 // hooks
-import { useResponsive } from '../../../hooks/useResponsive';
-import { useCollapseDrawer } from '../../../hooks/useCollapseDrawer';
+import { useResponsive } from "../../../hooks/useResponsive";
+import { useCollapseDrawer } from "../../../hooks/useCollapseDrawer";
 // utils
-import cssStyles from '../../../utils/cssStyles';
+import cssStyles from "../../../utils/cssStyles";
 // config
-import { NAVBAR } from '../../../config';
+import { NAVBAR } from "../../../config";
 // components
-import Scrollbar from '../../../components/Scrollbar';
-import { NavSectionVertical } from '../../../components/nav-section';
+import Scrollbar from "../../../components/Scrollbar";
+import { NavSectionVertical } from "../../../components/nav-section";
 //
-import navConfig from './NavConfig';
-import NavbarAccount from './NavbarAccount';
-import CollapseButton from './CollapseButton';
+import navConfig from "./NavConfig";
+import NavbarAccount from "./NavbarAccount";
+import CollapseButton from "./CollapseButton";
 
 // ----------------------------------------------------------------------
 
-const RootStyle = styled('div')(({ theme }) => ({
-  [theme.breakpoints.up('lg')]: {
+const RootStyle = styled("div")(({ theme }) => ({
+  [theme.breakpoints.up("lg")]: {
     flexShrink: 0,
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create("width", {
       duration: theme.transitions.duration.shorter,
     }),
   },
@@ -47,7 +47,7 @@ export default function NavbarVertical({
   const { isConnected } = useAccount();
   const { pathname } = useRouter();
 
-  const isDesktop = useResponsive('up', 'lg');
+  const isDesktop = useResponsive("up", "lg");
 
   const {
     isCollapse,
@@ -69,10 +69,10 @@ export default function NavbarVertical({
     <Scrollbar
       sx={{
         height: 1,
-        '& .simplebar-content': {
+        "& .simplebar-content": {
           height: 1,
-          display: 'flex',
-          flexDirection: 'column',
+          display: "flex",
+          flexDirection: "column",
         },
       }}
     >
@@ -83,7 +83,7 @@ export default function NavbarVertical({
           pb: 2,
           px: 2.5,
           flexShrink: 0,
-          ...(isCollapse && { alignItems: 'center' }),
+          ...(isCollapse && { alignItems: "center" }),
         }}
       >
         <Stack
@@ -119,7 +119,7 @@ export default function NavbarVertical({
             : NAVBAR.DASHBOARD_WIDTH,
         },
         ...(collapseClick && {
-          position: 'absolute',
+          position: "absolute",
         }),
       }}
     >
@@ -142,10 +142,10 @@ export default function NavbarVertical({
           PaperProps={{
             sx: {
               width: NAVBAR.DASHBOARD_WIDTH,
-              borderRightStyle: 'dashed',
-              bgcolor: 'background.default',
-              transition: (theme) =>
-                theme.transitions.create('width', {
+              borderRightStyle: "dashed",
+              bgcolor: "background.default",
+              transition: theme =>
+                theme.transitions.create("width", {
                   duration: theme.transitions.duration.standard,
                 }),
               ...(isCollapse && {
@@ -153,7 +153,7 @@ export default function NavbarVertical({
               }),
               ...(collapseHover && {
                 ...cssStyles(theme).bgBlur(),
-                boxShadow: (theme) => theme.customShadows.z24,
+                boxShadow: theme => theme.customShadows.z24,
               }),
             },
           }}

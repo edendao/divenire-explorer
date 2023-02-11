@@ -1,16 +1,16 @@
 // form
-import { useFormContext, Controller } from 'react-hook-form';
+import { useFormContext, Controller } from "react-hook-form";
 // @mui
 import {
   Checkbox,
   FormControlLabel,
   FormGroup,
   FormControlLabelProps,
-} from '@mui/material';
+} from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-export type RHFCheckboxProps = Omit<FormControlLabelProps, 'control'> & {
+export type RHFCheckboxProps = Omit<FormControlLabelProps, "control"> & {
   name: string;
 };
 
@@ -35,7 +35,7 @@ export function RHFCheckbox({ name, ...other }: RHFCheckboxProps) {
 
 export type RHFMultiCheckboxProps = Omit<
   FormControlLabelProps,
-  'control' | 'label'
+  "control" | "label"
 > & {
   name: string;
   options: {
@@ -63,7 +63,7 @@ export function RHFMultiCheckbox({
 
         return (
           <FormGroup>
-            {options.map((option) => (
+            {options.map(option => (
               <FormControlLabel
                 key={option.value}
                 control={

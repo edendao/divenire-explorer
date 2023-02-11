@@ -3,8 +3,8 @@ import { Box, Tooltip, ListItemButtonProps } from '@mui/material';
 // components
 import Iconify from '../../Iconify';
 //
-import { NavItemProps } from '../type';
-import { ListItemStyle, ListItemTextStyle, ListItemIconStyle } from './style';
+import { NavItemProps } from "../type";
+import { ListItemStyle, ListItemTextStyle, ListItemIconStyle } from "./style";
 
 // ----------------------------------------------------------------------
 
@@ -38,11 +38,11 @@ export default function NavItem({
         }
         primaryTypographyProps={{
           noWrap: true,
-          variant: active ? 'subtitle2' : 'body2',
+          variant: active ? "subtitle2" : "body2",
         }}
         secondaryTypographyProps={{
           noWrap: true,
-          variant: 'caption',
+          variant: "caption",
         }}
       />
 
@@ -86,15 +86,15 @@ export function DotIcon({ active }: DotIconProps) {
         sx={{
           width: 4,
           height: 4,
-          borderRadius: '50%',
-          bgcolor: 'text.disabled',
-          transition: (theme) =>
-            theme.transitions.create('transform', {
+          borderRadius: "50%",
+          bgcolor: "text.disabled",
+          transition: theme =>
+            theme.transitions.create("transform", {
               duration: theme.transitions.duration.shorter,
             }),
           ...(active && {
-            transform: 'scale(2)',
-            bgcolor: 'primary.main',
+            transform: "scale(2)",
+            bgcolor: "primary.main",
           }),
         }}
       />

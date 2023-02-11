@@ -1,12 +1,12 @@
-import { useProvider, useEnsName, useEnsAvatar } from 'wagmi';
-import { mainnet } from 'wagmi/chains';
+import { useProvider, useEnsName, useEnsAvatar } from "wagmi";
+import { mainnet } from "wagmi/chains";
 
 export function useMainnet() {
   const chainId = mainnet.id;
 
   const provider = useProvider();
   const chains = Array.isArray(provider.chains) ? provider.chains : [];
-  const enabled = chains?.some((chain) => chain?.id === chainId);
+  const enabled = chains?.some(chain => chain?.id === chainId);
 
   return { chainId, enabled };
 }

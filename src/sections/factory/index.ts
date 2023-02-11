@@ -1,1 +1,1 @@
-export * from './FactoryNewEditForm';
+export * from "./FactoryNewEditForm";
