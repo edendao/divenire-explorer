@@ -18,25 +18,19 @@ const hideScrollbar = {
 
 function NavSectionHorizontal({ navConfig }: NavSectionProps) {
   return (
-    <Stack
-      direction="row"
-      justifyContent="center"
-      sx={{ bgcolor: 'background.neutral', borderRadius: 1, px: 0.5 }}
-    >
-      <Stack direction="row" sx={{ ...hideScrollbar, py: 1 }}>
-        {navConfig.map((group) => (
-          <Stack key={group.subheader} direction="row" flexShrink={0}>
-            {group.items.map((list) => (
-              <NavList
-                key={list.title + list.path}
-                data={list}
-                depth={1}
-                hasChildren={!!list.children}
-              />
-            ))}
-          </Stack>
-        ))}
-      </Stack>
+    <Stack direction="row" sx={{ margin: '0 auto', ...hideScrollbar }}>
+      {navConfig.map((group) => (
+        <Stack key={group.subheader} direction="row" flexShrink={0}>
+          {group.items.map((list) => (
+            <NavList
+              key={list.title + list.path}
+              data={list}
+              depth={1}
+              hasChildren={!!list.children}
+            />
+          ))}
+        </Stack>
+      ))}
     </Stack>
   );
 }

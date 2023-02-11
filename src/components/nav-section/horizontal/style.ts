@@ -8,28 +8,16 @@ import { NAVBAR } from '../../../config';
 
 // ----------------------------------------------------------------------
 
-export type ListItemStyleProps = ListItemButtonProps & {
+export interface ListItemStyleProps extends ListItemButtonProps {
   open: boolean;
   active: boolean;
   depth: number;
-};
+}
 
 export const ListItemStyle = styled(ListItemButton, {
   shouldForwardProp: (prop) => prop !== 'active' && prop !== 'open',
 })<ListItemStyleProps>(({ active, depth, open, theme }) => {
-  const isLight = theme.palette.mode === 'light';
-
   const activeStyle = {
-    color: theme.palette.grey[800],
-    backgroundColor: theme.palette.common.white,
-    boxShadow: `-2px 4px 6px 0 ${alpha(
-      isLight ? theme.palette.grey[500] : theme.palette.common.black,
-      0.16
-    )}`,
-  };
-
-  const activeSubStyle = {
-    boxShadow: 'none',
     color: theme.palette.primary.main,
     backgroundColor: alpha(
       theme.palette.primary.main,
@@ -37,19 +25,25 @@ export const ListItemStyle = styled(ListItemButton, {
     ),
   };
 
+  const activeSubStyle = {
+    boxShadow: 'none',
+  };
+
   const hoverStyle = {
     color: theme.palette.text.primary,
     backgroundColor: theme.palette.action.hover,
-    boxShadow: `inset 0 0 1px 1px ${theme.palette.divider}`,
   };
 
   return {
     textTransform: 'capitalize',
-    margin: theme.spacing(0, 0.5),
+    margin: theme.spacing(0, 0, 0, 1),
     padding: theme.spacing(0, 1),
     color: theme.palette.text.secondary,
     borderRadius: theme.shape.borderRadius,
     height: NAVBAR.DASHBOARD_ITEM_HORIZONTAL_HEIGHT,
+    '&:first-of-type': {
+      marginLeft: 0,
+    },
     '&:hover': hoverStyle,
     // Active item
     ...(active && {

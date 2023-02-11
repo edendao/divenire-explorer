@@ -9,10 +9,9 @@ import {
 } from '@mui/material';
 // config
 import { ICON } from '../../../config';
-//components
-import Iconify from '../../Iconify';
 //
 import { NavItemProps } from '../type';
+import Iconify from '../../Iconify';
 import { ListItemStyle } from './style';
 
 // ----------------------------------------------------------------------
@@ -23,7 +22,7 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
   function NavItemInner({ item, depth, active, open, ...other }, ref) {
     const { title, icon, info, children, disabled, caption } = item;
 
-    const renderContent = (
+    return (
       <ListItemStyle
         ref={ref}
         open={open}
@@ -35,10 +34,12 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
         {icon && (
           <ListItemIcon
             sx={{
+              minWidth: 'auto',
               mr: 1,
+              color: 'inherit',
               flexShrink: 0,
-              width: ICON.NAVBAR_ITEM_HORIZONTAL,
-              height: ICON.NAVBAR_ITEM_HORIZONTAL,
+              width: ICON.NAVBAR_ITEM,
+              height: ICON.NAVBAR_ITEM,
             }}
           >
             {icon}
@@ -88,8 +89,6 @@ const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
         )}
       </ListItemStyle>
     );
-
-    return renderContent;
   }
 );
 

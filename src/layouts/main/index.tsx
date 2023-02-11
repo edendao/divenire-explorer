@@ -1,43 +1,14 @@
 import { useState, ReactNode } from 'react';
 // @mui
-import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 // hooks
-import { useCollapseDrawer } from '../../hooks/useCollapseDrawer';
+import { useResponsive } from '../../hooks/useResponsive';
 // config
-import { HEADER, NAVBAR } from '../../config';
-// guard
-import AuthGuard from '../../guards/AuthGuard';
+import { HEADER } from '../../config';
 //
 import DashboardHeader from './header';
 import NavbarVertical from './navbar/NavbarVertical';
-
-// ----------------------------------------------------------------------
-
-type MainStyleProps = {
-  collapseClick: boolean;
-};
-
-const MainStyle = styled('main', {
-  shouldForwardProp: (prop) => prop !== 'collapseClick',
-})<MainStyleProps>(({ collapseClick, theme }) => ({
-  flexGrow: 1,
-  paddingTop: HEADER.MOBILE_HEIGHT + 24,
-  paddingBottom: HEADER.MOBILE_HEIGHT + 24,
-  [theme.breakpoints.up('lg')]: {
-    paddingLeft: 16,
-    paddingRight: 16,
-    paddingTop: HEADER.DASHBOARD_DESKTOP_HEIGHT + 24,
-    paddingBottom: HEADER.DASHBOARD_DESKTOP_HEIGHT + 24,
-    width: `calc(100% - ${NAVBAR.DASHBOARD_WIDTH}px)`,
-    transition: theme.transitions.create('margin-left', {
-      duration: theme.transitions.duration.shorter,
-    }),
-    ...(collapseClick && {
-      marginLeft: NAVBAR.DASHBOARD_COLLAPSE_WIDTH,
-    }),
-  },
-}));
+import NavbarHorizontal from './navbar/NavbarHorizontal';
 
 // ----------------------------------------------------------------------
 
@@ -46,28 +17,38 @@ type Props = {
 };
 
 export default function DashboardLayout({ children }: Props) {
-  const { collapseClick, isCollapse } = useCollapseDrawer();
-
+  const isDesktop = useResponsive('up', 'lg');
   const [open, setOpen] = useState(false);
 
   return (
-    <Box
-      sx={{
-        display: { lg: 'flex' },
-        minHeight: { lg: 1 },
-      }}
-    >
-      <DashboardHeader
-        isCollapse={isCollapse}
-        onOpenSidebar={() => setOpen(true)}
-      />
+    <>
+      <DashboardHeader onOpenSidebar={() => setOpen(true)} verticalLayout />
 
-      <NavbarVertical
-        isOpenSidebar={open}
-        onCloseSidebar={() => setOpen(false)}
-      />
+      {isDesktop ? (
+        <NavbarHorizontal />
+      ) : (
+        <NavbarVertical
+          isOpenSidebar={open}
+          onCloseSidebar={() => setOpen(false)}
+        />
+      )}
 
-      <MainStyle collapseClick={collapseClick}>{children}</MainStyle>
-    </Box>
+      <Box
+        component="main"
+        sx={{
+          px: { lg: 2 },
+          pt: {
+            xs: `${HEADER.MOBILE_HEIGHT + 24}px`,
+            lg: `${HEADER.DASHBOARD_DESKTOP_HEIGHT + 80}px`,
+          },
+          pb: {
+            xs: `${HEADER.MOBILE_HEIGHT + 24}px`,
+            lg: `${HEADER.DASHBOARD_DESKTOP_HEIGHT + 24}px`,
+          },
+        }}
+      >
+        {children}
+      </Box>
+    </>
   );
 }

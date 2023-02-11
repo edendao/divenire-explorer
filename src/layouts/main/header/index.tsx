@@ -1,6 +1,6 @@
 // @mui
 import { styled } from '@mui/material/styles';
-import { Box, Stack, AppBar, Toolbar } from '@mui/material';
+import { Box, Stack, AppBar, Toolbar, Typography } from '@mui/material';
 // hooks
 import { useOffSetTop } from '../../../hooks/useOffsetTop';
 import { useResponsive } from '../../../hooks/useResponsive';
@@ -11,8 +11,8 @@ import { HEADER, NAVBAR } from '../../../config';
 // components
 import { IconButtonAnimate } from '../../../components/animate';
 import Iconify from '../../../components/Iconify';
+import ConnectButton from '../../../components/ConnectButton';
 //
-import ConnectionPopover from './ConnectionPopover';
 import Searchbar from './Searchbar';
 
 // ----------------------------------------------------------------------
@@ -31,6 +31,7 @@ const RootStyle = styled(AppBar, {
   boxShadow: 'none',
   height: HEADER.MOBILE_HEIGHT,
   zIndex: theme.zIndex.appBar + 1,
+  color: theme.palette.text.primary,
   transition: theme.transitions.create(['width', 'height'], {
     duration: theme.transitions.duration.shorter,
   }),
@@ -46,14 +47,14 @@ const RootStyle = styled(AppBar, {
     ...(verticalLayout && {
       width: '100%',
       height: HEADER.DASHBOARD_DESKTOP_OFFSET_HEIGHT,
-      backgroundColor: theme.palette.background.default,
+      borderBottom: `1px dashed ${theme.palette.grey[500_24]}`,
     }),
   },
 }));
 
 // ----------------------------------------------------------------------
 
-type Props = {
+type DashboardHeaderProps = {
   onOpenSidebar: VoidFunction;
   isCollapse?: boolean;
   verticalLayout?: boolean;
@@ -63,7 +64,8 @@ export default function DashboardHeader({
   onOpenSidebar,
   isCollapse = false,
   verticalLayout = false,
-}: Props) {
+  children,
+}: React.PropsWithChildren<DashboardHeaderProps>) {
   const isOffset =
     useOffSetTop(HEADER.DASHBOARD_DESKTOP_HEIGHT) && !verticalLayout;
 
@@ -81,6 +83,10 @@ export default function DashboardHeader({
           px: { lg: 5 },
         }}
       >
+        {isDesktop && verticalLayout && (
+          <Typography sx={{ mr: 2.5 }}>Divenire</Typography>
+        )}
+
         {!isDesktop && (
           <IconButtonAnimate
             onClick={onOpenSidebar}
@@ -98,7 +104,7 @@ export default function DashboardHeader({
           alignItems="center"
           spacing={{ xs: 0.5, sm: 1.5, color: 'text.primary' }}
         >
-          <ConnectionPopover />
+          <ConnectButton />
         </Stack>
       </Toolbar>
     </RootStyle>

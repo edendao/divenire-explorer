@@ -1,7 +1,9 @@
 import { memo } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Container, AppBar } from '@mui/material';
+import { AppBar, Box, Container, Toolbar } from '@mui/material';
+// utils
+import cssStyles from '../../../utils/cssStyles';
 // config
 import { HEADER } from '../../../config';
 // components
@@ -12,27 +14,52 @@ import navConfig from './NavConfig';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
+  ...cssStyles(theme).bgBlur(),
   transition: theme.transitions.create('top', {
     easing: theme.transitions.easing.easeInOut,
     duration: theme.transitions.duration.shorter,
   }),
   width: '100%',
+  height: HEADER.MOBILE_HEIGHT,
   position: 'fixed',
   zIndex: theme.zIndex.appBar,
-  padding: theme.spacing(1, 0),
-  boxShadow: theme.customShadows.z8,
+  left: 'auto',
+  right: 0,
+  color: 'inherit',
+  boxShadow: 'none',
   top: HEADER.DASHBOARD_DESKTOP_OFFSET_HEIGHT,
-  backgroundColor: theme.palette.background.default,
+  [theme.breakpoints.up('lg')]: {
+    height: HEADER.DASHBOARD_DESKTOP_OFFSET_HEIGHT,
+  },
 }));
 
 // ----------------------------------------------------------------------
 
 function NavbarHorizontal() {
   return (
-    <RootStyle>
-      <Container maxWidth={false}>
+    <RootStyle as="nav">
+      <Toolbar
+        sx={{
+          width: '100%',
+          minHeight: '100% !important',
+        }}
+      >
         <NavSectionHorizontal navConfig={navConfig} />
-      </Container>
+      </Toolbar>
+      <Box
+        sx={(theme) => ({
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: 24,
+          zIndex: -1,
+          width: '100%',
+          margin: 'auto',
+          borderRadius: ' 50%',
+          position: 'absolute',
+          boxShadow: theme.customShadows.z8,
+        })}
+      />
     </RootStyle>
   );
 }
