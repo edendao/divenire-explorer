@@ -10,8 +10,8 @@ import {
   UsePrepareContractWriteConfig,
   useContractEvent,
   UseContractEventConfig,
-} from "wagmi";
-import { WriteContractMode, PrepareWriteContractResult } from "wagmi/actions";
+} from 'wagmi';
+import { WriteContractMode, PrepareWriteContractResult } from 'wagmi/actions';
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Certificates
@@ -19,308 +19,308 @@ import { WriteContractMode, PrepareWriteContractResult } from "wagmi/actions";
 
 export const certificatesABI = [
   {
-    type: "error",
+    type: 'error',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "Certificates__ValuesException",
+    name: 'Certificates__ValuesException',
   },
-  { type: "error", inputs: [], name: "ComponentFacet__Initialized" },
-  { type: "error", inputs: [], name: "ERC1155Base__ArrayLengthMismatch" },
-  { type: "error", inputs: [], name: "ERC1155Base__BalanceQueryZeroAddress" },
-  { type: "error", inputs: [], name: "ERC1155Base__BurnExceedsBalance" },
-  { type: "error", inputs: [], name: "ERC1155Base__BurnFromZeroAddress" },
+  { type: 'error', inputs: [], name: 'ComponentFacet__Initialized' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__ArrayLengthMismatch' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BalanceQueryZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BurnExceedsBalance' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BurnFromZeroAddress' },
   {
-    type: "error",
+    type: 'error',
     inputs: [],
-    name: "ERC1155Base__ERC1155ReceiverNotImplemented",
+    name: 'ERC1155Base__ERC1155ReceiverNotImplemented',
   },
-  { type: "error", inputs: [], name: "ERC1155Base__ERC1155ReceiverRejected" },
-  { type: "error", inputs: [], name: "ERC1155Base__MintToZeroAddress" },
-  { type: "error", inputs: [], name: "ERC1155Base__NotOwnerOrApproved" },
-  { type: "error", inputs: [], name: "ERC1155Base__SelfApproval" },
-  { type: "error", inputs: [], name: "ERC1155Base__TransferExceedsBalance" },
-  { type: "error", inputs: [], name: "ERC1155Base__TransferToZeroAddress" },
-  { type: "error", inputs: [], name: "ERC165Base__InvalidInterfaceId" },
-  { type: "error", inputs: [], name: "EnumerableSet__IndexOutOfBounds" },
-  { type: "error", inputs: [], name: "CertificatesMatcher__ValidationFailed" },
+  { type: 'error', inputs: [], name: 'ERC1155Base__ERC1155ReceiverRejected' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__MintToZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__NotOwnerOrApproved' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__SelfApproval' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__TransferExceedsBalance' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__TransferToZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC165Base__InvalidInterfaceId' },
+  { type: 'error', inputs: [], name: 'EnumerableSet__IndexOutOfBounds' },
+  { type: 'error', inputs: [], name: 'CertificatesMatcher__ValidationFailed' },
   {
-    type: "error",
+    type: 'error',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "CertificatesMetadata__EvaluationException",
+    name: 'CertificatesMetadata__EvaluationException',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "account",
-        internalType: "address",
-        type: "address",
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "approved", internalType: "bool", type: "bool", indexed: false },
+      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
     ],
-    name: "ApprovalForAll",
+    name: 'ApprovalForAll',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "from", internalType: "address", type: "address", indexed: true },
-      { name: "to", internalType: "address", type: "address", indexed: true },
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
       {
-        name: "ids",
-        internalType: "uint256[]",
-        type: "uint256[]",
+        name: 'ids',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
         indexed: false,
       },
       {
-        name: "values",
-        internalType: "uint256[]",
-        type: "uint256[]",
+        name: 'values',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
         indexed: false,
       },
     ],
-    name: "TransferBatch",
+    name: 'TransferBatch',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "from", internalType: "address", type: "address", indexed: true },
-      { name: "to", internalType: "address", type: "address", indexed: true },
-      { name: "id", internalType: "uint256", type: "uint256", indexed: false },
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
+      { name: 'id', internalType: 'uint256', type: 'uint256', indexed: false },
       {
-        name: "value",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
         indexed: false,
       },
     ],
-    name: "TransferSingle",
+    name: 'TransferSingle',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
-      { name: "value", internalType: "string", type: "string", indexed: false },
+      { name: 'value', internalType: 'string', type: 'string', indexed: false },
       {
-        name: "tokenId",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
         indexed: true,
       },
     ],
-    name: "URI",
+    name: 'URI',
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "accountsByToken",
-    outputs: [{ name: "", internalType: "address[]", type: "address[]" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'accountsByToken',
+    outputs: [{ name: '', internalType: 'address[]', type: 'address[]' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "account", internalType: "address", type: "address" },
-      { name: "id", internalType: "uint256", type: "uint256" },
+      { name: 'account', internalType: 'address', type: 'address' },
+      { name: 'id', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "balanceOf",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    name: 'balanceOf',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "accounts", internalType: "address[]", type: "address[]" },
-      { name: "ids", internalType: "uint256[]", type: "uint256[]" },
+      { name: 'accounts', internalType: 'address[]', type: 'address[]' },
+      { name: 'ids', internalType: 'uint256[]', type: 'uint256[]' },
     ],
-    name: "balanceOfBatch",
-    outputs: [{ name: "", internalType: "uint256[]", type: "uint256[]" }],
+    name: 'balanceOfBatch',
+    outputs: [{ name: '', internalType: 'uint256[]', type: 'uint256[]' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "certificateID", internalType: "uint256", type: "uint256" },
-      { name: "certificateCount", internalType: "uint256", type: "uint256" },
-      { name: "receiver", internalType: "address", type: "address" },
+      { name: 'certificateID', internalType: 'uint256', type: 'uint256' },
+      { name: 'certificateCount', internalType: 'uint256', type: 'uint256' },
+      { name: 'receiver', internalType: 'address', type: 'address' },
     ],
-    name: "burn",
+    name: 'burn',
     outputs: [
-      { name: "claimID", internalType: "uint128", type: "uint128" },
-      { name: "claimCount", internalType: "uint256", type: "uint256" },
+      { name: 'claimID', internalType: 'uint128', type: 'uint128' },
+      { name: 'claimCount', internalType: 'uint256', type: 'uint256' },
     ],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "account", internalType: "address", type: "address" },
-      { name: "operator", internalType: "address", type: "address" },
+      { name: 'account', internalType: 'address', type: 'address' },
+      { name: 'operator', internalType: 'address', type: 'address' },
     ],
-    name: "isApprovedForAll",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    name: 'isApprovedForAll',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "claimID", internalType: "uint128", type: "uint128" },
-      { name: "methodologyID", internalType: "uint64", type: "uint64" },
-      { name: "claimCount", internalType: "uint256", type: "uint256" },
-      { name: "receiver", internalType: "address", type: "address" },
+      { name: 'claimID', internalType: 'uint128', type: 'uint128' },
+      { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
+      { name: 'claimCount', internalType: 'uint256', type: 'uint256' },
+      { name: 'receiver', internalType: 'address', type: 'address' },
     ],
-    name: "mint",
+    name: 'mint',
     outputs: [
-      { name: "certificateID", internalType: "uint256", type: "uint256" },
-      { name: "certificateCount", internalType: "uint256", type: "uint256" },
+      { name: 'certificateID', internalType: 'uint256', type: 'uint256' },
+      { name: 'certificateCount', internalType: 'uint256', type: 'uint256' },
     ],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "uint256[]", type: "uint256[]" },
-      { name: "", internalType: "uint256[]", type: "uint256[]" },
-      { name: "", internalType: "bytes", type: "bytes" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: '', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: '', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "onERC1155BatchReceived",
-    outputs: [{ name: "", internalType: "bytes4", type: "bytes4" }],
+    name: 'onERC1155BatchReceived',
+    outputs: [{ name: '', internalType: 'bytes4', type: 'bytes4' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "uint256", type: "uint256" },
-      { name: "", internalType: "uint256", type: "uint256" },
-      { name: "", internalType: "bytes", type: "bytes" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'uint256', type: 'uint256' },
+      { name: '', internalType: 'uint256', type: 'uint256' },
+      { name: '', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "onERC1155Received",
-    outputs: [{ name: "", internalType: "bytes4", type: "bytes4" }],
+    name: 'onERC1155Received',
+    outputs: [{ name: '', internalType: 'bytes4', type: 'bytes4' }],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "from", internalType: "address", type: "address" },
-      { name: "to", internalType: "address", type: "address" },
-      { name: "ids", internalType: "uint256[]", type: "uint256[]" },
-      { name: "amounts", internalType: "uint256[]", type: "uint256[]" },
-      { name: "data", internalType: "bytes", type: "bytes" },
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'ids', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: 'amounts', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: 'data', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "safeBatchTransferFrom",
+    name: 'safeBatchTransferFrom',
     outputs: [],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "from", internalType: "address", type: "address" },
-      { name: "to", internalType: "address", type: "address" },
-      { name: "id", internalType: "uint256", type: "uint256" },
-      { name: "amount", internalType: "uint256", type: "uint256" },
-      { name: "data", internalType: "bytes", type: "bytes" },
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'id', internalType: 'uint256', type: 'uint256' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: 'data', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "safeTransferFrom",
+    name: 'safeTransferFrom',
     outputs: [],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "operator", internalType: "address", type: "address" },
-      { name: "status", internalType: "bool", type: "bool" },
+      { name: 'operator', internalType: 'address', type: 'address' },
+      { name: 'status', internalType: 'bool', type: 'bool' },
     ],
-    name: "setApprovalForAll",
+    name: 'setApprovalForAll',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "account", internalType: "address", type: "address" }],
-    name: "tokensByAccount",
-    outputs: [{ name: "", internalType: "uint256[]", type: "uint256[]" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+    name: 'tokensByAccount',
+    outputs: [{ name: '', internalType: 'uint256[]', type: 'uint256[]' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "totalHolders",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'totalHolders',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "totalSupply",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'totalSupply',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "tokenId", internalType: "uint256", type: "uint256" },
-      { name: "propertyData", internalType: "bytes", type: "bytes" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: 'tokenId', internalType: 'uint256', type: 'uint256' },
+      { name: 'propertyData', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "validateProperty",
+    name: 'validateProperty',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "name",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'name',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "symbol",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'symbol',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "uri",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'uri',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
-    inputs: [{ name: "data", internalType: "bytes[]", type: "bytes[]" }],
-    name: "multicall",
-    outputs: [{ name: "", internalType: "bytes[]", type: "bytes[]" }],
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'data', internalType: 'bytes[]', type: 'bytes[]' }],
+    name: 'multicall',
+    outputs: [{ name: '', internalType: 'bytes[]', type: 'bytes[]' }],
   },
 ] as const;
 
@@ -329,329 +329,329 @@ export const certificatesABI = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const groupABI = [
-  { type: "error", inputs: [], name: "ERC165Base__InvalidInterfaceId" },
-  { type: "error", inputs: [], name: "Factory__FailedDeployment" },
-  { type: "error", inputs: [], name: "GroupAccess__InitializeFailed" },
-  { type: "error", inputs: [], name: "GroupAccess__InvalidAuthority" },
-  { type: "error", inputs: [], name: "GroupAccess__Unauthorized" },
-  { type: "error", inputs: [], name: "ComponentFacet__Initialized" },
-  { type: "error", inputs: [], name: "GroupAccessToken__InvalidRecipient" },
-  { type: "error", inputs: [], name: "GroupAccessToken__Limit" },
-  { type: "error", inputs: [], name: "GroupAccessToken__Unauthorized" },
-  { type: "error", inputs: [], name: "ERC721Base__BalanceQueryZeroAddress" },
+  { type: 'error', inputs: [], name: 'ERC165Base__InvalidInterfaceId' },
+  { type: 'error', inputs: [], name: 'Factory__FailedDeployment' },
+  { type: 'error', inputs: [], name: 'GroupAccess__InitializeFailed' },
+  { type: 'error', inputs: [], name: 'GroupAccess__InvalidAuthority' },
+  { type: 'error', inputs: [], name: 'GroupAccess__Unauthorized' },
+  { type: 'error', inputs: [], name: 'ComponentFacet__Initialized' },
+  { type: 'error', inputs: [], name: 'GroupAccessToken__InvalidRecipient' },
+  { type: 'error', inputs: [], name: 'GroupAccessToken__Limit' },
+  { type: 'error', inputs: [], name: 'GroupAccessToken__Unauthorized' },
+  { type: 'error', inputs: [], name: 'ERC721Base__BalanceQueryZeroAddress' },
   {
-    type: "error",
+    type: 'error',
     inputs: [],
-    name: "ERC721Base__ERC721ReceiverNotImplemented",
+    name: 'ERC721Base__ERC721ReceiverNotImplemented',
   },
-  { type: "error", inputs: [], name: "ERC721Base__InvalidOwner" },
-  { type: "error", inputs: [], name: "ERC721Base__MintToZeroAddress" },
-  { type: "error", inputs: [], name: "ERC721Base__NonExistentToken" },
-  { type: "error", inputs: [], name: "ERC721Base__NotOwnerOrApproved" },
-  { type: "error", inputs: [], name: "ERC721Base__NotTokenOwner" },
-  { type: "error", inputs: [], name: "ERC721Base__SelfApproval" },
-  { type: "error", inputs: [], name: "ERC721Base__TokenAlreadyMinted" },
-  { type: "error", inputs: [], name: "ERC721Base__TransferToZeroAddress" },
-  { type: "error", inputs: [], name: "ERC721Metadata__NonExistentToken" },
-  { type: "error", inputs: [], name: "GroupInternal__Unauthorized" },
+  { type: 'error', inputs: [], name: 'ERC721Base__InvalidOwner' },
+  { type: 'error', inputs: [], name: 'ERC721Base__MintToZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC721Base__NonExistentToken' },
+  { type: 'error', inputs: [], name: 'ERC721Base__NotOwnerOrApproved' },
+  { type: 'error', inputs: [], name: 'ERC721Base__NotTokenOwner' },
+  { type: 'error', inputs: [], name: 'ERC721Base__SelfApproval' },
+  { type: 'error', inputs: [], name: 'ERC721Base__TokenAlreadyMinted' },
+  { type: 'error', inputs: [], name: 'ERC721Base__TransferToZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC721Metadata__NonExistentToken' },
+  { type: 'error', inputs: [], name: 'GroupInternal__Unauthorized' },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
-      { name: "id", internalType: "uint64", type: "uint64", indexed: true },
+      { name: 'id', internalType: 'uint64', type: 'uint64', indexed: true },
       {
-        name: "authority",
-        internalType: "contract IAuthority",
-        type: "address",
+        name: 'authority',
+        internalType: 'contract IAuthority',
+        type: 'address',
         indexed: true,
       },
     ],
-    name: "AuthorityUpdated",
+    name: 'AuthorityUpdated',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "owner",
-        internalType: "address",
-        type: "address",
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "tokenId",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
         indexed: true,
       },
     ],
-    name: "Approval",
+    name: 'Approval',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "owner",
-        internalType: "address",
-        type: "address",
+        name: 'owner',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "approved", internalType: "bool", type: "bool", indexed: false },
+      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
     ],
-    name: "ApprovalForAll",
+    name: 'ApprovalForAll',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
-      { name: "from", internalType: "address", type: "address", indexed: true },
-      { name: "to", internalType: "address", type: "address", indexed: true },
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
       {
-        name: "tokenId",
-        internalType: "uint256",
-        type: "uint256",
-        indexed: true,
-      },
-    ],
-    name: "Transfer",
-  },
-  {
-    type: "event",
-    anonymous: false,
-    inputs: [
-      {
-        name: "tokenId",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
         indexed: true,
       },
     ],
-    name: "MetadataUpdate",
+    name: 'Transfer',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
-      { name: "id", internalType: "uint64", type: "uint64", indexed: true },
       {
-        name: "metadataURI",
-        internalType: "string",
-        type: "string",
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+    ],
+    name: 'MetadataUpdate',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'id', internalType: 'uint64', type: 'uint64', indexed: true },
+      {
+        name: 'metadataURI',
+        internalType: 'string',
+        type: 'string',
         indexed: false,
       },
     ],
-    name: "MetadataUpdated",
+    name: 'MetadataUpdated',
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "id", internalType: "uint64", type: "uint64" },
-      { name: "caller", internalType: "address", type: "address" },
-      { name: "target", internalType: "address", type: "address" },
-      { name: "sig", internalType: "bytes4", type: "bytes4" },
+      { name: 'id', internalType: 'uint64', type: 'uint64' },
+      { name: 'caller', internalType: 'address', type: 'address' },
+      { name: 'target', internalType: 'address', type: 'address' },
+      { name: 'sig', internalType: 'bytes4', type: 'bytes4' },
     ],
-    name: "canCall",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    name: 'canCall',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "_owner", internalType: "address", type: "address" },
+      { name: '_owner', internalType: 'address', type: 'address' },
       {
-        name: "_authority",
-        internalType: "contract IAuthority",
-        type: "address",
+        name: '_authority',
+        internalType: 'contract IAuthority',
+        type: 'address',
       },
     ],
-    name: "createAuthority",
+    name: 'createAuthority',
     outputs: [
       {
-        name: "authority",
-        internalType: "contract IAuthority",
-        type: "address",
+        name: 'authority',
+        internalType: 'contract IAuthority',
+        type: 'address',
       },
     ],
   },
   {
-    stateMutability: "payable",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint64", type: "uint64" }],
-    name: "createDefaultAuthority",
+    stateMutability: 'payable',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint64', type: 'uint64' }],
+    name: 'createDefaultAuthority',
     outputs: [
       {
-        name: "authority",
-        internalType: "contract IAuthority",
-        type: "address",
+        name: 'authority',
+        internalType: 'contract IAuthority',
+        type: 'address',
       },
     ],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint64", type: "uint64" }],
-    name: "getAuthority",
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint64', type: 'uint64' }],
+    name: 'getAuthority',
     outputs: [
-      { name: "", internalType: "contract IAuthority", type: "address" },
+      { name: '', internalType: 'contract IAuthority', type: 'address' },
     ],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "id", internalType: "uint64", type: "uint64" },
+      { name: 'id', internalType: 'uint64', type: 'uint64' },
       {
-        name: "authority",
-        internalType: "contract IAuthority",
-        type: "address",
+        name: 'authority',
+        internalType: 'contract IAuthority',
+        type: 'address',
       },
     ],
-    name: "setAuthority",
+    name: 'setAuthority',
     outputs: [],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "operator", internalType: "address", type: "address" },
-      { name: "id", internalType: "uint256", type: "uint256" },
+      { name: 'operator', internalType: 'address', type: 'address' },
+      { name: 'id', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "approve",
+    name: 'approve',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "owner", internalType: "address", type: "address" }],
-    name: "balanceOf",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
+    name: 'balanceOf',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [],
-    name: "create",
-    outputs: [{ name: "id", internalType: "uint64", type: "uint64" }],
+    name: 'create',
+    outputs: [{ name: 'id', internalType: 'uint64', type: 'uint64' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "getApproved",
-    outputs: [{ name: "", internalType: "address", type: "address" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'getApproved',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "account", internalType: "address", type: "address" },
-      { name: "operator", internalType: "address", type: "address" },
+      { name: 'account', internalType: 'address', type: 'address' },
+      { name: 'operator', internalType: 'address', type: 'address' },
     ],
-    name: "isApprovedForAll",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    name: 'isApprovedForAll',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "ownerOf",
-    outputs: [{ name: "", internalType: "address", type: "address" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'ownerOf',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "from", internalType: "address", type: "address" },
-      { name: "to", internalType: "address", type: "address" },
-      { name: "id", internalType: "uint256", type: "uint256" },
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'id', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "safeTransferFrom",
+    name: 'safeTransferFrom',
     outputs: [],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "from", internalType: "address", type: "address" },
-      { name: "to", internalType: "address", type: "address" },
-      { name: "id", internalType: "uint256", type: "uint256" },
-      { name: "data", internalType: "bytes", type: "bytes" },
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'id', internalType: 'uint256', type: 'uint256' },
+      { name: 'data', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "safeTransferFrom",
+    name: 'safeTransferFrom',
     outputs: [],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "operator", internalType: "address", type: "address" },
-      { name: "approved", internalType: "bool", type: "bool" },
+      { name: 'operator', internalType: 'address', type: 'address' },
+      { name: 'approved', internalType: 'bool', type: 'bool' },
     ],
-    name: "setApprovalForAll",
+    name: 'setApprovalForAll',
     outputs: [],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "from", internalType: "address", type: "address" },
-      { name: "to", internalType: "address", type: "address" },
-      { name: "id", internalType: "uint256", type: "uint256" },
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'id', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "transferFrom",
+    name: 'transferFrom',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "name",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'name',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "id", internalType: "uint64", type: "uint64" },
-      { name: "uri", internalType: "string", type: "string" },
+      { name: 'id', internalType: 'uint64', type: 'uint64' },
+      { name: 'uri', internalType: 'string', type: 'string' },
     ],
-    name: "setTokenURI",
+    name: 'setTokenURI',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "symbol",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'symbol',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "tokenID", internalType: "uint256", type: "uint256" }],
-    name: "tokenURI",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'tokenID', internalType: 'uint256', type: 'uint256' }],
+    name: 'tokenURI',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
-    inputs: [{ name: "data", internalType: "bytes[]", type: "bytes[]" }],
-    name: "multicall",
-    outputs: [{ name: "", internalType: "bytes[]", type: "bytes[]" }],
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'data', internalType: 'bytes[]', type: 'bytes[]' }],
+    name: 'multicall',
+    outputs: [{ name: '', internalType: 'bytes[]', type: 'bytes[]' }],
   },
 ] as const;
 
@@ -660,1015 +660,1015 @@ export const groupABI = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const impactABI = [
-  { type: "error", inputs: [], name: "ComponentFacet__Initialized" },
-  { type: "error", inputs: [], name: "ERC1155Base__ArrayLengthMismatch" },
-  { type: "error", inputs: [], name: "ERC1155Base__BalanceQueryZeroAddress" },
-  { type: "error", inputs: [], name: "ERC1155Base__BurnExceedsBalance" },
-  { type: "error", inputs: [], name: "ERC1155Base__BurnFromZeroAddress" },
+  { type: 'error', inputs: [], name: 'ComponentFacet__Initialized' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__ArrayLengthMismatch' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BalanceQueryZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BurnExceedsBalance' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BurnFromZeroAddress' },
   {
-    type: "error",
+    type: 'error',
     inputs: [],
-    name: "ERC1155Base__ERC1155ReceiverNotImplemented",
+    name: 'ERC1155Base__ERC1155ReceiverNotImplemented',
   },
-  { type: "error", inputs: [], name: "ERC1155Base__ERC1155ReceiverRejected" },
-  { type: "error", inputs: [], name: "ERC1155Base__MintToZeroAddress" },
-  { type: "error", inputs: [], name: "ERC1155Base__NotOwnerOrApproved" },
-  { type: "error", inputs: [], name: "ERC1155Base__SelfApproval" },
-  { type: "error", inputs: [], name: "ERC1155Base__TransferExceedsBalance" },
-  { type: "error", inputs: [], name: "ERC1155Base__TransferToZeroAddress" },
-  { type: "error", inputs: [], name: "ERC165Base__InvalidInterfaceId" },
-  { type: "error", inputs: [], name: "EnumerableSet__IndexOutOfBounds" },
-  { type: "error", inputs: [], name: "ImpactClaims__InvalidCaller" },
-  { type: "error", inputs: [], name: "ImpactInternal__CallFailed" },
-  { type: "error", inputs: [], name: "ImpactInternal__Unauthorized" },
-  { type: "error", inputs: [], name: "ImpactNonces__Invalid" },
-  { type: "error", inputs: [], name: "ImpactEvaluations__InvalidCaller" },
+  { type: 'error', inputs: [], name: 'ERC1155Base__ERC1155ReceiverRejected' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__MintToZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__NotOwnerOrApproved' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__SelfApproval' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__TransferExceedsBalance' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__TransferToZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC165Base__InvalidInterfaceId' },
+  { type: 'error', inputs: [], name: 'EnumerableSet__IndexOutOfBounds' },
+  { type: 'error', inputs: [], name: 'ImpactClaims__InvalidCaller' },
+  { type: 'error', inputs: [], name: 'ImpactInternal__CallFailed' },
+  { type: 'error', inputs: [], name: 'ImpactInternal__Unauthorized' },
+  { type: 'error', inputs: [], name: 'ImpactNonces__Invalid' },
+  { type: 'error', inputs: [], name: 'ImpactEvaluations__InvalidCaller' },
   {
-    type: "error",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "ImpactReader__InvalidClaim",
+    type: 'error',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'ImpactReader__InvalidClaim',
   },
   {
-    type: "error",
+    type: 'error',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "ImpactReader__InvalidEvaluation",
+    name: 'ImpactReader__InvalidEvaluation',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "account",
-        internalType: "address",
-        type: "address",
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "approved", internalType: "bool", type: "bool", indexed: false },
+      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
     ],
-    name: "ApprovalForAll",
+    name: 'ApprovalForAll',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "signer",
-        internalType: "address",
-        type: "address",
+        name: 'signer',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "generatorID",
-        internalType: "uint64",
-        type: "uint64",
+        name: 'generatorID',
+        internalType: 'uint64',
+        type: 'uint64',
         indexed: true,
       },
       {
-        name: "recordID",
-        internalType: "uint64",
-        type: "uint64",
+        name: 'recordID',
+        internalType: 'uint64',
+        type: 'uint64',
         indexed: true,
       },
       {
-        name: "validFrom",
-        internalType: "uint32",
-        type: "uint32",
+        name: 'validFrom',
+        internalType: 'uint32',
+        type: 'uint32',
         indexed: false,
       },
       {
-        name: "validTo",
-        internalType: "uint32",
-        type: "uint32",
+        name: 'validTo',
+        internalType: 'uint32',
+        type: 'uint32',
         indexed: false,
       },
       {
-        name: "timestamp",
-        internalType: "uint32",
-        type: "uint32",
+        name: 'timestamp',
+        internalType: 'uint32',
+        type: 'uint32',
         indexed: false,
       },
-      { name: "value", internalType: "uint32", type: "uint32", indexed: false },
-      { name: "uri", internalType: "string", type: "string", indexed: false },
+      { name: 'value', internalType: 'uint32', type: 'uint32', indexed: false },
+      { name: 'uri', internalType: 'string', type: 'string', indexed: false },
     ],
-    name: "Claimed",
+    name: 'Claimed',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "signer",
-        internalType: "address",
-        type: "address",
+        name: 'signer',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "generatorID",
-        internalType: "uint64",
-        type: "uint64",
+        name: 'generatorID',
+        internalType: 'uint64',
+        type: 'uint64',
         indexed: true,
       },
       {
-        name: "recordID",
-        internalType: "uint64",
-        type: "uint64",
+        name: 'recordID',
+        internalType: 'uint64',
+        type: 'uint64',
         indexed: true,
       },
     ],
-    name: "RevokedClaim",
+    name: 'RevokedClaim',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "from", internalType: "address", type: "address", indexed: true },
-      { name: "to", internalType: "address", type: "address", indexed: true },
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
       {
-        name: "ids",
-        internalType: "uint256[]",
-        type: "uint256[]",
+        name: 'ids',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
         indexed: false,
       },
       {
-        name: "values",
-        internalType: "uint256[]",
-        type: "uint256[]",
+        name: 'values',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
         indexed: false,
       },
     ],
-    name: "TransferBatch",
+    name: 'TransferBatch',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "from", internalType: "address", type: "address", indexed: true },
-      { name: "to", internalType: "address", type: "address", indexed: true },
-      { name: "id", internalType: "uint256", type: "uint256", indexed: false },
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
+      { name: 'id', internalType: 'uint256', type: 'uint256', indexed: false },
       {
-        name: "value",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
         indexed: false,
       },
     ],
-    name: "TransferSingle",
+    name: 'TransferSingle',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "signer",
-        internalType: "address",
-        type: "address",
+        name: 'signer',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "methodologyID",
-        internalType: "uint64",
-        type: "uint64",
+        name: 'methodologyID',
+        internalType: 'uint64',
+        type: 'uint64',
         indexed: true,
       },
       {
-        name: "claimID",
-        internalType: "uint128",
-        type: "uint128",
+        name: 'claimID',
+        internalType: 'uint128',
+        type: 'uint128',
         indexed: true,
       },
       {
-        name: "validFrom",
-        internalType: "uint32",
-        type: "uint32",
+        name: 'validFrom',
+        internalType: 'uint32',
+        type: 'uint32',
         indexed: false,
       },
       {
-        name: "validTo",
-        internalType: "uint32",
-        type: "uint32",
+        name: 'validTo',
+        internalType: 'uint32',
+        type: 'uint32',
         indexed: false,
       },
       {
-        name: "timestamp",
-        internalType: "uint32",
-        type: "uint32",
+        name: 'timestamp',
+        internalType: 'uint32',
+        type: 'uint32',
         indexed: false,
       },
-      { name: "value", internalType: "uint32", type: "uint32", indexed: false },
-      { name: "uri", internalType: "string", type: "string", indexed: false },
+      { name: 'value', internalType: 'uint32', type: 'uint32', indexed: false },
+      { name: 'uri', internalType: 'string', type: 'string', indexed: false },
     ],
-    name: "Evaluated",
+    name: 'Evaluated',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "signer",
-        internalType: "address",
-        type: "address",
+        name: 'signer',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "methodologyID",
-        internalType: "uint64",
-        type: "uint64",
+        name: 'methodologyID',
+        internalType: 'uint64',
+        type: 'uint64',
         indexed: true,
       },
       {
-        name: "claimID",
-        internalType: "uint128",
-        type: "uint128",
-        indexed: true,
-      },
-    ],
-    name: "RevokedEvaluation",
-  },
-  {
-    type: "event",
-    anonymous: false,
-    inputs: [
-      { name: "value", internalType: "string", type: "string", indexed: false },
-      {
-        name: "tokenId",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'claimID',
+        internalType: 'uint128',
+        type: 'uint128',
         indexed: true,
       },
     ],
-    name: "URI",
+    name: 'RevokedEvaluation',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
-      { name: "from", internalType: "address", type: "address", indexed: true },
+      { name: 'value', internalType: 'string', type: 'string', indexed: false },
       {
-        name: "wordPos",
-        internalType: "uint248",
-        type: "uint248",
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: true,
+      },
+    ],
+    name: 'URI',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      {
+        name: 'wordPos',
+        internalType: 'uint248',
+        type: 'uint248',
         indexed: true,
       },
       {
-        name: "mask",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'mask',
+        internalType: 'uint256',
+        type: 'uint256',
         indexed: false,
       },
     ],
-    name: "UnorderedNonceInvalidation",
+    name: 'UnorderedNonceInvalidation',
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "CLAIM_PARAMS_TYPEHASH",
-    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    name: 'CLAIM_PARAMS_TYPEHASH',
+    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "REVOKE_CLAIM_TYPEHASH",
-    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    name: 'REVOKE_CLAIM_TYPEHASH',
+    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "accountsByToken",
-    outputs: [{ name: "", internalType: "address[]", type: "address[]" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'accountsByToken',
+    outputs: [{ name: '', internalType: 'address[]', type: 'address[]' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "account", internalType: "address", type: "address" },
-      { name: "id", internalType: "uint256", type: "uint256" },
+      { name: 'account', internalType: 'address', type: 'address' },
+      { name: 'id', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "balanceOf",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    name: 'balanceOf',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "accounts", internalType: "address[]", type: "address[]" },
-      { name: "ids", internalType: "uint256[]", type: "uint256[]" },
+      { name: 'accounts', internalType: 'address[]', type: 'address[]' },
+      { name: 'ids', internalType: 'uint256[]', type: 'uint256[]' },
     ],
-    name: "balanceOfBatch",
-    outputs: [{ name: "", internalType: "uint256[]", type: "uint256[]" }],
+    name: 'balanceOfBatch',
+    outputs: [{ name: '', internalType: 'uint256[]', type: 'uint256[]' }],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "claimID", internalType: "uint256", type: "uint256" },
-      { name: "amount", internalType: "uint256", type: "uint256" },
+      { name: 'claimID', internalType: 'uint256', type: 'uint256' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "burn",
+    name: 'burn',
     outputs: [],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
       {
-        name: "params",
-        internalType: "struct ImpactClaims.ClaimParams",
-        type: "tuple",
+        name: 'params',
+        internalType: 'struct ImpactClaims.ClaimParams',
+        type: 'tuple',
         components: [
-          { name: "generatorID", internalType: "uint64", type: "uint64" },
+          { name: 'generatorID', internalType: 'uint64', type: 'uint64' },
           {
-            name: "attestation",
-            internalType: "struct AttestationLib.Value",
-            type: "tuple",
+            name: 'attestation',
+            internalType: 'struct AttestationLib.Value',
+            type: 'tuple',
             components: [
-              { name: "signer", internalType: "address", type: "address" },
-              { name: "validFrom", internalType: "uint32", type: "uint32" },
-              { name: "validTo", internalType: "uint32", type: "uint32" },
-              { name: "timestamp", internalType: "uint32", type: "uint32" },
-              { name: "value", internalType: "uint32", type: "uint32" },
-              { name: "uri", internalType: "string", type: "string" },
+              { name: 'signer', internalType: 'address', type: 'address' },
+              { name: 'validFrom', internalType: 'uint32', type: 'uint32' },
+              { name: 'validTo', internalType: 'uint32', type: 'uint32' },
+              { name: 'timestamp', internalType: 'uint32', type: 'uint32' },
+              { name: 'value', internalType: 'uint32', type: 'uint32' },
+              { name: 'uri', internalType: 'string', type: 'string' },
             ],
           },
         ],
       },
     ],
-    name: "claim",
-    outputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
+    name: 'claim',
+    outputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
       {
-        name: "params",
-        internalType: "struct ImpactClaims.ClaimParams",
-        type: "tuple",
+        name: 'params',
+        internalType: 'struct ImpactClaims.ClaimParams',
+        type: 'tuple',
         components: [
-          { name: "generatorID", internalType: "uint64", type: "uint64" },
+          { name: 'generatorID', internalType: 'uint64', type: 'uint64' },
           {
-            name: "attestation",
-            internalType: "struct AttestationLib.Value",
-            type: "tuple",
+            name: 'attestation',
+            internalType: 'struct AttestationLib.Value',
+            type: 'tuple',
             components: [
-              { name: "signer", internalType: "address", type: "address" },
-              { name: "validFrom", internalType: "uint32", type: "uint32" },
-              { name: "validTo", internalType: "uint32", type: "uint32" },
-              { name: "timestamp", internalType: "uint32", type: "uint32" },
-              { name: "value", internalType: "uint32", type: "uint32" },
-              { name: "uri", internalType: "string", type: "string" },
+              { name: 'signer', internalType: 'address', type: 'address' },
+              { name: 'validFrom', internalType: 'uint32', type: 'uint32' },
+              { name: 'validTo', internalType: 'uint32', type: 'uint32' },
+              { name: 'timestamp', internalType: 'uint32', type: 'uint32' },
+              { name: 'value', internalType: 'uint32', type: 'uint32' },
+              { name: 'uri', internalType: 'string', type: 'string' },
             ],
           },
         ],
       },
-      { name: "dataHash", internalType: "bytes32", type: "bytes32" },
-      { name: "signature", internalType: "bytes", type: "bytes" },
+      { name: 'dataHash', internalType: 'bytes32', type: 'bytes32' },
+      { name: 'signature', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "claimWithSignature",
-    outputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
+    name: 'claimWithSignature',
+    outputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
       {
-        name: "params",
-        internalType: "struct ImpactClaims.ClaimParams",
-        type: "tuple",
+        name: 'params',
+        internalType: 'struct ImpactClaims.ClaimParams',
+        type: 'tuple',
         components: [
-          { name: "generatorID", internalType: "uint64", type: "uint64" },
+          { name: 'generatorID', internalType: 'uint64', type: 'uint64' },
           {
-            name: "attestation",
-            internalType: "struct AttestationLib.Value",
-            type: "tuple",
+            name: 'attestation',
+            internalType: 'struct AttestationLib.Value',
+            type: 'tuple',
             components: [
-              { name: "signer", internalType: "address", type: "address" },
-              { name: "validFrom", internalType: "uint32", type: "uint32" },
-              { name: "validTo", internalType: "uint32", type: "uint32" },
-              { name: "timestamp", internalType: "uint32", type: "uint32" },
-              { name: "value", internalType: "uint32", type: "uint32" },
-              { name: "uri", internalType: "string", type: "string" },
-            ],
-          },
-        ],
-      },
-    ],
-    name: "getClaimDataHash",
-    outputs: [{ name: "dataHash", internalType: "bytes32", type: "bytes32" }],
-  },
-  {
-    stateMutability: "view",
-    type: "function",
-    inputs: [
-      {
-        name: "params",
-        internalType: "struct ImpactClaims.RevokeClaimParams",
-        type: "tuple",
-        components: [
-          { name: "signer", internalType: "address", type: "address" },
-          { name: "claimID", internalType: "uint128", type: "uint128" },
-        ],
-      },
-    ],
-    name: "getRevokeClaimDataHash",
-    outputs: [{ name: "dataHash", internalType: "bytes32", type: "bytes32" }],
-  },
-  {
-    stateMutability: "view",
-    type: "function",
-    inputs: [
-      { name: "account", internalType: "address", type: "address" },
-      { name: "operator", internalType: "address", type: "address" },
-    ],
-    name: "isApprovedForAll",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
-  },
-  {
-    stateMutability: "payable",
-    type: "function",
-    inputs: [
-      {
-        name: "params",
-        internalType: "struct ImpactClaims.RevokeClaimParams",
-        type: "tuple",
-        components: [
-          { name: "signer", internalType: "address", type: "address" },
-          { name: "claimID", internalType: "uint128", type: "uint128" },
-        ],
-      },
-    ],
-    name: "revokeClaim",
-    outputs: [],
-  },
-  {
-    stateMutability: "payable",
-    type: "function",
-    inputs: [
-      {
-        name: "params",
-        internalType: "struct ImpactClaims.RevokeClaimParams",
-        type: "tuple",
-        components: [
-          { name: "signer", internalType: "address", type: "address" },
-          { name: "claimID", internalType: "uint128", type: "uint128" },
-        ],
-      },
-      { name: "signature", internalType: "bytes", type: "bytes" },
-      { name: "dataHash", internalType: "bytes32", type: "bytes32" },
-    ],
-    name: "revokeClaimWithSignature",
-    outputs: [],
-  },
-  {
-    stateMutability: "nonpayable",
-    type: "function",
-    inputs: [
-      { name: "from", internalType: "address", type: "address" },
-      { name: "to", internalType: "address", type: "address" },
-      { name: "ids", internalType: "uint256[]", type: "uint256[]" },
-      { name: "amounts", internalType: "uint256[]", type: "uint256[]" },
-      { name: "data", internalType: "bytes", type: "bytes" },
-    ],
-    name: "safeBatchTransferFrom",
-    outputs: [],
-  },
-  {
-    stateMutability: "nonpayable",
-    type: "function",
-    inputs: [
-      { name: "from", internalType: "address", type: "address" },
-      { name: "to", internalType: "address", type: "address" },
-      { name: "id", internalType: "uint256", type: "uint256" },
-      { name: "amount", internalType: "uint256", type: "uint256" },
-      { name: "data", internalType: "bytes", type: "bytes" },
-    ],
-    name: "safeTransferFrom",
-    outputs: [],
-  },
-  {
-    stateMutability: "nonpayable",
-    type: "function",
-    inputs: [
-      { name: "operator", internalType: "address", type: "address" },
-      { name: "status", internalType: "bool", type: "bool" },
-    ],
-    name: "setApprovalForAll",
-    outputs: [],
-  },
-  {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "account", internalType: "address", type: "address" }],
-    name: "tokensByAccount",
-    outputs: [{ name: "", internalType: "uint256[]", type: "uint256[]" }],
-  },
-  {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "totalHolders",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
-  },
-  {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "totalSupply",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
-  },
-  {
-    stateMutability: "view",
-    type: "function",
-    inputs: [],
-    name: "EVALUATION_PARAMS_TYPEHASH",
-    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
-  },
-  {
-    stateMutability: "view",
-    type: "function",
-    inputs: [],
-    name: "REVOKE_EVALUATION_TYPEHASH",
-    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
-  },
-  {
-    stateMutability: "payable",
-    type: "function",
-    inputs: [
-      {
-        name: "params",
-        internalType: "struct ImpactEvaluations.EvaluationParams",
-        type: "tuple",
-        components: [
-          { name: "methodologyID", internalType: "uint64", type: "uint64" },
-          { name: "claimID", internalType: "uint128", type: "uint128" },
-          {
-            name: "attestation",
-            internalType: "struct AttestationLib.Value",
-            type: "tuple",
-            components: [
-              { name: "signer", internalType: "address", type: "address" },
-              { name: "validFrom", internalType: "uint32", type: "uint32" },
-              { name: "validTo", internalType: "uint32", type: "uint32" },
-              { name: "timestamp", internalType: "uint32", type: "uint32" },
-              { name: "value", internalType: "uint32", type: "uint32" },
-              { name: "uri", internalType: "string", type: "string" },
+              { name: 'signer', internalType: 'address', type: 'address' },
+              { name: 'validFrom', internalType: 'uint32', type: 'uint32' },
+              { name: 'validTo', internalType: 'uint32', type: 'uint32' },
+              { name: 'timestamp', internalType: 'uint32', type: 'uint32' },
+              { name: 'value', internalType: 'uint32', type: 'uint32' },
+              { name: 'uri', internalType: 'string', type: 'string' },
             ],
           },
         ],
       },
     ],
-    name: "evaluate",
-    outputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
-    ],
+    name: 'getClaimDataHash',
+    outputs: [{ name: 'dataHash', internalType: 'bytes32', type: 'bytes32' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
       {
-        name: "params",
-        internalType: "struct ImpactEvaluations.EvaluationParams",
-        type: "tuple",
+        name: 'params',
+        internalType: 'struct ImpactClaims.RevokeClaimParams',
+        type: 'tuple',
         components: [
-          { name: "methodologyID", internalType: "uint64", type: "uint64" },
-          { name: "claimID", internalType: "uint128", type: "uint128" },
+          { name: 'signer', internalType: 'address', type: 'address' },
+          { name: 'claimID', internalType: 'uint128', type: 'uint128' },
+        ],
+      },
+    ],
+    name: 'getRevokeClaimDataHash',
+    outputs: [{ name: 'dataHash', internalType: 'bytes32', type: 'bytes32' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [
+      { name: 'account', internalType: 'address', type: 'address' },
+      { name: 'operator', internalType: 'address', type: 'address' },
+    ],
+    name: 'isApprovedForAll',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+  },
+  {
+    stateMutability: 'payable',
+    type: 'function',
+    inputs: [
+      {
+        name: 'params',
+        internalType: 'struct ImpactClaims.RevokeClaimParams',
+        type: 'tuple',
+        components: [
+          { name: 'signer', internalType: 'address', type: 'address' },
+          { name: 'claimID', internalType: 'uint128', type: 'uint128' },
+        ],
+      },
+    ],
+    name: 'revokeClaim',
+    outputs: [],
+  },
+  {
+    stateMutability: 'payable',
+    type: 'function',
+    inputs: [
+      {
+        name: 'params',
+        internalType: 'struct ImpactClaims.RevokeClaimParams',
+        type: 'tuple',
+        components: [
+          { name: 'signer', internalType: 'address', type: 'address' },
+          { name: 'claimID', internalType: 'uint128', type: 'uint128' },
+        ],
+      },
+      { name: 'signature', internalType: 'bytes', type: 'bytes' },
+      { name: 'dataHash', internalType: 'bytes32', type: 'bytes32' },
+    ],
+    name: 'revokeClaimWithSignature',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'ids', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: 'amounts', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: 'data', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'safeBatchTransferFrom',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [
+      { name: 'from', internalType: 'address', type: 'address' },
+      { name: 'to', internalType: 'address', type: 'address' },
+      { name: 'id', internalType: 'uint256', type: 'uint256' },
+      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: 'data', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'safeTransferFrom',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [
+      { name: 'operator', internalType: 'address', type: 'address' },
+      { name: 'status', internalType: 'bool', type: 'bool' },
+    ],
+    name: 'setApprovalForAll',
+    outputs: [],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+    name: 'tokensByAccount',
+    outputs: [{ name: '', internalType: 'uint256[]', type: 'uint256[]' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'totalHolders',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'totalSupply',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'EVALUATION_PARAMS_TYPEHASH',
+    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'REVOKE_EVALUATION_TYPEHASH',
+    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
+  },
+  {
+    stateMutability: 'payable',
+    type: 'function',
+    inputs: [
+      {
+        name: 'params',
+        internalType: 'struct ImpactEvaluations.EvaluationParams',
+        type: 'tuple',
+        components: [
+          { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
+          { name: 'claimID', internalType: 'uint128', type: 'uint128' },
           {
-            name: "attestation",
-            internalType: "struct AttestationLib.Value",
-            type: "tuple",
+            name: 'attestation',
+            internalType: 'struct AttestationLib.Value',
+            type: 'tuple',
             components: [
-              { name: "signer", internalType: "address", type: "address" },
-              { name: "validFrom", internalType: "uint32", type: "uint32" },
-              { name: "validTo", internalType: "uint32", type: "uint32" },
-              { name: "timestamp", internalType: "uint32", type: "uint32" },
-              { name: "value", internalType: "uint32", type: "uint32" },
-              { name: "uri", internalType: "string", type: "string" },
+              { name: 'signer', internalType: 'address', type: 'address' },
+              { name: 'validFrom', internalType: 'uint32', type: 'uint32' },
+              { name: 'validTo', internalType: 'uint32', type: 'uint32' },
+              { name: 'timestamp', internalType: 'uint32', type: 'uint32' },
+              { name: 'value', internalType: 'uint32', type: 'uint32' },
+              { name: 'uri', internalType: 'string', type: 'string' },
             ],
           },
         ],
       },
-      { name: "dataHash", internalType: "bytes32", type: "bytes32" },
-      { name: "signature", internalType: "bytes", type: "bytes" },
     ],
-    name: "evaluateWithSignature",
+    name: 'evaluate',
     outputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
       {
-        name: "params",
-        internalType: "struct ImpactEvaluations.EvaluationParams",
-        type: "tuple",
+        name: 'params',
+        internalType: 'struct ImpactEvaluations.EvaluationParams',
+        type: 'tuple',
         components: [
-          { name: "methodologyID", internalType: "uint64", type: "uint64" },
-          { name: "claimID", internalType: "uint128", type: "uint128" },
+          { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
+          { name: 'claimID', internalType: 'uint128', type: 'uint128' },
           {
-            name: "attestation",
-            internalType: "struct AttestationLib.Value",
-            type: "tuple",
+            name: 'attestation',
+            internalType: 'struct AttestationLib.Value',
+            type: 'tuple',
             components: [
-              { name: "signer", internalType: "address", type: "address" },
-              { name: "validFrom", internalType: "uint32", type: "uint32" },
-              { name: "validTo", internalType: "uint32", type: "uint32" },
-              { name: "timestamp", internalType: "uint32", type: "uint32" },
-              { name: "value", internalType: "uint32", type: "uint32" },
-              { name: "uri", internalType: "string", type: "string" },
+              { name: 'signer', internalType: 'address', type: 'address' },
+              { name: 'validFrom', internalType: 'uint32', type: 'uint32' },
+              { name: 'validTo', internalType: 'uint32', type: 'uint32' },
+              { name: 'timestamp', internalType: 'uint32', type: 'uint32' },
+              { name: 'value', internalType: 'uint32', type: 'uint32' },
+              { name: 'uri', internalType: 'string', type: 'string' },
+            ],
+          },
+        ],
+      },
+      { name: 'dataHash', internalType: 'bytes32', type: 'bytes32' },
+      { name: 'signature', internalType: 'bytes', type: 'bytes' },
+    ],
+    name: 'evaluateWithSignature',
+    outputs: [
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
+    ],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [
+      {
+        name: 'params',
+        internalType: 'struct ImpactEvaluations.EvaluationParams',
+        type: 'tuple',
+        components: [
+          { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
+          { name: 'claimID', internalType: 'uint128', type: 'uint128' },
+          {
+            name: 'attestation',
+            internalType: 'struct AttestationLib.Value',
+            type: 'tuple',
+            components: [
+              { name: 'signer', internalType: 'address', type: 'address' },
+              { name: 'validFrom', internalType: 'uint32', type: 'uint32' },
+              { name: 'validTo', internalType: 'uint32', type: 'uint32' },
+              { name: 'timestamp', internalType: 'uint32', type: 'uint32' },
+              { name: 'value', internalType: 'uint32', type: 'uint32' },
+              { name: 'uri', internalType: 'string', type: 'string' },
             ],
           },
         ],
       },
     ],
-    name: "getEvaluationDataHash",
-    outputs: [{ name: "dataHash", internalType: "bytes32", type: "bytes32" }],
+    name: 'getEvaluationDataHash',
+    outputs: [{ name: 'dataHash', internalType: 'bytes32', type: 'bytes32' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
       {
-        name: "params",
-        internalType: "struct ImpactEvaluations.RevokeEvaluationParams",
-        type: "tuple",
+        name: 'params',
+        internalType: 'struct ImpactEvaluations.RevokeEvaluationParams',
+        type: 'tuple',
         components: [
-          { name: "signer", internalType: "address", type: "address" },
-          { name: "evaluationID", internalType: "uint192", type: "uint192" },
+          { name: 'signer', internalType: 'address', type: 'address' },
+          { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
         ],
       },
     ],
-    name: "getSignedRevokeEvaluationDataHash",
-    outputs: [{ name: "dataHash", internalType: "bytes32", type: "bytes32" }],
+    name: 'getSignedRevokeEvaluationDataHash',
+    outputs: [{ name: 'dataHash', internalType: 'bytes32', type: 'bytes32' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
       {
-        name: "params",
-        internalType: "struct ImpactEvaluations.RevokeEvaluationParams",
-        type: "tuple",
+        name: 'params',
+        internalType: 'struct ImpactEvaluations.RevokeEvaluationParams',
+        type: 'tuple',
         components: [
-          { name: "signer", internalType: "address", type: "address" },
-          { name: "evaluationID", internalType: "uint192", type: "uint192" },
+          { name: 'signer', internalType: 'address', type: 'address' },
+          { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
         ],
       },
     ],
-    name: "revokeEvaluation",
+    name: 'revokeEvaluation',
     outputs: [],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
       {
-        name: "params",
-        internalType: "struct ImpactEvaluations.RevokeEvaluationParams",
-        type: "tuple",
+        name: 'params',
+        internalType: 'struct ImpactEvaluations.RevokeEvaluationParams',
+        type: 'tuple',
         components: [
-          { name: "signer", internalType: "address", type: "address" },
-          { name: "evaluationID", internalType: "uint192", type: "uint192" },
+          { name: 'signer', internalType: 'address', type: 'address' },
+          { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
         ],
       },
-      { name: "signature", internalType: "bytes", type: "bytes" },
-      { name: "dataHash", internalType: "bytes32", type: "bytes32" },
+      { name: 'signature', internalType: 'bytes', type: 'bytes' },
+      { name: 'dataHash', internalType: 'bytes32', type: 'bytes32' },
     ],
-    name: "revokeEvaluationWithSignature",
+    name: 'revokeEvaluationWithSignature',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "name",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'name',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "symbol",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'symbol',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "uri",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'uri',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "claimExists",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'claimExists',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "evaluationExists",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    name: 'evaluationExists',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "isRevokedClaim",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'isRevokedClaim',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "isRevokedEvaluation",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    name: 'isRevokedEvaluation',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "isValidClaim",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'isValidClaim',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "isValidEvaluation",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    name: 'isValidEvaluation',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "readClaim",
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'readClaim',
     outputs: [
       {
-        name: "",
-        internalType: "struct AttestationLib.Value",
-        type: "tuple",
+        name: '',
+        internalType: 'struct AttestationLib.Value',
+        type: 'tuple',
         components: [
-          { name: "signer", internalType: "address", type: "address" },
-          { name: "validFrom", internalType: "uint32", type: "uint32" },
-          { name: "validTo", internalType: "uint32", type: "uint32" },
-          { name: "timestamp", internalType: "uint32", type: "uint32" },
-          { name: "value", internalType: "uint32", type: "uint32" },
-          { name: "uri", internalType: "string", type: "string" },
+          { name: 'signer', internalType: 'address', type: 'address' },
+          { name: 'validFrom', internalType: 'uint32', type: 'uint32' },
+          { name: 'validTo', internalType: 'uint32', type: 'uint32' },
+          { name: 'timestamp', internalType: 'uint32', type: 'uint32' },
+          { name: 'value', internalType: 'uint32', type: 'uint32' },
+          { name: 'uri', internalType: 'string', type: 'string' },
         ],
       },
     ],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "readClaimAndEvaluationValue",
+    name: 'readClaimAndEvaluationValue',
     outputs: [
-      { name: "claimValue", internalType: "uint32", type: "uint32" },
-      { name: "evaluationValue", internalType: "uint32", type: "uint32" },
+      { name: 'claimValue', internalType: 'uint32', type: 'uint32' },
+      { name: 'evaluationValue', internalType: 'uint32', type: 'uint32' },
     ],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "readClaimURI",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'readClaimURI',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "readClaimValue",
-    outputs: [{ name: "", internalType: "uint32", type: "uint32" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'readClaimValue',
+    outputs: [{ name: '', internalType: 'uint32', type: 'uint32' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "readEvaluation",
+    name: 'readEvaluation',
     outputs: [
       {
-        name: "",
-        internalType: "struct AttestationLib.Value",
-        type: "tuple",
+        name: '',
+        internalType: 'struct AttestationLib.Value',
+        type: 'tuple',
         components: [
-          { name: "signer", internalType: "address", type: "address" },
-          { name: "validFrom", internalType: "uint32", type: "uint32" },
-          { name: "validTo", internalType: "uint32", type: "uint32" },
-          { name: "timestamp", internalType: "uint32", type: "uint32" },
-          { name: "value", internalType: "uint32", type: "uint32" },
-          { name: "uri", internalType: "string", type: "string" },
+          { name: 'signer', internalType: 'address', type: 'address' },
+          { name: 'validFrom', internalType: 'uint32', type: 'uint32' },
+          { name: 'validTo', internalType: 'uint32', type: 'uint32' },
+          { name: 'timestamp', internalType: 'uint32', type: 'uint32' },
+          { name: 'value', internalType: 'uint32', type: 'uint32' },
+          { name: 'uri', internalType: 'string', type: 'string' },
         ],
       },
     ],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "readEvaluationURI",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'readEvaluationURI',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "readEvaluationValue",
-    outputs: [{ name: "", internalType: "uint32", type: "uint32" }],
+    name: 'readEvaluationValue',
+    outputs: [{ name: '', internalType: 'uint32', type: 'uint32' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "claimID", internalType: "uint128", type: "uint128" },
-      { name: "methodologyIDs", internalType: "uint64[]", type: "uint64[]" },
-      { name: "validAtTimestamp", internalType: "uint32[]", type: "uint32[]" },
+      { name: 'claimID', internalType: 'uint128', type: 'uint128' },
+      { name: 'methodologyIDs', internalType: 'uint64[]', type: 'uint64[]' },
+      { name: 'validAtTimestamp', internalType: 'uint32[]', type: 'uint32[]' },
     ],
-    name: "validateEvaluations",
+    name: 'validateEvaluations',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "ATTESTATION_VALUE_TYPEHASH",
-    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    name: 'ATTESTATION_VALUE_TYPEHASH',
+    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
-    inputs: [{ name: "dataHash", internalType: "bytes32", type: "bytes32" }],
-    name: "invalidateDataHash",
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'dataHash', internalType: 'bytes32', type: 'bytes32' }],
+    name: 'invalidateDataHash',
     outputs: [],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "wordPos", internalType: "uint248", type: "uint248" },
-      { name: "mask", internalType: "uint256", type: "uint256" },
+      { name: 'wordPos', internalType: 'uint248', type: 'uint248' },
+      { name: 'mask', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "invalidateUnorderedNonces",
+    name: 'invalidateUnorderedNonces',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "hash", internalType: "bytes32", type: "bytes32" },
-      { name: "signature", internalType: "bytes", type: "bytes" },
+      { name: 'hash', internalType: 'bytes32', type: 'bytes32' },
+      { name: 'signature', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "isValidSignature",
-    outputs: [{ name: "", internalType: "bytes4", type: "bytes4" }],
+    name: 'isValidSignature',
+    outputs: [{ name: '', internalType: 'bytes4', type: 'bytes4' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "decodeClaimGeneratorID",
-    outputs: [{ name: "generatorID", internalType: "uint64", type: "uint64" }],
+    stateMutability: 'pure',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'decodeClaimGeneratorID',
+    outputs: [{ name: 'generatorID', internalType: 'uint64', type: 'uint64' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "decodeClaimID",
+    stateMutability: 'pure',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'decodeClaimID',
     outputs: [
-      { name: "generatorID", internalType: "uint64", type: "uint64" },
-      { name: "recordID", internalType: "uint64", type: "uint64" },
+      { name: 'generatorID', internalType: 'uint64', type: 'uint64' },
+      { name: 'recordID', internalType: 'uint64', type: 'uint64' },
     ],
   },
   {
-    stateMutability: "pure",
-    type: "function",
-    inputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
-    name: "decodeClaimRecordID",
-    outputs: [{ name: "recordID", internalType: "uint64", type: "uint64" }],
+    stateMutability: 'pure',
+    type: 'function',
+    inputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
+    name: 'decodeClaimRecordID',
+    outputs: [{ name: 'recordID', internalType: 'uint64', type: 'uint64' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "decodeEvaluationClaimID",
-    outputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
+    name: 'decodeEvaluationClaimID',
+    outputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "decodeEvaluationGeneratorID",
-    outputs: [{ name: "generatorID", internalType: "uint64", type: "uint64" }],
+    name: 'decodeEvaluationGeneratorID',
+    outputs: [{ name: 'generatorID', internalType: 'uint64', type: 'uint64' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "decodeEvaluationID",
+    name: 'decodeEvaluationID',
     outputs: [
-      { name: "methodologyID", internalType: "uint64", type: "uint64" },
-      { name: "generatorID", internalType: "uint64", type: "uint64" },
-      { name: "recordID", internalType: "uint64", type: "uint64" },
+      { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
+      { name: 'generatorID', internalType: 'uint64', type: 'uint64' },
+      { name: 'recordID', internalType: 'uint64', type: 'uint64' },
     ],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "decodeEvaluationMethodologyID",
+    name: 'decodeEvaluationMethodologyID',
     outputs: [
-      { name: "methodologyID", internalType: "uint64", type: "uint64" },
+      { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
     ],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "decodeEvaluationRecordID",
-    outputs: [{ name: "recordID", internalType: "uint64", type: "uint64" }],
+    name: 'decodeEvaluationRecordID',
+    outputs: [{ name: 'recordID', internalType: 'uint64', type: 'uint64' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "methodologyID", internalType: "uint64", type: "uint64" },
-      { name: "claimID", internalType: "uint128", type: "uint128" },
+      { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
+      { name: 'claimID', internalType: 'uint128', type: 'uint128' },
     ],
-    name: "encodeEvaluationID",
+    name: 'encodeEvaluationID',
     outputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "methodologyID", internalType: "uint64", type: "uint64" },
-      { name: "generatorID", internalType: "uint64", type: "uint64" },
-      { name: "recordID", internalType: "uint64", type: "uint64" },
+      { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
+      { name: 'generatorID', internalType: 'uint64', type: 'uint64' },
+      { name: 'recordID', internalType: 'uint64', type: 'uint64' },
     ],
-    name: "encodeEvaluationID",
+    name: 'encodeEvaluationID',
     outputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
-    inputs: [{ name: "data", internalType: "bytes[]", type: "bytes[]" }],
-    name: "multicall",
-    outputs: [{ name: "", internalType: "bytes[]", type: "bytes[]" }],
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'data', internalType: 'bytes[]', type: 'bytes[]' }],
+    name: 'multicall',
+    outputs: [{ name: '', internalType: 'bytes[]', type: 'bytes[]' }],
   },
 ] as const;
 
@@ -1677,325 +1677,325 @@ export const impactABI = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const retirementsABI = [
-  { type: "error", inputs: [], name: "ComponentFacet__Initialized" },
-  { type: "error", inputs: [], name: "ERC1155Base__ArrayLengthMismatch" },
-  { type: "error", inputs: [], name: "ERC1155Base__BalanceQueryZeroAddress" },
-  { type: "error", inputs: [], name: "ERC1155Base__BurnExceedsBalance" },
-  { type: "error", inputs: [], name: "ERC1155Base__BurnFromZeroAddress" },
+  { type: 'error', inputs: [], name: 'ComponentFacet__Initialized' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__ArrayLengthMismatch' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BalanceQueryZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BurnExceedsBalance' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__BurnFromZeroAddress' },
   {
-    type: "error",
+    type: 'error',
     inputs: [],
-    name: "ERC1155Base__ERC1155ReceiverNotImplemented",
+    name: 'ERC1155Base__ERC1155ReceiverNotImplemented',
   },
-  { type: "error", inputs: [], name: "ERC1155Base__ERC1155ReceiverRejected" },
-  { type: "error", inputs: [], name: "ERC1155Base__MintToZeroAddress" },
-  { type: "error", inputs: [], name: "ERC1155Base__NotOwnerOrApproved" },
-  { type: "error", inputs: [], name: "ERC1155Base__SelfApproval" },
-  { type: "error", inputs: [], name: "ERC1155Base__TransferExceedsBalance" },
-  { type: "error", inputs: [], name: "ERC1155Base__TransferToZeroAddress" },
-  { type: "error", inputs: [], name: "ERC165Base__InvalidInterfaceId" },
-  { type: "error", inputs: [], name: "EnumerableSet__IndexOutOfBounds" },
-  { type: "error", inputs: [], name: "Retirements__Immovable" },
+  { type: 'error', inputs: [], name: 'ERC1155Base__ERC1155ReceiverRejected' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__MintToZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__NotOwnerOrApproved' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__SelfApproval' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__TransferExceedsBalance' },
+  { type: 'error', inputs: [], name: 'ERC1155Base__TransferToZeroAddress' },
+  { type: 'error', inputs: [], name: 'ERC165Base__InvalidInterfaceId' },
+  { type: 'error', inputs: [], name: 'EnumerableSet__IndexOutOfBounds' },
+  { type: 'error', inputs: [], name: 'Retirements__Immovable' },
   {
-    type: "error",
+    type: 'error',
     inputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "RetirementsMetadata__EvaluationException",
+    name: 'RetirementsMetadata__EvaluationException',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "account",
-        internalType: "address",
-        type: "address",
+        name: 'account',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "approved", internalType: "bool", type: "bool", indexed: false },
+      { name: 'approved', internalType: 'bool', type: 'bool', indexed: false },
     ],
-    name: "ApprovalForAll",
+    name: 'ApprovalForAll',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "from", internalType: "address", type: "address", indexed: true },
-      { name: "to", internalType: "address", type: "address", indexed: true },
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
       {
-        name: "ids",
-        internalType: "uint256[]",
-        type: "uint256[]",
+        name: 'ids',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
         indexed: false,
       },
       {
-        name: "values",
-        internalType: "uint256[]",
-        type: "uint256[]",
+        name: 'values',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
         indexed: false,
       },
     ],
-    name: "TransferBatch",
+    name: 'TransferBatch',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
       {
-        name: "operator",
-        internalType: "address",
-        type: "address",
+        name: 'operator',
+        internalType: 'address',
+        type: 'address',
         indexed: true,
       },
-      { name: "from", internalType: "address", type: "address", indexed: true },
-      { name: "to", internalType: "address", type: "address", indexed: true },
-      { name: "id", internalType: "uint256", type: "uint256", indexed: false },
+      { name: 'from', internalType: 'address', type: 'address', indexed: true },
+      { name: 'to', internalType: 'address', type: 'address', indexed: true },
+      { name: 'id', internalType: 'uint256', type: 'uint256', indexed: false },
       {
-        name: "value",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'value',
+        internalType: 'uint256',
+        type: 'uint256',
         indexed: false,
       },
     ],
-    name: "TransferSingle",
+    name: 'TransferSingle',
   },
   {
-    type: "event",
+    type: 'event',
     anonymous: false,
     inputs: [
-      { name: "value", internalType: "string", type: "string", indexed: false },
+      { name: 'value', internalType: 'string', type: 'string', indexed: false },
       {
-        name: "tokenId",
-        internalType: "uint256",
-        type: "uint256",
+        name: 'tokenId',
+        internalType: 'uint256',
+        type: 'uint256',
         indexed: true,
       },
     ],
-    name: "URI",
+    name: 'URI',
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "accountsByToken",
-    outputs: [{ name: "", internalType: "address[]", type: "address[]" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'accountsByToken',
+    outputs: [{ name: '', internalType: 'address[]', type: 'address[]' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "account", internalType: "address", type: "address" },
-      { name: "receiptID", internalType: "uint256", type: "uint256" },
+      { name: 'account', internalType: 'address', type: 'address' },
+      { name: 'receiptID', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "balanceOf",
-    outputs: [{ name: "balance", internalType: "uint256", type: "uint256" }],
+    name: 'balanceOf',
+    outputs: [{ name: 'balance', internalType: 'uint256', type: 'uint256' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [
-      { name: "accounts", internalType: "address[]", type: "address[]" },
-      { name: "ids", internalType: "uint256[]", type: "uint256[]" },
+      { name: 'accounts', internalType: 'address[]', type: 'address[]' },
+      { name: 'ids', internalType: 'uint256[]', type: 'uint256[]' },
     ],
-    name: "balanceOfBatch",
-    outputs: [{ name: "", internalType: "uint256[]", type: "uint256[]" }],
+    name: 'balanceOfBatch',
+    outputs: [{ name: '', internalType: 'uint256[]', type: 'uint256[]' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "address", type: "address" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'address', type: 'address' },
     ],
-    name: "isApprovedForAll",
-    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    name: 'isApprovedForAll',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: "payable",
-    type: "function",
+    stateMutability: 'payable',
+    type: 'function',
     inputs: [
-      { name: "certificateIDs", internalType: "uint256[]", type: "uint256[]" },
+      { name: 'certificateIDs', internalType: 'uint256[]', type: 'uint256[]' },
       {
-        name: "certificateAmounts",
-        internalType: "uint256[]",
-        type: "uint256[]",
+        name: 'certificateAmounts',
+        internalType: 'uint256[]',
+        type: 'uint256[]',
       },
-      { name: "receiver", internalType: "address", type: "address" },
+      { name: 'receiver', internalType: 'address', type: 'address' },
     ],
-    name: "issue",
+    name: 'issue',
     outputs: [
-      { name: "retirementIDs", internalType: "uint256[]", type: "uint256[]" },
+      { name: 'retirementIDs', internalType: 'uint256[]', type: 'uint256[]' },
     ],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "uint256[]", type: "uint256[]" },
-      { name: "", internalType: "uint256[]", type: "uint256[]" },
-      { name: "", internalType: "bytes", type: "bytes" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: '', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: '', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "onERC1155BatchReceived",
-    outputs: [{ name: "", internalType: "bytes4", type: "bytes4" }],
+    name: 'onERC1155BatchReceived',
+    outputs: [{ name: '', internalType: 'bytes4', type: 'bytes4' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "uint256", type: "uint256" },
-      { name: "", internalType: "uint256", type: "uint256" },
-      { name: "", internalType: "bytes", type: "bytes" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'uint256', type: 'uint256' },
+      { name: '', internalType: 'uint256', type: 'uint256' },
+      { name: '', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "onERC1155Received",
-    outputs: [{ name: "", internalType: "bytes4", type: "bytes4" }],
+    name: 'onERC1155Received',
+    outputs: [{ name: '', internalType: 'bytes4', type: 'bytes4' }],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "uint256[]", type: "uint256[]" },
-      { name: "", internalType: "uint256[]", type: "uint256[]" },
-      { name: "", internalType: "bytes", type: "bytes" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: '', internalType: 'uint256[]', type: 'uint256[]' },
+      { name: '', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "safeBatchTransferFrom",
+    name: 'safeBatchTransferFrom',
     outputs: [],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "uint256", type: "uint256" },
-      { name: "", internalType: "uint256", type: "uint256" },
-      { name: "", internalType: "bytes", type: "bytes" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'uint256', type: 'uint256' },
+      { name: '', internalType: 'uint256', type: 'uint256' },
+      { name: '', internalType: 'bytes', type: 'bytes' },
     ],
-    name: "safeTransferFrom",
+    name: 'safeTransferFrom',
     outputs: [],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "", internalType: "address", type: "address" },
-      { name: "", internalType: "bool", type: "bool" },
+      { name: '', internalType: 'address', type: 'address' },
+      { name: '', internalType: 'bool', type: 'bool' },
     ],
-    name: "setApprovalForAll",
+    name: 'setApprovalForAll',
     outputs: [],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "account", internalType: "address", type: "address" }],
-    name: "tokensByAccount",
-    outputs: [{ name: "", internalType: "uint256[]", type: "uint256[]" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
+    name: 'tokensByAccount',
+    outputs: [{ name: '', internalType: 'uint256[]', type: 'uint256[]' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "totalHolders",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'totalHolders',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "totalSupply",
-    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'totalSupply',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "name",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'name',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
-    name: "symbol",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    name: 'symbol',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "view",
-    type: "function",
-    inputs: [{ name: "id", internalType: "uint256", type: "uint256" }],
-    name: "uri",
-    outputs: [{ name: "", internalType: "string", type: "string" }],
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'id', internalType: 'uint256', type: 'uint256' }],
+    name: 'uri',
+    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "retirementID", internalType: "uint256", type: "uint256" },
+      { name: 'retirementID', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "decodeRetirementClaimID",
-    outputs: [{ name: "claimID", internalType: "uint128", type: "uint128" }],
+    name: 'decodeRetirementClaimID',
+    outputs: [{ name: 'claimID', internalType: 'uint128', type: 'uint128' }],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "retirementID", internalType: "uint256", type: "uint256" },
+      { name: 'retirementID', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "decodeRetirementEvaluationID",
+    name: 'decodeRetirementEvaluationID',
     outputs: [
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "retirementID", internalType: "uint256", type: "uint256" },
+      { name: 'retirementID', internalType: 'uint256', type: 'uint256' },
     ],
-    name: "decodeRetirementID",
+    name: 'decodeRetirementID',
     outputs: [
-      { name: "receiptID", internalType: "uint64", type: "uint64" },
-      { name: "methodologyID", internalType: "uint64", type: "uint64" },
-      { name: "generatorID", internalType: "uint64", type: "uint64" },
-      { name: "recordID", internalType: "uint64", type: "uint64" },
+      { name: 'receiptID', internalType: 'uint64', type: 'uint64' },
+      { name: 'methodologyID', internalType: 'uint64', type: 'uint64' },
+      { name: 'generatorID', internalType: 'uint64', type: 'uint64' },
+      { name: 'recordID', internalType: 'uint64', type: 'uint64' },
     ],
   },
   {
-    stateMutability: "pure",
-    type: "function",
+    stateMutability: 'pure',
+    type: 'function',
     inputs: [
-      { name: "receiptID", internalType: "uint64", type: "uint64" },
-      { name: "evaluationID", internalType: "uint192", type: "uint192" },
+      { name: 'receiptID', internalType: 'uint64', type: 'uint64' },
+      { name: 'evaluationID', internalType: 'uint192', type: 'uint192' },
     ],
-    name: "encodeRetirementID",
+    name: 'encodeRetirementID',
     outputs: [
-      { name: "retirementID", internalType: "uint256", type: "uint256" },
+      { name: 'retirementID', internalType: 'uint256', type: 'uint256' },
     ],
   },
   {
-    stateMutability: "nonpayable",
-    type: "function",
-    inputs: [{ name: "data", internalType: "bytes[]", type: "bytes[]" }],
-    name: "multicall",
-    outputs: [{ name: "", internalType: "bytes[]", type: "bytes[]" }],
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [{ name: 'data', internalType: 'bytes[]', type: 'bytes[]' }],
+    name: 'multicall',
+    outputs: [{ name: '', internalType: 'bytes[]', type: 'bytes[]' }],
   },
 ] as const;
 
@@ -2007,7 +2007,7 @@ export const retirementsABI = [
  * Wraps __{@link useContract}__ with `abi` set to __{@link certificatesABI}__.
  */
 export function useCertificates(
-  config: Omit<UseContractConfig, "abi"> = {} as any,
+  config: Omit<UseContractConfig, 'abi'> = {} as any
 ) {
   return useContract({ abi: certificatesABI, ...config });
 }
@@ -2018,8 +2018,8 @@ export function useCertificates(
 export function useCertificatesRead<TFunctionName extends string>(
   config: Omit<
     UseContractReadConfig<typeof certificatesABI, TFunctionName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
@@ -2032,15 +2032,15 @@ export function useCertificatesRead<TFunctionName extends string>(
  */
 export function useCertificatesAccountsByToken(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "accountsByToken">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'accountsByToken'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "accountsByToken",
+    functionName: 'accountsByToken',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "accountsByToken">);
+  } as UseContractReadConfig<typeof certificatesABI, 'accountsByToken'>);
 }
 
 /**
@@ -2048,15 +2048,15 @@ export function useCertificatesAccountsByToken(
  */
 export function useCertificatesBalanceOf(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "balanceOf">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'balanceOf'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "balanceOf",
+    functionName: 'balanceOf',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "balanceOf">);
+  } as UseContractReadConfig<typeof certificatesABI, 'balanceOf'>);
 }
 
 /**
@@ -2064,15 +2064,15 @@ export function useCertificatesBalanceOf(
  */
 export function useCertificatesBalanceOfBatch(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "balanceOfBatch">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'balanceOfBatch'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "balanceOfBatch",
+    functionName: 'balanceOfBatch',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "balanceOfBatch">);
+  } as UseContractReadConfig<typeof certificatesABI, 'balanceOfBatch'>);
 }
 
 /**
@@ -2080,15 +2080,15 @@ export function useCertificatesBalanceOfBatch(
  */
 export function useCertificatesIsApprovedForAll(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "isApprovedForAll">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'isApprovedForAll'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "isApprovedForAll",
+    functionName: 'isApprovedForAll',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "isApprovedForAll">);
+  } as UseContractReadConfig<typeof certificatesABI, 'isApprovedForAll'>);
 }
 
 /**
@@ -2096,15 +2096,15 @@ export function useCertificatesIsApprovedForAll(
  */
 export function useCertificatesOnErc1155BatchReceived(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "onERC1155BatchReceived">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'onERC1155BatchReceived'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "onERC1155BatchReceived",
+    functionName: 'onERC1155BatchReceived',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "onERC1155BatchReceived">);
+  } as UseContractReadConfig<typeof certificatesABI, 'onERC1155BatchReceived'>);
 }
 
 /**
@@ -2112,15 +2112,15 @@ export function useCertificatesOnErc1155BatchReceived(
  */
 export function useCertificatesOnErc1155Received(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "onERC1155Received">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'onERC1155Received'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "onERC1155Received",
+    functionName: 'onERC1155Received',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "onERC1155Received">);
+  } as UseContractReadConfig<typeof certificatesABI, 'onERC1155Received'>);
 }
 
 /**
@@ -2128,15 +2128,15 @@ export function useCertificatesOnErc1155Received(
  */
 export function useCertificatesTokensByAccount(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "tokensByAccount">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'tokensByAccount'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "tokensByAccount",
+    functionName: 'tokensByAccount',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "tokensByAccount">);
+  } as UseContractReadConfig<typeof certificatesABI, 'tokensByAccount'>);
 }
 
 /**
@@ -2144,15 +2144,15 @@ export function useCertificatesTokensByAccount(
  */
 export function useCertificatesTotalHolders(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "totalHolders">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'totalHolders'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "totalHolders",
+    functionName: 'totalHolders',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "totalHolders">);
+  } as UseContractReadConfig<typeof certificatesABI, 'totalHolders'>);
 }
 
 /**
@@ -2160,15 +2160,15 @@ export function useCertificatesTotalHolders(
  */
 export function useCertificatesTotalSupply(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "totalSupply">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'totalSupply'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "totalSupply",
+    functionName: 'totalSupply',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "totalSupply">);
+  } as UseContractReadConfig<typeof certificatesABI, 'totalSupply'>);
 }
 
 /**
@@ -2176,15 +2176,15 @@ export function useCertificatesTotalSupply(
  */
 export function useCertificatesValidateProperty(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "validateProperty">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'validateProperty'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "validateProperty",
+    functionName: 'validateProperty',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "validateProperty">);
+  } as UseContractReadConfig<typeof certificatesABI, 'validateProperty'>);
 }
 
 /**
@@ -2192,15 +2192,15 @@ export function useCertificatesValidateProperty(
  */
 export function useCertificatesName(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "name">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'name'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "name",
+    functionName: 'name',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "name">);
+  } as UseContractReadConfig<typeof certificatesABI, 'name'>);
 }
 
 /**
@@ -2208,15 +2208,15 @@ export function useCertificatesName(
  */
 export function useCertificatesSymbol(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "symbol">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'symbol'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "symbol",
+    functionName: 'symbol',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "symbol">);
+  } as UseContractReadConfig<typeof certificatesABI, 'symbol'>);
 }
 
 /**
@@ -2224,15 +2224,15 @@ export function useCertificatesSymbol(
  */
 export function useCertificatesUri(
   config: Omit<
-    UseContractReadConfig<typeof certificatesABI, "uri">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof certificatesABI, 'uri'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: certificatesABI,
-    functionName: "uri",
+    functionName: 'uri',
     ...config,
-  } as UseContractReadConfig<typeof certificatesABI, "uri">);
+  } as UseContractReadConfig<typeof certificatesABI, 'uri'>);
 }
 
 /**
@@ -2240,17 +2240,17 @@ export function useCertificatesUri(
  */
 export function useCertificatesWrite<
   TMode extends WriteContractMode,
-  TFunctionName extends string,
+  TFunctionName extends string
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof certificatesABI, string>["abi"],
+        PrepareWriteContractResult<typeof certificatesABI, string>['abi'],
         TFunctionName
       >
     : UseContractWriteConfig<TMode, typeof certificatesABI, TFunctionName> & {
         abi?: never;
-      } = {} as any,
+      } = {} as any
 ) {
   return useContractWrite<TMode, typeof certificatesABI, TFunctionName>({
     abi: certificatesABI,
@@ -2262,20 +2262,20 @@ export function useCertificatesWrite<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link certificatesABI}__ and `functionName` set to `"burn"`.
  */
 export function useCertificatesBurn<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof certificatesABI, "burn">["abi"],
-        "burn"
-      > & { functionName?: "burn" }
-    : UseContractWriteConfig<TMode, typeof certificatesABI, "burn"> & {
+        PrepareWriteContractResult<typeof certificatesABI, 'burn'>['abi'],
+        'burn'
+      > & { functionName?: 'burn' }
+    : UseContractWriteConfig<TMode, typeof certificatesABI, 'burn'> & {
         abi?: never;
-        functionName?: "burn";
-      } = {} as any,
+        functionName?: 'burn';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof certificatesABI, "burn">({
+  return useContractWrite<TMode, typeof certificatesABI, 'burn'>({
     abi: certificatesABI,
-    functionName: "burn",
+    functionName: 'burn',
     ...config,
   } as any);
 }
@@ -2284,20 +2284,20 @@ export function useCertificatesBurn<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link certificatesABI}__ and `functionName` set to `"mint"`.
  */
 export function useCertificatesMint<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof certificatesABI, "mint">["abi"],
-        "mint"
-      > & { functionName?: "mint" }
-    : UseContractWriteConfig<TMode, typeof certificatesABI, "mint"> & {
+        PrepareWriteContractResult<typeof certificatesABI, 'mint'>['abi'],
+        'mint'
+      > & { functionName?: 'mint' }
+    : UseContractWriteConfig<TMode, typeof certificatesABI, 'mint'> & {
         abi?: never;
-        functionName?: "mint";
-      } = {} as any,
+        functionName?: 'mint';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof certificatesABI, "mint">({
+  return useContractWrite<TMode, typeof certificatesABI, 'mint'>({
     abi: certificatesABI,
-    functionName: "mint",
+    functionName: 'mint',
     ...config,
   } as any);
 }
@@ -2306,33 +2306,33 @@ export function useCertificatesMint<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link certificatesABI}__ and `functionName` set to `"safeBatchTransferFrom"`.
  */
 export function useCertificatesSafeBatchTransferFrom<
-  TMode extends WriteContractMode,
+  TMode extends WriteContractMode
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof certificatesABI,
-          "safeBatchTransferFrom"
-        >["abi"],
-        "safeBatchTransferFrom"
-      > & { functionName?: "safeBatchTransferFrom" }
+          'safeBatchTransferFrom'
+        >['abi'],
+        'safeBatchTransferFrom'
+      > & { functionName?: 'safeBatchTransferFrom' }
     : UseContractWriteConfig<
         TMode,
         typeof certificatesABI,
-        "safeBatchTransferFrom"
+        'safeBatchTransferFrom'
       > & {
         abi?: never;
-        functionName?: "safeBatchTransferFrom";
-      } = {} as any,
+        functionName?: 'safeBatchTransferFrom';
+      } = {} as any
 ) {
   return useContractWrite<
     TMode,
     typeof certificatesABI,
-    "safeBatchTransferFrom"
+    'safeBatchTransferFrom'
   >({
     abi: certificatesABI,
-    functionName: "safeBatchTransferFrom",
+    functionName: 'safeBatchTransferFrom',
     ...config,
   } as any);
 }
@@ -2341,29 +2341,29 @@ export function useCertificatesSafeBatchTransferFrom<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link certificatesABI}__ and `functionName` set to `"safeTransferFrom"`.
  */
 export function useCertificatesSafeTransferFrom<
-  TMode extends WriteContractMode,
+  TMode extends WriteContractMode
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof certificatesABI,
-          "safeTransferFrom"
-        >["abi"],
-        "safeTransferFrom"
-      > & { functionName?: "safeTransferFrom" }
+          'safeTransferFrom'
+        >['abi'],
+        'safeTransferFrom'
+      > & { functionName?: 'safeTransferFrom' }
     : UseContractWriteConfig<
         TMode,
         typeof certificatesABI,
-        "safeTransferFrom"
+        'safeTransferFrom'
       > & {
         abi?: never;
-        functionName?: "safeTransferFrom";
-      } = {} as any,
+        functionName?: 'safeTransferFrom';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof certificatesABI, "safeTransferFrom">({
+  return useContractWrite<TMode, typeof certificatesABI, 'safeTransferFrom'>({
     abi: certificatesABI,
-    functionName: "safeTransferFrom",
+    functionName: 'safeTransferFrom',
     ...config,
   } as any);
 }
@@ -2372,29 +2372,29 @@ export function useCertificatesSafeTransferFrom<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link certificatesABI}__ and `functionName` set to `"setApprovalForAll"`.
  */
 export function useCertificatesSetApprovalForAll<
-  TMode extends WriteContractMode,
+  TMode extends WriteContractMode
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof certificatesABI,
-          "setApprovalForAll"
-        >["abi"],
-        "setApprovalForAll"
-      > & { functionName?: "setApprovalForAll" }
+          'setApprovalForAll'
+        >['abi'],
+        'setApprovalForAll'
+      > & { functionName?: 'setApprovalForAll' }
     : UseContractWriteConfig<
         TMode,
         typeof certificatesABI,
-        "setApprovalForAll"
+        'setApprovalForAll'
       > & {
         abi?: never;
-        functionName?: "setApprovalForAll";
-      } = {} as any,
+        functionName?: 'setApprovalForAll';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof certificatesABI, "setApprovalForAll">({
+  return useContractWrite<TMode, typeof certificatesABI, 'setApprovalForAll'>({
     abi: certificatesABI,
-    functionName: "setApprovalForAll",
+    functionName: 'setApprovalForAll',
     ...config,
   } as any);
 }
@@ -2403,20 +2403,20 @@ export function useCertificatesSetApprovalForAll<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link certificatesABI}__ and `functionName` set to `"multicall"`.
  */
 export function useCertificatesMulticall<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof certificatesABI, "multicall">["abi"],
-        "multicall"
-      > & { functionName?: "multicall" }
-    : UseContractWriteConfig<TMode, typeof certificatesABI, "multicall"> & {
+        PrepareWriteContractResult<typeof certificatesABI, 'multicall'>['abi'],
+        'multicall'
+      > & { functionName?: 'multicall' }
+    : UseContractWriteConfig<TMode, typeof certificatesABI, 'multicall'> & {
         abi?: never;
-        functionName?: "multicall";
-      } = {} as any,
+        functionName?: 'multicall';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof certificatesABI, "multicall">({
+  return useContractWrite<TMode, typeof certificatesABI, 'multicall'>({
     abi: certificatesABI,
-    functionName: "multicall",
+    functionName: 'multicall',
     ...config,
   } as any);
 }
@@ -2427,8 +2427,8 @@ export function useCertificatesMulticall<TMode extends WriteContractMode>(
 export function usePrepareCertificatesWrite<TFunctionName extends string>(
   config: Omit<
     UsePrepareContractWriteConfig<typeof certificatesABI, TFunctionName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: certificatesABI,
@@ -2441,15 +2441,15 @@ export function usePrepareCertificatesWrite<TFunctionName extends string>(
  */
 export function usePrepareCertificatesBurn(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof certificatesABI, "burn">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof certificatesABI, 'burn'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: certificatesABI,
-    functionName: "burn",
+    functionName: 'burn',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof certificatesABI, "burn">);
+  } as UsePrepareContractWriteConfig<typeof certificatesABI, 'burn'>);
 }
 
 /**
@@ -2457,15 +2457,15 @@ export function usePrepareCertificatesBurn(
  */
 export function usePrepareCertificatesMint(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof certificatesABI, "mint">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof certificatesABI, 'mint'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: certificatesABI,
-    functionName: "mint",
+    functionName: 'mint',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof certificatesABI, "mint">);
+  } as UsePrepareContractWriteConfig<typeof certificatesABI, 'mint'>);
 }
 
 /**
@@ -2475,16 +2475,16 @@ export function usePrepareCertificatesSafeBatchTransferFrom(
   config: Omit<
     UsePrepareContractWriteConfig<
       typeof certificatesABI,
-      "safeBatchTransferFrom"
+      'safeBatchTransferFrom'
     >,
-    "abi" | "functionName"
-  > = {} as any,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: certificatesABI,
-    functionName: "safeBatchTransferFrom",
+    functionName: 'safeBatchTransferFrom',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof certificatesABI, "safeBatchTransferFrom">);
+  } as UsePrepareContractWriteConfig<typeof certificatesABI, 'safeBatchTransferFrom'>);
 }
 
 /**
@@ -2492,15 +2492,15 @@ export function usePrepareCertificatesSafeBatchTransferFrom(
  */
 export function usePrepareCertificatesSafeTransferFrom(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof certificatesABI, "safeTransferFrom">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof certificatesABI, 'safeTransferFrom'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: certificatesABI,
-    functionName: "safeTransferFrom",
+    functionName: 'safeTransferFrom',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof certificatesABI, "safeTransferFrom">);
+  } as UsePrepareContractWriteConfig<typeof certificatesABI, 'safeTransferFrom'>);
 }
 
 /**
@@ -2508,15 +2508,15 @@ export function usePrepareCertificatesSafeTransferFrom(
  */
 export function usePrepareCertificatesSetApprovalForAll(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof certificatesABI, "setApprovalForAll">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof certificatesABI, 'setApprovalForAll'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: certificatesABI,
-    functionName: "setApprovalForAll",
+    functionName: 'setApprovalForAll',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof certificatesABI, "setApprovalForAll">);
+  } as UsePrepareContractWriteConfig<typeof certificatesABI, 'setApprovalForAll'>);
 }
 
 /**
@@ -2524,15 +2524,15 @@ export function usePrepareCertificatesSetApprovalForAll(
  */
 export function usePrepareCertificatesMulticall(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof certificatesABI, "multicall">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof certificatesABI, 'multicall'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: certificatesABI,
-    functionName: "multicall",
+    functionName: 'multicall',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof certificatesABI, "multicall">);
+  } as UsePrepareContractWriteConfig<typeof certificatesABI, 'multicall'>);
 }
 
 /**
@@ -2541,8 +2541,8 @@ export function usePrepareCertificatesMulticall(
 export function useCertificatesEvent<TEventName extends string>(
   config: Omit<
     UseContractEventConfig<typeof certificatesABI, TEventName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: certificatesABI,
@@ -2555,15 +2555,15 @@ export function useCertificatesEvent<TEventName extends string>(
  */
 export function useCertificatesApprovalForAllEvent(
   config: Omit<
-    UseContractEventConfig<typeof certificatesABI, "ApprovalForAll">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof certificatesABI, 'ApprovalForAll'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: certificatesABI,
-    eventName: "ApprovalForAll",
+    eventName: 'ApprovalForAll',
     ...config,
-  } as UseContractEventConfig<typeof certificatesABI, "ApprovalForAll">);
+  } as UseContractEventConfig<typeof certificatesABI, 'ApprovalForAll'>);
 }
 
 /**
@@ -2571,15 +2571,15 @@ export function useCertificatesApprovalForAllEvent(
  */
 export function useCertificatesTransferBatchEvent(
   config: Omit<
-    UseContractEventConfig<typeof certificatesABI, "TransferBatch">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof certificatesABI, 'TransferBatch'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: certificatesABI,
-    eventName: "TransferBatch",
+    eventName: 'TransferBatch',
     ...config,
-  } as UseContractEventConfig<typeof certificatesABI, "TransferBatch">);
+  } as UseContractEventConfig<typeof certificatesABI, 'TransferBatch'>);
 }
 
 /**
@@ -2587,15 +2587,15 @@ export function useCertificatesTransferBatchEvent(
  */
 export function useCertificatesTransferSingleEvent(
   config: Omit<
-    UseContractEventConfig<typeof certificatesABI, "TransferSingle">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof certificatesABI, 'TransferSingle'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: certificatesABI,
-    eventName: "TransferSingle",
+    eventName: 'TransferSingle',
     ...config,
-  } as UseContractEventConfig<typeof certificatesABI, "TransferSingle">);
+  } as UseContractEventConfig<typeof certificatesABI, 'TransferSingle'>);
 }
 
 /**
@@ -2603,21 +2603,21 @@ export function useCertificatesTransferSingleEvent(
  */
 export function useCertificatesUriEvent(
   config: Omit<
-    UseContractEventConfig<typeof certificatesABI, "URI">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof certificatesABI, 'URI'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: certificatesABI,
-    eventName: "URI",
+    eventName: 'URI',
     ...config,
-  } as UseContractEventConfig<typeof certificatesABI, "URI">);
+  } as UseContractEventConfig<typeof certificatesABI, 'URI'>);
 }
 
 /**
  * Wraps __{@link useContract}__ with `abi` set to __{@link groupABI}__.
  */
-export function useGroup(config: Omit<UseContractConfig, "abi"> = {} as any) {
+export function useGroup(config: Omit<UseContractConfig, 'abi'> = {} as any) {
   return useContract({ abi: groupABI, ...config });
 }
 
@@ -2627,8 +2627,8 @@ export function useGroup(config: Omit<UseContractConfig, "abi"> = {} as any) {
 export function useGroupRead<TFunctionName extends string>(
   config: Omit<
     UseContractReadConfig<typeof groupABI, TFunctionName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return useContractRead({ abi: groupABI, ...config } as UseContractReadConfig<
     typeof groupABI,
@@ -2641,15 +2641,15 @@ export function useGroupRead<TFunctionName extends string>(
  */
 export function useGroupCanCall(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "canCall">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'canCall'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "canCall",
+    functionName: 'canCall',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "canCall">);
+  } as UseContractReadConfig<typeof groupABI, 'canCall'>);
 }
 
 /**
@@ -2657,15 +2657,15 @@ export function useGroupCanCall(
  */
 export function useGroupGetAuthority(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "getAuthority">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'getAuthority'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "getAuthority",
+    functionName: 'getAuthority',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "getAuthority">);
+  } as UseContractReadConfig<typeof groupABI, 'getAuthority'>);
 }
 
 /**
@@ -2673,15 +2673,15 @@ export function useGroupGetAuthority(
  */
 export function useGroupBalanceOf(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "balanceOf">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'balanceOf'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "balanceOf",
+    functionName: 'balanceOf',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "balanceOf">);
+  } as UseContractReadConfig<typeof groupABI, 'balanceOf'>);
 }
 
 /**
@@ -2689,15 +2689,15 @@ export function useGroupBalanceOf(
  */
 export function useGroupGetApproved(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "getApproved">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'getApproved'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "getApproved",
+    functionName: 'getApproved',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "getApproved">);
+  } as UseContractReadConfig<typeof groupABI, 'getApproved'>);
 }
 
 /**
@@ -2705,15 +2705,15 @@ export function useGroupGetApproved(
  */
 export function useGroupIsApprovedForAll(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "isApprovedForAll">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'isApprovedForAll'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "isApprovedForAll",
+    functionName: 'isApprovedForAll',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "isApprovedForAll">);
+  } as UseContractReadConfig<typeof groupABI, 'isApprovedForAll'>);
 }
 
 /**
@@ -2721,15 +2721,15 @@ export function useGroupIsApprovedForAll(
  */
 export function useGroupOwnerOf(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "ownerOf">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'ownerOf'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "ownerOf",
+    functionName: 'ownerOf',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "ownerOf">);
+  } as UseContractReadConfig<typeof groupABI, 'ownerOf'>);
 }
 
 /**
@@ -2737,15 +2737,15 @@ export function useGroupOwnerOf(
  */
 export function useGroupName(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "name">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'name'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "name",
+    functionName: 'name',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "name">);
+  } as UseContractReadConfig<typeof groupABI, 'name'>);
 }
 
 /**
@@ -2753,15 +2753,15 @@ export function useGroupName(
  */
 export function useGroupSymbol(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "symbol">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'symbol'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "symbol",
+    functionName: 'symbol',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "symbol">);
+  } as UseContractReadConfig<typeof groupABI, 'symbol'>);
 }
 
 /**
@@ -2769,15 +2769,15 @@ export function useGroupSymbol(
  */
 export function useGroupTokenUri(
   config: Omit<
-    UseContractReadConfig<typeof groupABI, "tokenURI">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof groupABI, 'tokenURI'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: groupABI,
-    functionName: "tokenURI",
+    functionName: 'tokenURI',
     ...config,
-  } as UseContractReadConfig<typeof groupABI, "tokenURI">);
+  } as UseContractReadConfig<typeof groupABI, 'tokenURI'>);
 }
 
 /**
@@ -2785,17 +2785,17 @@ export function useGroupTokenUri(
  */
 export function useGroupWrite<
   TMode extends WriteContractMode,
-  TFunctionName extends string,
+  TFunctionName extends string
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, string>["abi"],
+        PrepareWriteContractResult<typeof groupABI, string>['abi'],
         TFunctionName
       >
     : UseContractWriteConfig<TMode, typeof groupABI, TFunctionName> & {
         abi?: never;
-      } = {} as any,
+      } = {} as any
 ) {
   return useContractWrite<TMode, typeof groupABI, TFunctionName>({
     abi: groupABI,
@@ -2807,20 +2807,20 @@ export function useGroupWrite<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"createAuthority"`.
  */
 export function useGroupCreateAuthority<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "createAuthority">["abi"],
-        "createAuthority"
-      > & { functionName?: "createAuthority" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "createAuthority"> & {
+        PrepareWriteContractResult<typeof groupABI, 'createAuthority'>['abi'],
+        'createAuthority'
+      > & { functionName?: 'createAuthority' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'createAuthority'> & {
         abi?: never;
-        functionName?: "createAuthority";
-      } = {} as any,
+        functionName?: 'createAuthority';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "createAuthority">({
+  return useContractWrite<TMode, typeof groupABI, 'createAuthority'>({
     abi: groupABI,
-    functionName: "createAuthority",
+    functionName: 'createAuthority',
     ...config,
   } as any);
 }
@@ -2829,27 +2829,27 @@ export function useGroupCreateAuthority<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"createDefaultAuthority"`.
  */
 export function useGroupCreateDefaultAuthority<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof groupABI,
-          "createDefaultAuthority"
-        >["abi"],
-        "createDefaultAuthority"
-      > & { functionName?: "createDefaultAuthority" }
+          'createDefaultAuthority'
+        >['abi'],
+        'createDefaultAuthority'
+      > & { functionName?: 'createDefaultAuthority' }
     : UseContractWriteConfig<
         TMode,
         typeof groupABI,
-        "createDefaultAuthority"
+        'createDefaultAuthority'
       > & {
         abi?: never;
-        functionName?: "createDefaultAuthority";
-      } = {} as any,
+        functionName?: 'createDefaultAuthority';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "createDefaultAuthority">({
+  return useContractWrite<TMode, typeof groupABI, 'createDefaultAuthority'>({
     abi: groupABI,
-    functionName: "createDefaultAuthority",
+    functionName: 'createDefaultAuthority',
     ...config,
   } as any);
 }
@@ -2858,20 +2858,20 @@ export function useGroupCreateDefaultAuthority<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"setAuthority"`.
  */
 export function useGroupSetAuthority<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "setAuthority">["abi"],
-        "setAuthority"
-      > & { functionName?: "setAuthority" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "setAuthority"> & {
+        PrepareWriteContractResult<typeof groupABI, 'setAuthority'>['abi'],
+        'setAuthority'
+      > & { functionName?: 'setAuthority' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'setAuthority'> & {
         abi?: never;
-        functionName?: "setAuthority";
-      } = {} as any,
+        functionName?: 'setAuthority';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "setAuthority">({
+  return useContractWrite<TMode, typeof groupABI, 'setAuthority'>({
     abi: groupABI,
-    functionName: "setAuthority",
+    functionName: 'setAuthority',
     ...config,
   } as any);
 }
@@ -2880,20 +2880,20 @@ export function useGroupSetAuthority<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"approve"`.
  */
 export function useGroupApprove<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "approve">["abi"],
-        "approve"
-      > & { functionName?: "approve" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "approve"> & {
+        PrepareWriteContractResult<typeof groupABI, 'approve'>['abi'],
+        'approve'
+      > & { functionName?: 'approve' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'approve'> & {
         abi?: never;
-        functionName?: "approve";
-      } = {} as any,
+        functionName?: 'approve';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "approve">({
+  return useContractWrite<TMode, typeof groupABI, 'approve'>({
     abi: groupABI,
-    functionName: "approve",
+    functionName: 'approve',
     ...config,
   } as any);
 }
@@ -2902,20 +2902,20 @@ export function useGroupApprove<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"create"`.
  */
 export function useGroupCreate<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "create">["abi"],
-        "create"
-      > & { functionName?: "create" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "create"> & {
+        PrepareWriteContractResult<typeof groupABI, 'create'>['abi'],
+        'create'
+      > & { functionName?: 'create' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'create'> & {
         abi?: never;
-        functionName?: "create";
-      } = {} as any,
+        functionName?: 'create';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "create">({
+  return useContractWrite<TMode, typeof groupABI, 'create'>({
     abi: groupABI,
-    functionName: "create",
+    functionName: 'create',
     ...config,
   } as any);
 }
@@ -2924,20 +2924,20 @@ export function useGroupCreate<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"safeTransferFrom"`.
  */
 export function useGroupSafeTransferFrom<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "safeTransferFrom">["abi"],
-        "safeTransferFrom"
-      > & { functionName?: "safeTransferFrom" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "safeTransferFrom"> & {
+        PrepareWriteContractResult<typeof groupABI, 'safeTransferFrom'>['abi'],
+        'safeTransferFrom'
+      > & { functionName?: 'safeTransferFrom' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'safeTransferFrom'> & {
         abi?: never;
-        functionName?: "safeTransferFrom";
-      } = {} as any,
+        functionName?: 'safeTransferFrom';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "safeTransferFrom">({
+  return useContractWrite<TMode, typeof groupABI, 'safeTransferFrom'>({
     abi: groupABI,
-    functionName: "safeTransferFrom",
+    functionName: 'safeTransferFrom',
     ...config,
   } as any);
 }
@@ -2946,20 +2946,20 @@ export function useGroupSafeTransferFrom<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"setApprovalForAll"`.
  */
 export function useGroupSetApprovalForAll<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "setApprovalForAll">["abi"],
-        "setApprovalForAll"
-      > & { functionName?: "setApprovalForAll" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "setApprovalForAll"> & {
+        PrepareWriteContractResult<typeof groupABI, 'setApprovalForAll'>['abi'],
+        'setApprovalForAll'
+      > & { functionName?: 'setApprovalForAll' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'setApprovalForAll'> & {
         abi?: never;
-        functionName?: "setApprovalForAll";
-      } = {} as any,
+        functionName?: 'setApprovalForAll';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "setApprovalForAll">({
+  return useContractWrite<TMode, typeof groupABI, 'setApprovalForAll'>({
     abi: groupABI,
-    functionName: "setApprovalForAll",
+    functionName: 'setApprovalForAll',
     ...config,
   } as any);
 }
@@ -2968,20 +2968,20 @@ export function useGroupSetApprovalForAll<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"transferFrom"`.
  */
 export function useGroupTransferFrom<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "transferFrom">["abi"],
-        "transferFrom"
-      > & { functionName?: "transferFrom" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "transferFrom"> & {
+        PrepareWriteContractResult<typeof groupABI, 'transferFrom'>['abi'],
+        'transferFrom'
+      > & { functionName?: 'transferFrom' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'transferFrom'> & {
         abi?: never;
-        functionName?: "transferFrom";
-      } = {} as any,
+        functionName?: 'transferFrom';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "transferFrom">({
+  return useContractWrite<TMode, typeof groupABI, 'transferFrom'>({
     abi: groupABI,
-    functionName: "transferFrom",
+    functionName: 'transferFrom',
     ...config,
   } as any);
 }
@@ -2990,20 +2990,20 @@ export function useGroupTransferFrom<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"setTokenURI"`.
  */
 export function useGroupSetTokenUri<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "setTokenURI">["abi"],
-        "setTokenURI"
-      > & { functionName?: "setTokenURI" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "setTokenURI"> & {
+        PrepareWriteContractResult<typeof groupABI, 'setTokenURI'>['abi'],
+        'setTokenURI'
+      > & { functionName?: 'setTokenURI' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'setTokenURI'> & {
         abi?: never;
-        functionName?: "setTokenURI";
-      } = {} as any,
+        functionName?: 'setTokenURI';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "setTokenURI">({
+  return useContractWrite<TMode, typeof groupABI, 'setTokenURI'>({
     abi: groupABI,
-    functionName: "setTokenURI",
+    functionName: 'setTokenURI',
     ...config,
   } as any);
 }
@@ -3012,20 +3012,20 @@ export function useGroupSetTokenUri<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link groupABI}__ and `functionName` set to `"multicall"`.
  */
 export function useGroupMulticall<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof groupABI, "multicall">["abi"],
-        "multicall"
-      > & { functionName?: "multicall" }
-    : UseContractWriteConfig<TMode, typeof groupABI, "multicall"> & {
+        PrepareWriteContractResult<typeof groupABI, 'multicall'>['abi'],
+        'multicall'
+      > & { functionName?: 'multicall' }
+    : UseContractWriteConfig<TMode, typeof groupABI, 'multicall'> & {
         abi?: never;
-        functionName?: "multicall";
-      } = {} as any,
+        functionName?: 'multicall';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof groupABI, "multicall">({
+  return useContractWrite<TMode, typeof groupABI, 'multicall'>({
     abi: groupABI,
-    functionName: "multicall",
+    functionName: 'multicall',
     ...config,
   } as any);
 }
@@ -3036,8 +3036,8 @@ export function useGroupMulticall<TMode extends WriteContractMode>(
 export function usePrepareGroupWrite<TFunctionName extends string>(
   config: Omit<
     UsePrepareContractWriteConfig<typeof groupABI, TFunctionName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
@@ -3050,15 +3050,15 @@ export function usePrepareGroupWrite<TFunctionName extends string>(
  */
 export function usePrepareGroupCreateAuthority(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "createAuthority">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'createAuthority'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "createAuthority",
+    functionName: 'createAuthority',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "createAuthority">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'createAuthority'>);
 }
 
 /**
@@ -3066,15 +3066,15 @@ export function usePrepareGroupCreateAuthority(
  */
 export function usePrepareGroupCreateDefaultAuthority(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "createDefaultAuthority">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'createDefaultAuthority'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "createDefaultAuthority",
+    functionName: 'createDefaultAuthority',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "createDefaultAuthority">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'createDefaultAuthority'>);
 }
 
 /**
@@ -3082,15 +3082,15 @@ export function usePrepareGroupCreateDefaultAuthority(
  */
 export function usePrepareGroupSetAuthority(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "setAuthority">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'setAuthority'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "setAuthority",
+    functionName: 'setAuthority',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "setAuthority">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'setAuthority'>);
 }
 
 /**
@@ -3098,15 +3098,15 @@ export function usePrepareGroupSetAuthority(
  */
 export function usePrepareGroupApprove(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "approve">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'approve'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "approve",
+    functionName: 'approve',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "approve">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'approve'>);
 }
 
 /**
@@ -3114,15 +3114,15 @@ export function usePrepareGroupApprove(
  */
 export function usePrepareGroupCreate(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "create">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'create'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "create",
+    functionName: 'create',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "create">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'create'>);
 }
 
 /**
@@ -3130,15 +3130,15 @@ export function usePrepareGroupCreate(
  */
 export function usePrepareGroupSafeTransferFrom(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "safeTransferFrom">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'safeTransferFrom'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "safeTransferFrom",
+    functionName: 'safeTransferFrom',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "safeTransferFrom">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'safeTransferFrom'>);
 }
 
 /**
@@ -3146,15 +3146,15 @@ export function usePrepareGroupSafeTransferFrom(
  */
 export function usePrepareGroupSetApprovalForAll(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "setApprovalForAll">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'setApprovalForAll'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "setApprovalForAll",
+    functionName: 'setApprovalForAll',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "setApprovalForAll">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'setApprovalForAll'>);
 }
 
 /**
@@ -3162,15 +3162,15 @@ export function usePrepareGroupSetApprovalForAll(
  */
 export function usePrepareGroupTransferFrom(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "transferFrom">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'transferFrom'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "transferFrom",
+    functionName: 'transferFrom',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "transferFrom">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'transferFrom'>);
 }
 
 /**
@@ -3178,15 +3178,15 @@ export function usePrepareGroupTransferFrom(
  */
 export function usePrepareGroupSetTokenUri(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "setTokenURI">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'setTokenURI'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "setTokenURI",
+    functionName: 'setTokenURI',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "setTokenURI">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'setTokenURI'>);
 }
 
 /**
@@ -3194,15 +3194,15 @@ export function usePrepareGroupSetTokenUri(
  */
 export function usePrepareGroupMulticall(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof groupABI, "multicall">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof groupABI, 'multicall'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: groupABI,
-    functionName: "multicall",
+    functionName: 'multicall',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof groupABI, "multicall">);
+  } as UsePrepareContractWriteConfig<typeof groupABI, 'multicall'>);
 }
 
 /**
@@ -3211,8 +3211,8 @@ export function usePrepareGroupMulticall(
 export function useGroupEvent<TEventName extends string>(
   config: Omit<
     UseContractEventConfig<typeof groupABI, TEventName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: groupABI,
@@ -3225,15 +3225,15 @@ export function useGroupEvent<TEventName extends string>(
  */
 export function useGroupAuthorityUpdatedEvent(
   config: Omit<
-    UseContractEventConfig<typeof groupABI, "AuthorityUpdated">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof groupABI, 'AuthorityUpdated'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: groupABI,
-    eventName: "AuthorityUpdated",
+    eventName: 'AuthorityUpdated',
     ...config,
-  } as UseContractEventConfig<typeof groupABI, "AuthorityUpdated">);
+  } as UseContractEventConfig<typeof groupABI, 'AuthorityUpdated'>);
 }
 
 /**
@@ -3241,15 +3241,15 @@ export function useGroupAuthorityUpdatedEvent(
  */
 export function useGroupApprovalEvent(
   config: Omit<
-    UseContractEventConfig<typeof groupABI, "Approval">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof groupABI, 'Approval'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: groupABI,
-    eventName: "Approval",
+    eventName: 'Approval',
     ...config,
-  } as UseContractEventConfig<typeof groupABI, "Approval">);
+  } as UseContractEventConfig<typeof groupABI, 'Approval'>);
 }
 
 /**
@@ -3257,15 +3257,15 @@ export function useGroupApprovalEvent(
  */
 export function useGroupApprovalForAllEvent(
   config: Omit<
-    UseContractEventConfig<typeof groupABI, "ApprovalForAll">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof groupABI, 'ApprovalForAll'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: groupABI,
-    eventName: "ApprovalForAll",
+    eventName: 'ApprovalForAll',
     ...config,
-  } as UseContractEventConfig<typeof groupABI, "ApprovalForAll">);
+  } as UseContractEventConfig<typeof groupABI, 'ApprovalForAll'>);
 }
 
 /**
@@ -3273,15 +3273,15 @@ export function useGroupApprovalForAllEvent(
  */
 export function useGroupTransferEvent(
   config: Omit<
-    UseContractEventConfig<typeof groupABI, "Transfer">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof groupABI, 'Transfer'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: groupABI,
-    eventName: "Transfer",
+    eventName: 'Transfer',
     ...config,
-  } as UseContractEventConfig<typeof groupABI, "Transfer">);
+  } as UseContractEventConfig<typeof groupABI, 'Transfer'>);
 }
 
 /**
@@ -3289,15 +3289,15 @@ export function useGroupTransferEvent(
  */
 export function useGroupMetadataUpdateEvent(
   config: Omit<
-    UseContractEventConfig<typeof groupABI, "MetadataUpdate">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof groupABI, 'MetadataUpdate'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: groupABI,
-    eventName: "MetadataUpdate",
+    eventName: 'MetadataUpdate',
     ...config,
-  } as UseContractEventConfig<typeof groupABI, "MetadataUpdate">);
+  } as UseContractEventConfig<typeof groupABI, 'MetadataUpdate'>);
 }
 
 /**
@@ -3305,21 +3305,21 @@ export function useGroupMetadataUpdateEvent(
  */
 export function useGroupMetadataUpdatedEvent(
   config: Omit<
-    UseContractEventConfig<typeof groupABI, "MetadataUpdated">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof groupABI, 'MetadataUpdated'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: groupABI,
-    eventName: "MetadataUpdated",
+    eventName: 'MetadataUpdated',
     ...config,
-  } as UseContractEventConfig<typeof groupABI, "MetadataUpdated">);
+  } as UseContractEventConfig<typeof groupABI, 'MetadataUpdated'>);
 }
 
 /**
  * Wraps __{@link useContract}__ with `abi` set to __{@link impactABI}__.
  */
-export function useImpact(config: Omit<UseContractConfig, "abi"> = {} as any) {
+export function useImpact(config: Omit<UseContractConfig, 'abi'> = {} as any) {
   return useContract({ abi: impactABI, ...config });
 }
 
@@ -3329,8 +3329,8 @@ export function useImpact(config: Omit<UseContractConfig, "abi"> = {} as any) {
 export function useImpactRead<TFunctionName extends string>(
   config: Omit<
     UseContractReadConfig<typeof impactABI, TFunctionName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return useContractRead({ abi: impactABI, ...config } as UseContractReadConfig<
     typeof impactABI,
@@ -3343,15 +3343,15 @@ export function useImpactRead<TFunctionName extends string>(
  */
 export function useImpactClaimParamsTypehash(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "CLAIM_PARAMS_TYPEHASH">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'CLAIM_PARAMS_TYPEHASH'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "CLAIM_PARAMS_TYPEHASH",
+    functionName: 'CLAIM_PARAMS_TYPEHASH',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "CLAIM_PARAMS_TYPEHASH">);
+  } as UseContractReadConfig<typeof impactABI, 'CLAIM_PARAMS_TYPEHASH'>);
 }
 
 /**
@@ -3359,15 +3359,15 @@ export function useImpactClaimParamsTypehash(
  */
 export function useImpactRevokeClaimTypehash(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "REVOKE_CLAIM_TYPEHASH">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'REVOKE_CLAIM_TYPEHASH'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "REVOKE_CLAIM_TYPEHASH",
+    functionName: 'REVOKE_CLAIM_TYPEHASH',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "REVOKE_CLAIM_TYPEHASH">);
+  } as UseContractReadConfig<typeof impactABI, 'REVOKE_CLAIM_TYPEHASH'>);
 }
 
 /**
@@ -3375,15 +3375,15 @@ export function useImpactRevokeClaimTypehash(
  */
 export function useImpactAccountsByToken(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "accountsByToken">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'accountsByToken'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "accountsByToken",
+    functionName: 'accountsByToken',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "accountsByToken">);
+  } as UseContractReadConfig<typeof impactABI, 'accountsByToken'>);
 }
 
 /**
@@ -3391,15 +3391,15 @@ export function useImpactAccountsByToken(
  */
 export function useImpactBalanceOf(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "balanceOf">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'balanceOf'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "balanceOf",
+    functionName: 'balanceOf',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "balanceOf">);
+  } as UseContractReadConfig<typeof impactABI, 'balanceOf'>);
 }
 
 /**
@@ -3407,15 +3407,15 @@ export function useImpactBalanceOf(
  */
 export function useImpactBalanceOfBatch(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "balanceOfBatch">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'balanceOfBatch'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "balanceOfBatch",
+    functionName: 'balanceOfBatch',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "balanceOfBatch">);
+  } as UseContractReadConfig<typeof impactABI, 'balanceOfBatch'>);
 }
 
 /**
@@ -3423,15 +3423,15 @@ export function useImpactBalanceOfBatch(
  */
 export function useImpactGetClaimDataHash(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "getClaimDataHash">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'getClaimDataHash'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "getClaimDataHash",
+    functionName: 'getClaimDataHash',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "getClaimDataHash">);
+  } as UseContractReadConfig<typeof impactABI, 'getClaimDataHash'>);
 }
 
 /**
@@ -3439,15 +3439,15 @@ export function useImpactGetClaimDataHash(
  */
 export function useImpactGetRevokeClaimDataHash(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "getRevokeClaimDataHash">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'getRevokeClaimDataHash'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "getRevokeClaimDataHash",
+    functionName: 'getRevokeClaimDataHash',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "getRevokeClaimDataHash">);
+  } as UseContractReadConfig<typeof impactABI, 'getRevokeClaimDataHash'>);
 }
 
 /**
@@ -3455,15 +3455,15 @@ export function useImpactGetRevokeClaimDataHash(
  */
 export function useImpactIsApprovedForAll(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "isApprovedForAll">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'isApprovedForAll'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "isApprovedForAll",
+    functionName: 'isApprovedForAll',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "isApprovedForAll">);
+  } as UseContractReadConfig<typeof impactABI, 'isApprovedForAll'>);
 }
 
 /**
@@ -3471,15 +3471,15 @@ export function useImpactIsApprovedForAll(
  */
 export function useImpactTokensByAccount(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "tokensByAccount">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'tokensByAccount'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "tokensByAccount",
+    functionName: 'tokensByAccount',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "tokensByAccount">);
+  } as UseContractReadConfig<typeof impactABI, 'tokensByAccount'>);
 }
 
 /**
@@ -3487,15 +3487,15 @@ export function useImpactTokensByAccount(
  */
 export function useImpactTotalHolders(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "totalHolders">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'totalHolders'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "totalHolders",
+    functionName: 'totalHolders',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "totalHolders">);
+  } as UseContractReadConfig<typeof impactABI, 'totalHolders'>);
 }
 
 /**
@@ -3503,15 +3503,15 @@ export function useImpactTotalHolders(
  */
 export function useImpactTotalSupply(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "totalSupply">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'totalSupply'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "totalSupply",
+    functionName: 'totalSupply',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "totalSupply">);
+  } as UseContractReadConfig<typeof impactABI, 'totalSupply'>);
 }
 
 /**
@@ -3519,15 +3519,15 @@ export function useImpactTotalSupply(
  */
 export function useImpactEvaluationParamsTypehash(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "EVALUATION_PARAMS_TYPEHASH">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'EVALUATION_PARAMS_TYPEHASH'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "EVALUATION_PARAMS_TYPEHASH",
+    functionName: 'EVALUATION_PARAMS_TYPEHASH',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "EVALUATION_PARAMS_TYPEHASH">);
+  } as UseContractReadConfig<typeof impactABI, 'EVALUATION_PARAMS_TYPEHASH'>);
 }
 
 /**
@@ -3535,15 +3535,15 @@ export function useImpactEvaluationParamsTypehash(
  */
 export function useImpactRevokeEvaluationTypehash(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "REVOKE_EVALUATION_TYPEHASH">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'REVOKE_EVALUATION_TYPEHASH'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "REVOKE_EVALUATION_TYPEHASH",
+    functionName: 'REVOKE_EVALUATION_TYPEHASH',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "REVOKE_EVALUATION_TYPEHASH">);
+  } as UseContractReadConfig<typeof impactABI, 'REVOKE_EVALUATION_TYPEHASH'>);
 }
 
 /**
@@ -3551,15 +3551,15 @@ export function useImpactRevokeEvaluationTypehash(
  */
 export function useImpactGetEvaluationDataHash(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "getEvaluationDataHash">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'getEvaluationDataHash'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "getEvaluationDataHash",
+    functionName: 'getEvaluationDataHash',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "getEvaluationDataHash">);
+  } as UseContractReadConfig<typeof impactABI, 'getEvaluationDataHash'>);
 }
 
 /**
@@ -3569,16 +3569,16 @@ export function useImpactGetSignedRevokeEvaluationDataHash(
   config: Omit<
     UseContractReadConfig<
       typeof impactABI,
-      "getSignedRevokeEvaluationDataHash"
+      'getSignedRevokeEvaluationDataHash'
     >,
-    "abi" | "functionName"
-  > = {} as any,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "getSignedRevokeEvaluationDataHash",
+    functionName: 'getSignedRevokeEvaluationDataHash',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "getSignedRevokeEvaluationDataHash">);
+  } as UseContractReadConfig<typeof impactABI, 'getSignedRevokeEvaluationDataHash'>);
 }
 
 /**
@@ -3586,15 +3586,15 @@ export function useImpactGetSignedRevokeEvaluationDataHash(
  */
 export function useImpactName(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "name">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'name'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "name",
+    functionName: 'name',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "name">);
+  } as UseContractReadConfig<typeof impactABI, 'name'>);
 }
 
 /**
@@ -3602,15 +3602,15 @@ export function useImpactName(
  */
 export function useImpactSymbol(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "symbol">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'symbol'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "symbol",
+    functionName: 'symbol',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "symbol">);
+  } as UseContractReadConfig<typeof impactABI, 'symbol'>);
 }
 
 /**
@@ -3618,15 +3618,15 @@ export function useImpactSymbol(
  */
 export function useImpactUri(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "uri">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'uri'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "uri",
+    functionName: 'uri',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "uri">);
+  } as UseContractReadConfig<typeof impactABI, 'uri'>);
 }
 
 /**
@@ -3634,15 +3634,15 @@ export function useImpactUri(
  */
 export function useImpactClaimExists(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "claimExists">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'claimExists'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "claimExists",
+    functionName: 'claimExists',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "claimExists">);
+  } as UseContractReadConfig<typeof impactABI, 'claimExists'>);
 }
 
 /**
@@ -3650,15 +3650,15 @@ export function useImpactClaimExists(
  */
 export function useImpactEvaluationExists(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "evaluationExists">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'evaluationExists'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "evaluationExists",
+    functionName: 'evaluationExists',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "evaluationExists">);
+  } as UseContractReadConfig<typeof impactABI, 'evaluationExists'>);
 }
 
 /**
@@ -3666,15 +3666,15 @@ export function useImpactEvaluationExists(
  */
 export function useImpactIsRevokedClaim(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "isRevokedClaim">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'isRevokedClaim'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "isRevokedClaim",
+    functionName: 'isRevokedClaim',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "isRevokedClaim">);
+  } as UseContractReadConfig<typeof impactABI, 'isRevokedClaim'>);
 }
 
 /**
@@ -3682,15 +3682,15 @@ export function useImpactIsRevokedClaim(
  */
 export function useImpactIsRevokedEvaluation(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "isRevokedEvaluation">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'isRevokedEvaluation'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "isRevokedEvaluation",
+    functionName: 'isRevokedEvaluation',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "isRevokedEvaluation">);
+  } as UseContractReadConfig<typeof impactABI, 'isRevokedEvaluation'>);
 }
 
 /**
@@ -3698,15 +3698,15 @@ export function useImpactIsRevokedEvaluation(
  */
 export function useImpactIsValidClaim(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "isValidClaim">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'isValidClaim'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "isValidClaim",
+    functionName: 'isValidClaim',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "isValidClaim">);
+  } as UseContractReadConfig<typeof impactABI, 'isValidClaim'>);
 }
 
 /**
@@ -3714,15 +3714,15 @@ export function useImpactIsValidClaim(
  */
 export function useImpactIsValidEvaluation(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "isValidEvaluation">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'isValidEvaluation'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "isValidEvaluation",
+    functionName: 'isValidEvaluation',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "isValidEvaluation">);
+  } as UseContractReadConfig<typeof impactABI, 'isValidEvaluation'>);
 }
 
 /**
@@ -3730,15 +3730,15 @@ export function useImpactIsValidEvaluation(
  */
 export function useImpactReadClaim(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "readClaim">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'readClaim'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "readClaim",
+    functionName: 'readClaim',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "readClaim">);
+  } as UseContractReadConfig<typeof impactABI, 'readClaim'>);
 }
 
 /**
@@ -3746,15 +3746,15 @@ export function useImpactReadClaim(
  */
 export function useImpactReadClaimAndEvaluationValue(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "readClaimAndEvaluationValue">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'readClaimAndEvaluationValue'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "readClaimAndEvaluationValue",
+    functionName: 'readClaimAndEvaluationValue',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "readClaimAndEvaluationValue">);
+  } as UseContractReadConfig<typeof impactABI, 'readClaimAndEvaluationValue'>);
 }
 
 /**
@@ -3762,15 +3762,15 @@ export function useImpactReadClaimAndEvaluationValue(
  */
 export function useImpactReadClaimUri(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "readClaimURI">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'readClaimURI'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "readClaimURI",
+    functionName: 'readClaimURI',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "readClaimURI">);
+  } as UseContractReadConfig<typeof impactABI, 'readClaimURI'>);
 }
 
 /**
@@ -3778,15 +3778,15 @@ export function useImpactReadClaimUri(
  */
 export function useImpactReadClaimValue(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "readClaimValue">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'readClaimValue'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "readClaimValue",
+    functionName: 'readClaimValue',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "readClaimValue">);
+  } as UseContractReadConfig<typeof impactABI, 'readClaimValue'>);
 }
 
 /**
@@ -3794,15 +3794,15 @@ export function useImpactReadClaimValue(
  */
 export function useImpactReadEvaluation(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "readEvaluation">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'readEvaluation'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "readEvaluation",
+    functionName: 'readEvaluation',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "readEvaluation">);
+  } as UseContractReadConfig<typeof impactABI, 'readEvaluation'>);
 }
 
 /**
@@ -3810,15 +3810,15 @@ export function useImpactReadEvaluation(
  */
 export function useImpactReadEvaluationUri(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "readEvaluationURI">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'readEvaluationURI'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "readEvaluationURI",
+    functionName: 'readEvaluationURI',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "readEvaluationURI">);
+  } as UseContractReadConfig<typeof impactABI, 'readEvaluationURI'>);
 }
 
 /**
@@ -3826,15 +3826,15 @@ export function useImpactReadEvaluationUri(
  */
 export function useImpactReadEvaluationValue(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "readEvaluationValue">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'readEvaluationValue'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "readEvaluationValue",
+    functionName: 'readEvaluationValue',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "readEvaluationValue">);
+  } as UseContractReadConfig<typeof impactABI, 'readEvaluationValue'>);
 }
 
 /**
@@ -3842,15 +3842,15 @@ export function useImpactReadEvaluationValue(
  */
 export function useImpactValidateEvaluations(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "validateEvaluations">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'validateEvaluations'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "validateEvaluations",
+    functionName: 'validateEvaluations',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "validateEvaluations">);
+  } as UseContractReadConfig<typeof impactABI, 'validateEvaluations'>);
 }
 
 /**
@@ -3858,15 +3858,15 @@ export function useImpactValidateEvaluations(
  */
 export function useImpactAttestationValueTypehash(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "ATTESTATION_VALUE_TYPEHASH">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'ATTESTATION_VALUE_TYPEHASH'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "ATTESTATION_VALUE_TYPEHASH",
+    functionName: 'ATTESTATION_VALUE_TYPEHASH',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "ATTESTATION_VALUE_TYPEHASH">);
+  } as UseContractReadConfig<typeof impactABI, 'ATTESTATION_VALUE_TYPEHASH'>);
 }
 
 /**
@@ -3874,15 +3874,15 @@ export function useImpactAttestationValueTypehash(
  */
 export function useImpactIsValidSignature(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "isValidSignature">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'isValidSignature'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "isValidSignature",
+    functionName: 'isValidSignature',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "isValidSignature">);
+  } as UseContractReadConfig<typeof impactABI, 'isValidSignature'>);
 }
 
 /**
@@ -3890,15 +3890,15 @@ export function useImpactIsValidSignature(
  */
 export function useImpactDecodeClaimGeneratorId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "decodeClaimGeneratorID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'decodeClaimGeneratorID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "decodeClaimGeneratorID",
+    functionName: 'decodeClaimGeneratorID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "decodeClaimGeneratorID">);
+  } as UseContractReadConfig<typeof impactABI, 'decodeClaimGeneratorID'>);
 }
 
 /**
@@ -3906,15 +3906,15 @@ export function useImpactDecodeClaimGeneratorId(
  */
 export function useImpactDecodeClaimId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "decodeClaimID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'decodeClaimID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "decodeClaimID",
+    functionName: 'decodeClaimID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "decodeClaimID">);
+  } as UseContractReadConfig<typeof impactABI, 'decodeClaimID'>);
 }
 
 /**
@@ -3922,15 +3922,15 @@ export function useImpactDecodeClaimId(
  */
 export function useImpactDecodeClaimRecordId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "decodeClaimRecordID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'decodeClaimRecordID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "decodeClaimRecordID",
+    functionName: 'decodeClaimRecordID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "decodeClaimRecordID">);
+  } as UseContractReadConfig<typeof impactABI, 'decodeClaimRecordID'>);
 }
 
 /**
@@ -3938,15 +3938,15 @@ export function useImpactDecodeClaimRecordId(
  */
 export function useImpactDecodeEvaluationClaimId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "decodeEvaluationClaimID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'decodeEvaluationClaimID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "decodeEvaluationClaimID",
+    functionName: 'decodeEvaluationClaimID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "decodeEvaluationClaimID">);
+  } as UseContractReadConfig<typeof impactABI, 'decodeEvaluationClaimID'>);
 }
 
 /**
@@ -3954,15 +3954,15 @@ export function useImpactDecodeEvaluationClaimId(
  */
 export function useImpactDecodeEvaluationGeneratorId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "decodeEvaluationGeneratorID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'decodeEvaluationGeneratorID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "decodeEvaluationGeneratorID",
+    functionName: 'decodeEvaluationGeneratorID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "decodeEvaluationGeneratorID">);
+  } as UseContractReadConfig<typeof impactABI, 'decodeEvaluationGeneratorID'>);
 }
 
 /**
@@ -3970,15 +3970,15 @@ export function useImpactDecodeEvaluationGeneratorId(
  */
 export function useImpactDecodeEvaluationId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "decodeEvaluationID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'decodeEvaluationID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "decodeEvaluationID",
+    functionName: 'decodeEvaluationID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "decodeEvaluationID">);
+  } as UseContractReadConfig<typeof impactABI, 'decodeEvaluationID'>);
 }
 
 /**
@@ -3986,15 +3986,15 @@ export function useImpactDecodeEvaluationId(
  */
 export function useImpactDecodeEvaluationMethodologyId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "decodeEvaluationMethodologyID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'decodeEvaluationMethodologyID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "decodeEvaluationMethodologyID",
+    functionName: 'decodeEvaluationMethodologyID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "decodeEvaluationMethodologyID">);
+  } as UseContractReadConfig<typeof impactABI, 'decodeEvaluationMethodologyID'>);
 }
 
 /**
@@ -4002,15 +4002,15 @@ export function useImpactDecodeEvaluationMethodologyId(
  */
 export function useImpactDecodeEvaluationRecordId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "decodeEvaluationRecordID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'decodeEvaluationRecordID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "decodeEvaluationRecordID",
+    functionName: 'decodeEvaluationRecordID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "decodeEvaluationRecordID">);
+  } as UseContractReadConfig<typeof impactABI, 'decodeEvaluationRecordID'>);
 }
 
 /**
@@ -4018,15 +4018,15 @@ export function useImpactDecodeEvaluationRecordId(
  */
 export function useImpactEncodeEvaluationId(
   config: Omit<
-    UseContractReadConfig<typeof impactABI, "encodeEvaluationID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof impactABI, 'encodeEvaluationID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: impactABI,
-    functionName: "encodeEvaluationID",
+    functionName: 'encodeEvaluationID',
     ...config,
-  } as UseContractReadConfig<typeof impactABI, "encodeEvaluationID">);
+  } as UseContractReadConfig<typeof impactABI, 'encodeEvaluationID'>);
 }
 
 /**
@@ -4034,17 +4034,17 @@ export function useImpactEncodeEvaluationId(
  */
 export function useImpactWrite<
   TMode extends WriteContractMode,
-  TFunctionName extends string,
+  TFunctionName extends string
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof impactABI, string>["abi"],
+        PrepareWriteContractResult<typeof impactABI, string>['abi'],
         TFunctionName
       >
     : UseContractWriteConfig<TMode, typeof impactABI, TFunctionName> & {
         abi?: never;
-      } = {} as any,
+      } = {} as any
 ) {
   return useContractWrite<TMode, typeof impactABI, TFunctionName>({
     abi: impactABI,
@@ -4056,20 +4056,20 @@ export function useImpactWrite<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"burn"`.
  */
 export function useImpactBurn<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof impactABI, "burn">["abi"],
-        "burn"
-      > & { functionName?: "burn" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "burn"> & {
+        PrepareWriteContractResult<typeof impactABI, 'burn'>['abi'],
+        'burn'
+      > & { functionName?: 'burn' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'burn'> & {
         abi?: never;
-        functionName?: "burn";
-      } = {} as any,
+        functionName?: 'burn';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "burn">({
+  return useContractWrite<TMode, typeof impactABI, 'burn'>({
     abi: impactABI,
-    functionName: "burn",
+    functionName: 'burn',
     ...config,
   } as any);
 }
@@ -4078,20 +4078,20 @@ export function useImpactBurn<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"claim"`.
  */
 export function useImpactClaim<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof impactABI, "claim">["abi"],
-        "claim"
-      > & { functionName?: "claim" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "claim"> & {
+        PrepareWriteContractResult<typeof impactABI, 'claim'>['abi'],
+        'claim'
+      > & { functionName?: 'claim' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'claim'> & {
         abi?: never;
-        functionName?: "claim";
-      } = {} as any,
+        functionName?: 'claim';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "claim">({
+  return useContractWrite<TMode, typeof impactABI, 'claim'>({
     abi: impactABI,
-    functionName: "claim",
+    functionName: 'claim',
     ...config,
   } as any);
 }
@@ -4100,23 +4100,23 @@ export function useImpactClaim<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"claimWithSignature"`.
  */
 export function useImpactClaimWithSignature<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof impactABI,
-          "claimWithSignature"
-        >["abi"],
-        "claimWithSignature"
-      > & { functionName?: "claimWithSignature" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "claimWithSignature"> & {
+          'claimWithSignature'
+        >['abi'],
+        'claimWithSignature'
+      > & { functionName?: 'claimWithSignature' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'claimWithSignature'> & {
         abi?: never;
-        functionName?: "claimWithSignature";
-      } = {} as any,
+        functionName?: 'claimWithSignature';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "claimWithSignature">({
+  return useContractWrite<TMode, typeof impactABI, 'claimWithSignature'>({
     abi: impactABI,
-    functionName: "claimWithSignature",
+    functionName: 'claimWithSignature',
     ...config,
   } as any);
 }
@@ -4125,20 +4125,20 @@ export function useImpactClaimWithSignature<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"revokeClaim"`.
  */
 export function useImpactRevokeClaim<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof impactABI, "revokeClaim">["abi"],
-        "revokeClaim"
-      > & { functionName?: "revokeClaim" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "revokeClaim"> & {
+        PrepareWriteContractResult<typeof impactABI, 'revokeClaim'>['abi'],
+        'revokeClaim'
+      > & { functionName?: 'revokeClaim' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'revokeClaim'> & {
         abi?: never;
-        functionName?: "revokeClaim";
-      } = {} as any,
+        functionName?: 'revokeClaim';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "revokeClaim">({
+  return useContractWrite<TMode, typeof impactABI, 'revokeClaim'>({
     abi: impactABI,
-    functionName: "revokeClaim",
+    functionName: 'revokeClaim',
     ...config,
   } as any);
 }
@@ -4147,29 +4147,29 @@ export function useImpactRevokeClaim<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"revokeClaimWithSignature"`.
  */
 export function useImpactRevokeClaimWithSignature<
-  TMode extends WriteContractMode,
+  TMode extends WriteContractMode
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof impactABI,
-          "revokeClaimWithSignature"
-        >["abi"],
-        "revokeClaimWithSignature"
-      > & { functionName?: "revokeClaimWithSignature" }
+          'revokeClaimWithSignature'
+        >['abi'],
+        'revokeClaimWithSignature'
+      > & { functionName?: 'revokeClaimWithSignature' }
     : UseContractWriteConfig<
         TMode,
         typeof impactABI,
-        "revokeClaimWithSignature"
+        'revokeClaimWithSignature'
       > & {
         abi?: never;
-        functionName?: "revokeClaimWithSignature";
-      } = {} as any,
+        functionName?: 'revokeClaimWithSignature';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "revokeClaimWithSignature">({
+  return useContractWrite<TMode, typeof impactABI, 'revokeClaimWithSignature'>({
     abi: impactABI,
-    functionName: "revokeClaimWithSignature",
+    functionName: 'revokeClaimWithSignature',
     ...config,
   } as any);
 }
@@ -4178,27 +4178,27 @@ export function useImpactRevokeClaimWithSignature<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"safeBatchTransferFrom"`.
  */
 export function useImpactSafeBatchTransferFrom<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof impactABI,
-          "safeBatchTransferFrom"
-        >["abi"],
-        "safeBatchTransferFrom"
-      > & { functionName?: "safeBatchTransferFrom" }
+          'safeBatchTransferFrom'
+        >['abi'],
+        'safeBatchTransferFrom'
+      > & { functionName?: 'safeBatchTransferFrom' }
     : UseContractWriteConfig<
         TMode,
         typeof impactABI,
-        "safeBatchTransferFrom"
+        'safeBatchTransferFrom'
       > & {
         abi?: never;
-        functionName?: "safeBatchTransferFrom";
-      } = {} as any,
+        functionName?: 'safeBatchTransferFrom';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "safeBatchTransferFrom">({
+  return useContractWrite<TMode, typeof impactABI, 'safeBatchTransferFrom'>({
     abi: impactABI,
-    functionName: "safeBatchTransferFrom",
+    functionName: 'safeBatchTransferFrom',
     ...config,
   } as any);
 }
@@ -4207,20 +4207,20 @@ export function useImpactSafeBatchTransferFrom<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"safeTransferFrom"`.
  */
 export function useImpactSafeTransferFrom<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof impactABI, "safeTransferFrom">["abi"],
-        "safeTransferFrom"
-      > & { functionName?: "safeTransferFrom" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "safeTransferFrom"> & {
+        PrepareWriteContractResult<typeof impactABI, 'safeTransferFrom'>['abi'],
+        'safeTransferFrom'
+      > & { functionName?: 'safeTransferFrom' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'safeTransferFrom'> & {
         abi?: never;
-        functionName?: "safeTransferFrom";
-      } = {} as any,
+        functionName?: 'safeTransferFrom';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "safeTransferFrom">({
+  return useContractWrite<TMode, typeof impactABI, 'safeTransferFrom'>({
     abi: impactABI,
-    functionName: "safeTransferFrom",
+    functionName: 'safeTransferFrom',
     ...config,
   } as any);
 }
@@ -4229,23 +4229,23 @@ export function useImpactSafeTransferFrom<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"setApprovalForAll"`.
  */
 export function useImpactSetApprovalForAll<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof impactABI,
-          "setApprovalForAll"
-        >["abi"],
-        "setApprovalForAll"
-      > & { functionName?: "setApprovalForAll" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "setApprovalForAll"> & {
+          'setApprovalForAll'
+        >['abi'],
+        'setApprovalForAll'
+      > & { functionName?: 'setApprovalForAll' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'setApprovalForAll'> & {
         abi?: never;
-        functionName?: "setApprovalForAll";
-      } = {} as any,
+        functionName?: 'setApprovalForAll';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "setApprovalForAll">({
+  return useContractWrite<TMode, typeof impactABI, 'setApprovalForAll'>({
     abi: impactABI,
-    functionName: "setApprovalForAll",
+    functionName: 'setApprovalForAll',
     ...config,
   } as any);
 }
@@ -4254,20 +4254,20 @@ export function useImpactSetApprovalForAll<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"evaluate"`.
  */
 export function useImpactEvaluate<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof impactABI, "evaluate">["abi"],
-        "evaluate"
-      > & { functionName?: "evaluate" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "evaluate"> & {
+        PrepareWriteContractResult<typeof impactABI, 'evaluate'>['abi'],
+        'evaluate'
+      > & { functionName?: 'evaluate' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'evaluate'> & {
         abi?: never;
-        functionName?: "evaluate";
-      } = {} as any,
+        functionName?: 'evaluate';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "evaluate">({
+  return useContractWrite<TMode, typeof impactABI, 'evaluate'>({
     abi: impactABI,
-    functionName: "evaluate",
+    functionName: 'evaluate',
     ...config,
   } as any);
 }
@@ -4276,27 +4276,27 @@ export function useImpactEvaluate<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"evaluateWithSignature"`.
  */
 export function useImpactEvaluateWithSignature<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof impactABI,
-          "evaluateWithSignature"
-        >["abi"],
-        "evaluateWithSignature"
-      > & { functionName?: "evaluateWithSignature" }
+          'evaluateWithSignature'
+        >['abi'],
+        'evaluateWithSignature'
+      > & { functionName?: 'evaluateWithSignature' }
     : UseContractWriteConfig<
         TMode,
         typeof impactABI,
-        "evaluateWithSignature"
+        'evaluateWithSignature'
       > & {
         abi?: never;
-        functionName?: "evaluateWithSignature";
-      } = {} as any,
+        functionName?: 'evaluateWithSignature';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "evaluateWithSignature">({
+  return useContractWrite<TMode, typeof impactABI, 'evaluateWithSignature'>({
     abi: impactABI,
-    functionName: "evaluateWithSignature",
+    functionName: 'evaluateWithSignature',
     ...config,
   } as any);
 }
@@ -4305,20 +4305,20 @@ export function useImpactEvaluateWithSignature<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"revokeEvaluation"`.
  */
 export function useImpactRevokeEvaluation<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof impactABI, "revokeEvaluation">["abi"],
-        "revokeEvaluation"
-      > & { functionName?: "revokeEvaluation" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "revokeEvaluation"> & {
+        PrepareWriteContractResult<typeof impactABI, 'revokeEvaluation'>['abi'],
+        'revokeEvaluation'
+      > & { functionName?: 'revokeEvaluation' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'revokeEvaluation'> & {
         abi?: never;
-        functionName?: "revokeEvaluation";
-      } = {} as any,
+        functionName?: 'revokeEvaluation';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "revokeEvaluation">({
+  return useContractWrite<TMode, typeof impactABI, 'revokeEvaluation'>({
     abi: impactABI,
-    functionName: "revokeEvaluation",
+    functionName: 'revokeEvaluation',
     ...config,
   } as any);
 }
@@ -4327,33 +4327,33 @@ export function useImpactRevokeEvaluation<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"revokeEvaluationWithSignature"`.
  */
 export function useImpactRevokeEvaluationWithSignature<
-  TMode extends WriteContractMode,
+  TMode extends WriteContractMode
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof impactABI,
-          "revokeEvaluationWithSignature"
-        >["abi"],
-        "revokeEvaluationWithSignature"
-      > & { functionName?: "revokeEvaluationWithSignature" }
+          'revokeEvaluationWithSignature'
+        >['abi'],
+        'revokeEvaluationWithSignature'
+      > & { functionName?: 'revokeEvaluationWithSignature' }
     : UseContractWriteConfig<
         TMode,
         typeof impactABI,
-        "revokeEvaluationWithSignature"
+        'revokeEvaluationWithSignature'
       > & {
         abi?: never;
-        functionName?: "revokeEvaluationWithSignature";
-      } = {} as any,
+        functionName?: 'revokeEvaluationWithSignature';
+      } = {} as any
 ) {
   return useContractWrite<
     TMode,
     typeof impactABI,
-    "revokeEvaluationWithSignature"
+    'revokeEvaluationWithSignature'
   >({
     abi: impactABI,
-    functionName: "revokeEvaluationWithSignature",
+    functionName: 'revokeEvaluationWithSignature',
     ...config,
   } as any);
 }
@@ -4362,23 +4362,23 @@ export function useImpactRevokeEvaluationWithSignature<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"invalidateDataHash"`.
  */
 export function useImpactInvalidateDataHash<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof impactABI,
-          "invalidateDataHash"
-        >["abi"],
-        "invalidateDataHash"
-      > & { functionName?: "invalidateDataHash" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "invalidateDataHash"> & {
+          'invalidateDataHash'
+        >['abi'],
+        'invalidateDataHash'
+      > & { functionName?: 'invalidateDataHash' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'invalidateDataHash'> & {
         abi?: never;
-        functionName?: "invalidateDataHash";
-      } = {} as any,
+        functionName?: 'invalidateDataHash';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "invalidateDataHash">({
+  return useContractWrite<TMode, typeof impactABI, 'invalidateDataHash'>({
     abi: impactABI,
-    functionName: "invalidateDataHash",
+    functionName: 'invalidateDataHash',
     ...config,
   } as any);
 }
@@ -4387,32 +4387,32 @@ export function useImpactInvalidateDataHash<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"invalidateUnorderedNonces"`.
  */
 export function useImpactInvalidateUnorderedNonces<
-  TMode extends WriteContractMode,
+  TMode extends WriteContractMode
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof impactABI,
-          "invalidateUnorderedNonces"
-        >["abi"],
-        "invalidateUnorderedNonces"
-      > & { functionName?: "invalidateUnorderedNonces" }
+          'invalidateUnorderedNonces'
+        >['abi'],
+        'invalidateUnorderedNonces'
+      > & { functionName?: 'invalidateUnorderedNonces' }
     : UseContractWriteConfig<
         TMode,
         typeof impactABI,
-        "invalidateUnorderedNonces"
+        'invalidateUnorderedNonces'
       > & {
         abi?: never;
-        functionName?: "invalidateUnorderedNonces";
-      } = {} as any,
+        functionName?: 'invalidateUnorderedNonces';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "invalidateUnorderedNonces">(
+  return useContractWrite<TMode, typeof impactABI, 'invalidateUnorderedNonces'>(
     {
       abi: impactABI,
-      functionName: "invalidateUnorderedNonces",
+      functionName: 'invalidateUnorderedNonces',
       ...config,
-    } as any,
+    } as any
   );
 }
 
@@ -4420,20 +4420,20 @@ export function useImpactInvalidateUnorderedNonces<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link impactABI}__ and `functionName` set to `"multicall"`.
  */
 export function useImpactMulticall<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof impactABI, "multicall">["abi"],
-        "multicall"
-      > & { functionName?: "multicall" }
-    : UseContractWriteConfig<TMode, typeof impactABI, "multicall"> & {
+        PrepareWriteContractResult<typeof impactABI, 'multicall'>['abi'],
+        'multicall'
+      > & { functionName?: 'multicall' }
+    : UseContractWriteConfig<TMode, typeof impactABI, 'multicall'> & {
         abi?: never;
-        functionName?: "multicall";
-      } = {} as any,
+        functionName?: 'multicall';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof impactABI, "multicall">({
+  return useContractWrite<TMode, typeof impactABI, 'multicall'>({
     abi: impactABI,
-    functionName: "multicall",
+    functionName: 'multicall',
     ...config,
   } as any);
 }
@@ -4444,8 +4444,8 @@ export function useImpactMulticall<TMode extends WriteContractMode>(
 export function usePrepareImpactWrite<TFunctionName extends string>(
   config: Omit<
     UsePrepareContractWriteConfig<typeof impactABI, TFunctionName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
@@ -4458,15 +4458,15 @@ export function usePrepareImpactWrite<TFunctionName extends string>(
  */
 export function usePrepareImpactBurn(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "burn">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'burn'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "burn",
+    functionName: 'burn',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "burn">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'burn'>);
 }
 
 /**
@@ -4474,15 +4474,15 @@ export function usePrepareImpactBurn(
  */
 export function usePrepareImpactClaim(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "claim">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'claim'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "claim",
+    functionName: 'claim',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "claim">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'claim'>);
 }
 
 /**
@@ -4490,15 +4490,15 @@ export function usePrepareImpactClaim(
  */
 export function usePrepareImpactClaimWithSignature(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "claimWithSignature">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'claimWithSignature'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "claimWithSignature",
+    functionName: 'claimWithSignature',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "claimWithSignature">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'claimWithSignature'>);
 }
 
 /**
@@ -4506,15 +4506,15 @@ export function usePrepareImpactClaimWithSignature(
  */
 export function usePrepareImpactRevokeClaim(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "revokeClaim">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'revokeClaim'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "revokeClaim",
+    functionName: 'revokeClaim',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "revokeClaim">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'revokeClaim'>);
 }
 
 /**
@@ -4522,15 +4522,15 @@ export function usePrepareImpactRevokeClaim(
  */
 export function usePrepareImpactRevokeClaimWithSignature(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "revokeClaimWithSignature">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'revokeClaimWithSignature'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "revokeClaimWithSignature",
+    functionName: 'revokeClaimWithSignature',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "revokeClaimWithSignature">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'revokeClaimWithSignature'>);
 }
 
 /**
@@ -4538,15 +4538,15 @@ export function usePrepareImpactRevokeClaimWithSignature(
  */
 export function usePrepareImpactSafeBatchTransferFrom(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "safeBatchTransferFrom">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'safeBatchTransferFrom'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "safeBatchTransferFrom",
+    functionName: 'safeBatchTransferFrom',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "safeBatchTransferFrom">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'safeBatchTransferFrom'>);
 }
 
 /**
@@ -4554,15 +4554,15 @@ export function usePrepareImpactSafeBatchTransferFrom(
  */
 export function usePrepareImpactSafeTransferFrom(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "safeTransferFrom">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'safeTransferFrom'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "safeTransferFrom",
+    functionName: 'safeTransferFrom',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "safeTransferFrom">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'safeTransferFrom'>);
 }
 
 /**
@@ -4570,15 +4570,15 @@ export function usePrepareImpactSafeTransferFrom(
  */
 export function usePrepareImpactSetApprovalForAll(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "setApprovalForAll">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'setApprovalForAll'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "setApprovalForAll",
+    functionName: 'setApprovalForAll',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "setApprovalForAll">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'setApprovalForAll'>);
 }
 
 /**
@@ -4586,15 +4586,15 @@ export function usePrepareImpactSetApprovalForAll(
  */
 export function usePrepareImpactEvaluate(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "evaluate">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'evaluate'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "evaluate",
+    functionName: 'evaluate',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "evaluate">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'evaluate'>);
 }
 
 /**
@@ -4602,15 +4602,15 @@ export function usePrepareImpactEvaluate(
  */
 export function usePrepareImpactEvaluateWithSignature(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "evaluateWithSignature">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'evaluateWithSignature'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "evaluateWithSignature",
+    functionName: 'evaluateWithSignature',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "evaluateWithSignature">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'evaluateWithSignature'>);
 }
 
 /**
@@ -4618,15 +4618,15 @@ export function usePrepareImpactEvaluateWithSignature(
  */
 export function usePrepareImpactRevokeEvaluation(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "revokeEvaluation">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'revokeEvaluation'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "revokeEvaluation",
+    functionName: 'revokeEvaluation',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "revokeEvaluation">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'revokeEvaluation'>);
 }
 
 /**
@@ -4636,16 +4636,16 @@ export function usePrepareImpactRevokeEvaluationWithSignature(
   config: Omit<
     UsePrepareContractWriteConfig<
       typeof impactABI,
-      "revokeEvaluationWithSignature"
+      'revokeEvaluationWithSignature'
     >,
-    "abi" | "functionName"
-  > = {} as any,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "revokeEvaluationWithSignature",
+    functionName: 'revokeEvaluationWithSignature',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "revokeEvaluationWithSignature">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'revokeEvaluationWithSignature'>);
 }
 
 /**
@@ -4653,15 +4653,15 @@ export function usePrepareImpactRevokeEvaluationWithSignature(
  */
 export function usePrepareImpactInvalidateDataHash(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "invalidateDataHash">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'invalidateDataHash'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "invalidateDataHash",
+    functionName: 'invalidateDataHash',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "invalidateDataHash">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'invalidateDataHash'>);
 }
 
 /**
@@ -4671,16 +4671,16 @@ export function usePrepareImpactInvalidateUnorderedNonces(
   config: Omit<
     UsePrepareContractWriteConfig<
       typeof impactABI,
-      "invalidateUnorderedNonces"
+      'invalidateUnorderedNonces'
     >,
-    "abi" | "functionName"
-  > = {} as any,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "invalidateUnorderedNonces",
+    functionName: 'invalidateUnorderedNonces',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "invalidateUnorderedNonces">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'invalidateUnorderedNonces'>);
 }
 
 /**
@@ -4688,15 +4688,15 @@ export function usePrepareImpactInvalidateUnorderedNonces(
  */
 export function usePrepareImpactMulticall(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof impactABI, "multicall">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof impactABI, 'multicall'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: impactABI,
-    functionName: "multicall",
+    functionName: 'multicall',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof impactABI, "multicall">);
+  } as UsePrepareContractWriteConfig<typeof impactABI, 'multicall'>);
 }
 
 /**
@@ -4705,8 +4705,8 @@ export function usePrepareImpactMulticall(
 export function useImpactEvent<TEventName extends string>(
   config: Omit<
     UseContractEventConfig<typeof impactABI, TEventName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
@@ -4719,15 +4719,15 @@ export function useImpactEvent<TEventName extends string>(
  */
 export function useImpactApprovalForAllEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "ApprovalForAll">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'ApprovalForAll'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "ApprovalForAll",
+    eventName: 'ApprovalForAll',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "ApprovalForAll">);
+  } as UseContractEventConfig<typeof impactABI, 'ApprovalForAll'>);
 }
 
 /**
@@ -4735,15 +4735,15 @@ export function useImpactApprovalForAllEvent(
  */
 export function useImpactClaimedEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "Claimed">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'Claimed'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "Claimed",
+    eventName: 'Claimed',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "Claimed">);
+  } as UseContractEventConfig<typeof impactABI, 'Claimed'>);
 }
 
 /**
@@ -4751,15 +4751,15 @@ export function useImpactClaimedEvent(
  */
 export function useImpactRevokedClaimEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "RevokedClaim">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'RevokedClaim'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "RevokedClaim",
+    eventName: 'RevokedClaim',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "RevokedClaim">);
+  } as UseContractEventConfig<typeof impactABI, 'RevokedClaim'>);
 }
 
 /**
@@ -4767,15 +4767,15 @@ export function useImpactRevokedClaimEvent(
  */
 export function useImpactTransferBatchEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "TransferBatch">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'TransferBatch'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "TransferBatch",
+    eventName: 'TransferBatch',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "TransferBatch">);
+  } as UseContractEventConfig<typeof impactABI, 'TransferBatch'>);
 }
 
 /**
@@ -4783,15 +4783,15 @@ export function useImpactTransferBatchEvent(
  */
 export function useImpactTransferSingleEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "TransferSingle">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'TransferSingle'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "TransferSingle",
+    eventName: 'TransferSingle',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "TransferSingle">);
+  } as UseContractEventConfig<typeof impactABI, 'TransferSingle'>);
 }
 
 /**
@@ -4799,15 +4799,15 @@ export function useImpactTransferSingleEvent(
  */
 export function useImpactEvaluatedEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "Evaluated">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'Evaluated'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "Evaluated",
+    eventName: 'Evaluated',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "Evaluated">);
+  } as UseContractEventConfig<typeof impactABI, 'Evaluated'>);
 }
 
 /**
@@ -4815,15 +4815,15 @@ export function useImpactEvaluatedEvent(
  */
 export function useImpactRevokedEvaluationEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "RevokedEvaluation">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'RevokedEvaluation'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "RevokedEvaluation",
+    eventName: 'RevokedEvaluation',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "RevokedEvaluation">);
+  } as UseContractEventConfig<typeof impactABI, 'RevokedEvaluation'>);
 }
 
 /**
@@ -4831,15 +4831,15 @@ export function useImpactRevokedEvaluationEvent(
  */
 export function useImpactUriEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "URI">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'URI'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "URI",
+    eventName: 'URI',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "URI">);
+  } as UseContractEventConfig<typeof impactABI, 'URI'>);
 }
 
 /**
@@ -4847,22 +4847,22 @@ export function useImpactUriEvent(
  */
 export function useImpactUnorderedNonceInvalidationEvent(
   config: Omit<
-    UseContractEventConfig<typeof impactABI, "UnorderedNonceInvalidation">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof impactABI, 'UnorderedNonceInvalidation'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: impactABI,
-    eventName: "UnorderedNonceInvalidation",
+    eventName: 'UnorderedNonceInvalidation',
     ...config,
-  } as UseContractEventConfig<typeof impactABI, "UnorderedNonceInvalidation">);
+  } as UseContractEventConfig<typeof impactABI, 'UnorderedNonceInvalidation'>);
 }
 
 /**
  * Wraps __{@link useContract}__ with `abi` set to __{@link retirementsABI}__.
  */
 export function useRetirements(
-  config: Omit<UseContractConfig, "abi"> = {} as any,
+  config: Omit<UseContractConfig, 'abi'> = {} as any
 ) {
   return useContract({ abi: retirementsABI, ...config });
 }
@@ -4873,8 +4873,8 @@ export function useRetirements(
 export function useRetirementsRead<TFunctionName extends string>(
   config: Omit<
     UseContractReadConfig<typeof retirementsABI, TFunctionName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
@@ -4887,15 +4887,15 @@ export function useRetirementsRead<TFunctionName extends string>(
  */
 export function useRetirementsAccountsByToken(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "accountsByToken">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'accountsByToken'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "accountsByToken",
+    functionName: 'accountsByToken',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "accountsByToken">);
+  } as UseContractReadConfig<typeof retirementsABI, 'accountsByToken'>);
 }
 
 /**
@@ -4903,15 +4903,15 @@ export function useRetirementsAccountsByToken(
  */
 export function useRetirementsBalanceOf(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "balanceOf">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'balanceOf'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "balanceOf",
+    functionName: 'balanceOf',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "balanceOf">);
+  } as UseContractReadConfig<typeof retirementsABI, 'balanceOf'>);
 }
 
 /**
@@ -4919,15 +4919,15 @@ export function useRetirementsBalanceOf(
  */
 export function useRetirementsBalanceOfBatch(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "balanceOfBatch">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'balanceOfBatch'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "balanceOfBatch",
+    functionName: 'balanceOfBatch',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "balanceOfBatch">);
+  } as UseContractReadConfig<typeof retirementsABI, 'balanceOfBatch'>);
 }
 
 /**
@@ -4935,15 +4935,15 @@ export function useRetirementsBalanceOfBatch(
  */
 export function useRetirementsIsApprovedForAll(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "isApprovedForAll">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'isApprovedForAll'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "isApprovedForAll",
+    functionName: 'isApprovedForAll',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "isApprovedForAll">);
+  } as UseContractReadConfig<typeof retirementsABI, 'isApprovedForAll'>);
 }
 
 /**
@@ -4951,15 +4951,15 @@ export function useRetirementsIsApprovedForAll(
  */
 export function useRetirementsOnErc1155BatchReceived(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "onERC1155BatchReceived">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'onERC1155BatchReceived'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "onERC1155BatchReceived",
+    functionName: 'onERC1155BatchReceived',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "onERC1155BatchReceived">);
+  } as UseContractReadConfig<typeof retirementsABI, 'onERC1155BatchReceived'>);
 }
 
 /**
@@ -4967,15 +4967,15 @@ export function useRetirementsOnErc1155BatchReceived(
  */
 export function useRetirementsOnErc1155Received(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "onERC1155Received">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'onERC1155Received'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "onERC1155Received",
+    functionName: 'onERC1155Received',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "onERC1155Received">);
+  } as UseContractReadConfig<typeof retirementsABI, 'onERC1155Received'>);
 }
 
 /**
@@ -4983,15 +4983,15 @@ export function useRetirementsOnErc1155Received(
  */
 export function useRetirementsSetApprovalForAll(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "setApprovalForAll">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'setApprovalForAll'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "setApprovalForAll",
+    functionName: 'setApprovalForAll',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "setApprovalForAll">);
+  } as UseContractReadConfig<typeof retirementsABI, 'setApprovalForAll'>);
 }
 
 /**
@@ -4999,15 +4999,15 @@ export function useRetirementsSetApprovalForAll(
  */
 export function useRetirementsTokensByAccount(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "tokensByAccount">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'tokensByAccount'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "tokensByAccount",
+    functionName: 'tokensByAccount',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "tokensByAccount">);
+  } as UseContractReadConfig<typeof retirementsABI, 'tokensByAccount'>);
 }
 
 /**
@@ -5015,15 +5015,15 @@ export function useRetirementsTokensByAccount(
  */
 export function useRetirementsTotalHolders(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "totalHolders">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'totalHolders'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "totalHolders",
+    functionName: 'totalHolders',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "totalHolders">);
+  } as UseContractReadConfig<typeof retirementsABI, 'totalHolders'>);
 }
 
 /**
@@ -5031,15 +5031,15 @@ export function useRetirementsTotalHolders(
  */
 export function useRetirementsTotalSupply(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "totalSupply">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'totalSupply'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "totalSupply",
+    functionName: 'totalSupply',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "totalSupply">);
+  } as UseContractReadConfig<typeof retirementsABI, 'totalSupply'>);
 }
 
 /**
@@ -5047,15 +5047,15 @@ export function useRetirementsTotalSupply(
  */
 export function useRetirementsName(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "name">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'name'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "name",
+    functionName: 'name',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "name">);
+  } as UseContractReadConfig<typeof retirementsABI, 'name'>);
 }
 
 /**
@@ -5063,15 +5063,15 @@ export function useRetirementsName(
  */
 export function useRetirementsSymbol(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "symbol">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'symbol'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "symbol",
+    functionName: 'symbol',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "symbol">);
+  } as UseContractReadConfig<typeof retirementsABI, 'symbol'>);
 }
 
 /**
@@ -5079,15 +5079,15 @@ export function useRetirementsSymbol(
  */
 export function useRetirementsUri(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "uri">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'uri'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "uri",
+    functionName: 'uri',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "uri">);
+  } as UseContractReadConfig<typeof retirementsABI, 'uri'>);
 }
 
 /**
@@ -5095,15 +5095,15 @@ export function useRetirementsUri(
  */
 export function useRetirementsDecodeRetirementClaimId(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "decodeRetirementClaimID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'decodeRetirementClaimID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "decodeRetirementClaimID",
+    functionName: 'decodeRetirementClaimID',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "decodeRetirementClaimID">);
+  } as UseContractReadConfig<typeof retirementsABI, 'decodeRetirementClaimID'>);
 }
 
 /**
@@ -5113,16 +5113,16 @@ export function useRetirementsDecodeRetirementEvaluationId(
   config: Omit<
     UseContractReadConfig<
       typeof retirementsABI,
-      "decodeRetirementEvaluationID"
+      'decodeRetirementEvaluationID'
     >,
-    "abi" | "functionName"
-  > = {} as any,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "decodeRetirementEvaluationID",
+    functionName: 'decodeRetirementEvaluationID',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "decodeRetirementEvaluationID">);
+  } as UseContractReadConfig<typeof retirementsABI, 'decodeRetirementEvaluationID'>);
 }
 
 /**
@@ -5130,15 +5130,15 @@ export function useRetirementsDecodeRetirementEvaluationId(
  */
 export function useRetirementsDecodeRetirementId(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "decodeRetirementID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'decodeRetirementID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "decodeRetirementID",
+    functionName: 'decodeRetirementID',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "decodeRetirementID">);
+  } as UseContractReadConfig<typeof retirementsABI, 'decodeRetirementID'>);
 }
 
 /**
@@ -5146,15 +5146,15 @@ export function useRetirementsDecodeRetirementId(
  */
 export function useRetirementsEncodeRetirementId(
   config: Omit<
-    UseContractReadConfig<typeof retirementsABI, "encodeRetirementID">,
-    "abi" | "functionName"
-  > = {} as any,
+    UseContractReadConfig<typeof retirementsABI, 'encodeRetirementID'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return useContractRead({
     abi: retirementsABI,
-    functionName: "encodeRetirementID",
+    functionName: 'encodeRetirementID',
     ...config,
-  } as UseContractReadConfig<typeof retirementsABI, "encodeRetirementID">);
+  } as UseContractReadConfig<typeof retirementsABI, 'encodeRetirementID'>);
 }
 
 /**
@@ -5162,17 +5162,17 @@ export function useRetirementsEncodeRetirementId(
  */
 export function useRetirementsWrite<
   TMode extends WriteContractMode,
-  TFunctionName extends string,
+  TFunctionName extends string
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof retirementsABI, string>["abi"],
+        PrepareWriteContractResult<typeof retirementsABI, string>['abi'],
         TFunctionName
       >
     : UseContractWriteConfig<TMode, typeof retirementsABI, TFunctionName> & {
         abi?: never;
-      } = {} as any,
+      } = {} as any
 ) {
   return useContractWrite<TMode, typeof retirementsABI, TFunctionName>({
     abi: retirementsABI,
@@ -5184,20 +5184,20 @@ export function useRetirementsWrite<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link retirementsABI}__ and `functionName` set to `"issue"`.
  */
 export function useRetirementsIssue<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof retirementsABI, "issue">["abi"],
-        "issue"
-      > & { functionName?: "issue" }
-    : UseContractWriteConfig<TMode, typeof retirementsABI, "issue"> & {
+        PrepareWriteContractResult<typeof retirementsABI, 'issue'>['abi'],
+        'issue'
+      > & { functionName?: 'issue' }
+    : UseContractWriteConfig<TMode, typeof retirementsABI, 'issue'> & {
         abi?: never;
-        functionName?: "issue";
-      } = {} as any,
+        functionName?: 'issue';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof retirementsABI, "issue">({
+  return useContractWrite<TMode, typeof retirementsABI, 'issue'>({
     abi: retirementsABI,
-    functionName: "issue",
+    functionName: 'issue',
     ...config,
   } as any);
 }
@@ -5206,33 +5206,33 @@ export function useRetirementsIssue<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link retirementsABI}__ and `functionName` set to `"safeBatchTransferFrom"`.
  */
 export function useRetirementsSafeBatchTransferFrom<
-  TMode extends WriteContractMode,
+  TMode extends WriteContractMode
 >(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof retirementsABI,
-          "safeBatchTransferFrom"
-        >["abi"],
-        "safeBatchTransferFrom"
-      > & { functionName?: "safeBatchTransferFrom" }
+          'safeBatchTransferFrom'
+        >['abi'],
+        'safeBatchTransferFrom'
+      > & { functionName?: 'safeBatchTransferFrom' }
     : UseContractWriteConfig<
         TMode,
         typeof retirementsABI,
-        "safeBatchTransferFrom"
+        'safeBatchTransferFrom'
       > & {
         abi?: never;
-        functionName?: "safeBatchTransferFrom";
-      } = {} as any,
+        functionName?: 'safeBatchTransferFrom';
+      } = {} as any
 ) {
   return useContractWrite<
     TMode,
     typeof retirementsABI,
-    "safeBatchTransferFrom"
+    'safeBatchTransferFrom'
   >({
     abi: retirementsABI,
-    functionName: "safeBatchTransferFrom",
+    functionName: 'safeBatchTransferFrom',
     ...config,
   } as any);
 }
@@ -5241,27 +5241,27 @@ export function useRetirementsSafeBatchTransferFrom<
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link retirementsABI}__ and `functionName` set to `"safeTransferFrom"`.
  */
 export function useRetirementsSafeTransferFrom<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
         PrepareWriteContractResult<
           typeof retirementsABI,
-          "safeTransferFrom"
-        >["abi"],
-        "safeTransferFrom"
-      > & { functionName?: "safeTransferFrom" }
+          'safeTransferFrom'
+        >['abi'],
+        'safeTransferFrom'
+      > & { functionName?: 'safeTransferFrom' }
     : UseContractWriteConfig<
         TMode,
         typeof retirementsABI,
-        "safeTransferFrom"
+        'safeTransferFrom'
       > & {
         abi?: never;
-        functionName?: "safeTransferFrom";
-      } = {} as any,
+        functionName?: 'safeTransferFrom';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof retirementsABI, "safeTransferFrom">({
+  return useContractWrite<TMode, typeof retirementsABI, 'safeTransferFrom'>({
     abi: retirementsABI,
-    functionName: "safeTransferFrom",
+    functionName: 'safeTransferFrom',
     ...config,
   } as any);
 }
@@ -5270,20 +5270,20 @@ export function useRetirementsSafeTransferFrom<TMode extends WriteContractMode>(
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link retirementsABI}__ and `functionName` set to `"multicall"`.
  */
 export function useRetirementsMulticall<TMode extends WriteContractMode>(
-  config: TMode extends "prepared"
+  config: TMode extends 'prepared'
     ? UseContractWriteConfig<
         TMode,
-        PrepareWriteContractResult<typeof retirementsABI, "multicall">["abi"],
-        "multicall"
-      > & { functionName?: "multicall" }
-    : UseContractWriteConfig<TMode, typeof retirementsABI, "multicall"> & {
+        PrepareWriteContractResult<typeof retirementsABI, 'multicall'>['abi'],
+        'multicall'
+      > & { functionName?: 'multicall' }
+    : UseContractWriteConfig<TMode, typeof retirementsABI, 'multicall'> & {
         abi?: never;
-        functionName?: "multicall";
-      } = {} as any,
+        functionName?: 'multicall';
+      } = {} as any
 ) {
-  return useContractWrite<TMode, typeof retirementsABI, "multicall">({
+  return useContractWrite<TMode, typeof retirementsABI, 'multicall'>({
     abi: retirementsABI,
-    functionName: "multicall",
+    functionName: 'multicall',
     ...config,
   } as any);
 }
@@ -5294,8 +5294,8 @@ export function useRetirementsMulticall<TMode extends WriteContractMode>(
 export function usePrepareRetirementsWrite<TFunctionName extends string>(
   config: Omit<
     UsePrepareContractWriteConfig<typeof retirementsABI, TFunctionName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: retirementsABI,
@@ -5308,15 +5308,15 @@ export function usePrepareRetirementsWrite<TFunctionName extends string>(
  */
 export function usePrepareRetirementsIssue(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof retirementsABI, "issue">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof retirementsABI, 'issue'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: retirementsABI,
-    functionName: "issue",
+    functionName: 'issue',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof retirementsABI, "issue">);
+  } as UsePrepareContractWriteConfig<typeof retirementsABI, 'issue'>);
 }
 
 /**
@@ -5326,16 +5326,16 @@ export function usePrepareRetirementsSafeBatchTransferFrom(
   config: Omit<
     UsePrepareContractWriteConfig<
       typeof retirementsABI,
-      "safeBatchTransferFrom"
+      'safeBatchTransferFrom'
     >,
-    "abi" | "functionName"
-  > = {} as any,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: retirementsABI,
-    functionName: "safeBatchTransferFrom",
+    functionName: 'safeBatchTransferFrom',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof retirementsABI, "safeBatchTransferFrom">);
+  } as UsePrepareContractWriteConfig<typeof retirementsABI, 'safeBatchTransferFrom'>);
 }
 
 /**
@@ -5343,15 +5343,15 @@ export function usePrepareRetirementsSafeBatchTransferFrom(
  */
 export function usePrepareRetirementsSafeTransferFrom(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof retirementsABI, "safeTransferFrom">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof retirementsABI, 'safeTransferFrom'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: retirementsABI,
-    functionName: "safeTransferFrom",
+    functionName: 'safeTransferFrom',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof retirementsABI, "safeTransferFrom">);
+  } as UsePrepareContractWriteConfig<typeof retirementsABI, 'safeTransferFrom'>);
 }
 
 /**
@@ -5359,15 +5359,15 @@ export function usePrepareRetirementsSafeTransferFrom(
  */
 export function usePrepareRetirementsMulticall(
   config: Omit<
-    UsePrepareContractWriteConfig<typeof retirementsABI, "multicall">,
-    "abi" | "functionName"
-  > = {} as any,
+    UsePrepareContractWriteConfig<typeof retirementsABI, 'multicall'>,
+    'abi' | 'functionName'
+  > = {} as any
 ) {
   return usePrepareContractWrite({
     abi: retirementsABI,
-    functionName: "multicall",
+    functionName: 'multicall',
     ...config,
-  } as UsePrepareContractWriteConfig<typeof retirementsABI, "multicall">);
+  } as UsePrepareContractWriteConfig<typeof retirementsABI, 'multicall'>);
 }
 
 /**
@@ -5376,8 +5376,8 @@ export function usePrepareRetirementsMulticall(
 export function useRetirementsEvent<TEventName extends string>(
   config: Omit<
     UseContractEventConfig<typeof retirementsABI, TEventName>,
-    "abi"
-  > = {} as any,
+    'abi'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: retirementsABI,
@@ -5390,15 +5390,15 @@ export function useRetirementsEvent<TEventName extends string>(
  */
 export function useRetirementsApprovalForAllEvent(
   config: Omit<
-    UseContractEventConfig<typeof retirementsABI, "ApprovalForAll">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof retirementsABI, 'ApprovalForAll'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: retirementsABI,
-    eventName: "ApprovalForAll",
+    eventName: 'ApprovalForAll',
     ...config,
-  } as UseContractEventConfig<typeof retirementsABI, "ApprovalForAll">);
+  } as UseContractEventConfig<typeof retirementsABI, 'ApprovalForAll'>);
 }
 
 /**
@@ -5406,15 +5406,15 @@ export function useRetirementsApprovalForAllEvent(
  */
 export function useRetirementsTransferBatchEvent(
   config: Omit<
-    UseContractEventConfig<typeof retirementsABI, "TransferBatch">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof retirementsABI, 'TransferBatch'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: retirementsABI,
-    eventName: "TransferBatch",
+    eventName: 'TransferBatch',
     ...config,
-  } as UseContractEventConfig<typeof retirementsABI, "TransferBatch">);
+  } as UseContractEventConfig<typeof retirementsABI, 'TransferBatch'>);
 }
 
 /**
@@ -5422,15 +5422,15 @@ export function useRetirementsTransferBatchEvent(
  */
 export function useRetirementsTransferSingleEvent(
   config: Omit<
-    UseContractEventConfig<typeof retirementsABI, "TransferSingle">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof retirementsABI, 'TransferSingle'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: retirementsABI,
-    eventName: "TransferSingle",
+    eventName: 'TransferSingle',
     ...config,
-  } as UseContractEventConfig<typeof retirementsABI, "TransferSingle">);
+  } as UseContractEventConfig<typeof retirementsABI, 'TransferSingle'>);
 }
 
 /**
@@ -5438,13 +5438,13 @@ export function useRetirementsTransferSingleEvent(
  */
 export function useRetirementsUriEvent(
   config: Omit<
-    UseContractEventConfig<typeof retirementsABI, "URI">,
-    "abi" | "eventName"
-  > = {} as any,
+    UseContractEventConfig<typeof retirementsABI, 'URI'>,
+    'abi' | 'eventName'
+  > = {} as any
 ) {
   return useContractEvent({
     abi: retirementsABI,
-    eventName: "URI",
+    eventName: 'URI',
     ...config,
-  } as UseContractEventConfig<typeof retirementsABI, "URI">);
+  } as UseContractEventConfig<typeof retirementsABI, 'URI'>);
 }

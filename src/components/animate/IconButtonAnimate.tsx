@@ -1,18 +1,23 @@
-import { m } from "framer-motion";
-import { forwardRef, ReactNode } from "react";
+import { m } from 'framer-motion';
+import { forwardRef, ReactNode } from 'react';
 // @mui
-import { Box, IconButton, IconButtonProps } from "@mui/material";
+import { Box, IconButton, IconButtonProps } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 const IconButtonAnimate = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ children, size = "medium", ...other }, ref) => (
-    <AnimateWrap size={size}>
-      <IconButton size={size} ref={ref} {...other}>
-        {children}
-      </IconButton>
-    </AnimateWrap>
-  ),
+  function IconButtonAnimateInner(
+    { children, size = 'medium', ...other },
+    ref
+  ) {
+    return (
+      <AnimateWrap size={size}>
+        <IconButton size={size} ref={ref} {...other}>
+          {children}
+        </IconButton>
+      </AnimateWrap>
+    );
+  }
 );
 
 export default IconButtonAnimate;
@@ -21,7 +26,7 @@ export default IconButtonAnimate;
 
 type AnimateWrapProp = {
   children: ReactNode;
-  size: "small" | "medium" | "large";
+  size: 'small' | 'medium' | 'large';
 };
 
 const varSmall = {
@@ -40,8 +45,8 @@ const varLarge = {
 };
 
 function AnimateWrap({ size, children }: AnimateWrapProp) {
-  const isSmall = size === "small";
-  const isLarge = size === "large";
+  const isSmall = size === 'small';
+  const isLarge = size === 'large';
 
   return (
     <Box
@@ -50,7 +55,7 @@ function AnimateWrap({ size, children }: AnimateWrapProp) {
       whileHover="hover"
       variants={(isSmall && varSmall) || (isLarge && varLarge) || varMedium}
       sx={{
-        display: "inline-flex",
+        display: 'inline-flex',
       }}
     >
       {children}

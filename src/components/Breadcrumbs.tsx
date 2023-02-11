@@ -1,13 +1,13 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 // @mui
 import {
   Box,
   Typography,
   BreadcrumbsProps,
   Breadcrumbs as MUIBreadcrumbs,
-} from "@mui/material";
+} from '@mui/material';
 //
-import Link from "./Link";
+import Link from './Link';
 
 // ----------------------------------------------------------------------
 
@@ -29,11 +29,11 @@ export default function Breadcrumbs({
 }: Props) {
   const currentLink = links[links.length - 1].name;
 
-  const listDefault = links.map(link => (
+  const listDefault = links.map((link) => (
     <LinkItem key={link.name} link={link} />
   ));
 
-  const listActiveLast = links.map(link => (
+  const listActiveLast = links.map((link) => (
     <div key={link.name}>
       {link.name !== currentLink ? (
         <LinkItem link={link} />
@@ -42,10 +42,10 @@ export default function Breadcrumbs({
           variant="body2"
           sx={{
             maxWidth: 260,
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            color: "text.disabled",
-            textOverflow: "ellipsis",
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+            color: 'text.disabled',
+            textOverflow: 'ellipsis',
           }}
         >
           {currentLink}
@@ -62,8 +62,8 @@ export default function Breadcrumbs({
           sx={{
             width: 4,
             height: 4,
-            borderRadius: "50%",
-            bgcolor: "text.disabled",
+            borderRadius: '50%',
+            bgcolor: 'text.disabled',
           }}
         />
       }
@@ -81,7 +81,7 @@ type LinkItemProps = {
 };
 
 function LinkItem({ link }: LinkItemProps) {
-  const { href = "", name, icon } = link;
+  const { href = '', name, icon } = link;
   return (
     <Link
       key={name}
@@ -89,14 +89,14 @@ function LinkItem({ link }: LinkItemProps) {
       variant="body2"
       sx={{
         lineHeight: 2,
-        display: "flex",
-        alignItems: "center",
-        color: "text.primary",
-        "& > div": { display: "inherit" },
+        display: 'flex',
+        alignItems: 'center',
+        color: 'text.primary',
+        '& > div': { display: 'inherit' },
       }}
     >
       {icon && (
-        <Box sx={{ mr: 1, "& svg": { width: 20, height: 20 } }}>{icon}</Box>
+        <Box sx={{ mr: 1, '& svg': { width: 20, height: 20 } }}>{icon}</Box>
       )}
       {name}
     </Link>

@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 // @mui
-import { Box, Typography, Link } from "@mui/material";
+import { Box, Typography, Link } from '@mui/material';
 //
-import Breadcrumbs, { Props as BreadcrumbsProps } from "./Breadcrumbs";
+import Breadcrumbs, { Props as BreadcrumbsProps } from './Breadcrumbs';
 
 // ----------------------------------------------------------------------
 
@@ -16,13 +16,13 @@ export default function HeaderBreadcrumbs({
   links,
   action,
   heading,
-  moreLink = "" || [],
+  moreLink = '' || [],
   sx,
   ...other
 }: Props) {
   return (
     <Box sx={{ mb: 5, ...sx }}>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Box sx={{ flexGrow: 1 }}>
           <Typography variant="h4" gutterBottom>
             {heading}
@@ -34,19 +34,19 @@ export default function HeaderBreadcrumbs({
       </Box>
 
       <Box sx={{ mt: 2 }}>
-        {typeof moreLink === "string" ? (
+        {typeof moreLink === 'string' ? (
           <Link href={moreLink} target="_blank" variant="body2">
             {moreLink}
           </Link>
         ) : (
-          moreLink.map(href => (
+          moreLink.map((href) => (
             <Link
               noWrap
               key={href}
               href={href}
               variant="body2"
               target="_blank"
-              sx={{ display: "table" }}
+              sx={{ display: 'table' }}
             >
               {href}
             </Link>

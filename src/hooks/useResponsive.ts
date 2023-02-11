@@ -1,11 +1,11 @@
 // @mui
-import { Breakpoint } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { Breakpoint } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // ----------------------------------------------------------------------
 
-type Query = "up" | "down" | "between" | "only";
+type Query = 'up' | 'down' | 'between' | 'only';
 type Start = Breakpoint | number;
 type End = Breakpoint | number;
 
@@ -17,20 +17,20 @@ export function useResponsive(query: Query, start?: Start, end?: End) {
   const mediaDown = useMediaQuery(theme.breakpoints.down(start as Start));
 
   const mediaBetween = useMediaQuery(
-    theme.breakpoints.between(start as Start, end as End),
+    theme.breakpoints.between(start as Start, end as End)
   );
 
   const mediaOnly = useMediaQuery(theme.breakpoints.only(start as Breakpoint));
 
-  if (query === "up") {
+  if (query === 'up') {
     return mediaUp;
   }
 
-  if (query === "down") {
+  if (query === 'down') {
     return mediaDown;
   }
 
-  if (query === "between") {
+  if (query === 'between') {
     return mediaBetween;
   }
 
@@ -50,6 +50,6 @@ export function useWidth() {
       const matches = useMediaQuery(theme.breakpoints.up(key));
 
       return !output && matches ? key : output;
-    }, null as Breakpoint | null) || "xs"
+    }, null as Breakpoint | null) || 'xs'
   );
 }

@@ -1,7 +1,7 @@
 // form
-import { useFormState } from "react-hook-form";
+import { useFormState } from 'react-hook-form';
 // @mui
-import LoadingButton, { LoadingButtonProps } from "@mui/lab/LoadingButton";
+import LoadingButton, { LoadingButtonProps } from '@mui/lab/LoadingButton';
 
 // ----------------------------------------------------------------------
 
@@ -11,8 +11,9 @@ export type SubmitButtonProps = LoadingButtonProps & {
 };
 
 export function SubmitButton({
-  label = "Submit",
+  label = 'Submit',
   children,
+  alwaysEnabled,
   ...others
 }: SubmitButtonProps) {
   const { isSubmitting, isDirty, isValid } = useFormState();
@@ -21,7 +22,7 @@ export function SubmitButton({
     <LoadingButton
       type="submit"
       loading={isSubmitting}
-      disabled={!isDirty || !isValid}
+      disabled={!alwaysEnabled && (!isDirty || !isValid)}
       variant="contained"
       size="large"
       {...others}

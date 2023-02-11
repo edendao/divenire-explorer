@@ -1,37 +1,37 @@
-import SearchIcon from "@mui/icons-material/Search";
+import { useState } from 'react';
+// @mui
 import {
   Button,
   ClickAwayListener,
   Input,
   InputAdornment,
   Slide,
-} from "@mui/material";
-// @mui
-import { styled } from "@mui/material/styles";
-// components
-import { IconButtonAnimate } from "~/components/animate";
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
 // utils
-import cssStyles from "~/utils/cssStyles";
-import { useState } from "react";
+import cssStyles from '../../../utils/cssStyles';
+// components
+import { IconButtonAnimate } from '../../../components/animate';
+import Iconify from '../../../components/Iconify';
 
 // ----------------------------------------------------------------------
 
 const APPBAR_MOBILE = 64;
 const APPBAR_DESKTOP = 92;
 
-const SearchbarStyle = styled("div")(({ theme }) => ({
+const SearchbarStyle = styled('div')(({ theme }) => ({
   ...cssStyles(theme).bgBlur(),
   top: 0,
   left: 0,
   zIndex: 99,
-  width: "100%",
-  display: "flex",
-  position: "absolute",
-  alignItems: "center",
+  width: '100%',
+  display: 'flex',
+  position: 'absolute',
+  alignItems: 'center',
   height: APPBAR_MOBILE,
   padding: theme.spacing(0, 3),
   boxShadow: theme.customShadows.z8,
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up('md')]: {
     height: APPBAR_DESKTOP,
     padding: theme.spacing(0, 5),
   },
@@ -43,7 +43,7 @@ export default function Searchbar() {
   const [isOpen, setOpen] = useState(false);
 
   const handleOpen = () => {
-    setOpen(prev => !prev);
+    setOpen((prev) => !prev);
   };
 
   const handleClose = () => {
@@ -55,7 +55,7 @@ export default function Searchbar() {
       <div>
         {!isOpen && (
           <IconButtonAnimate onClick={handleOpen}>
-            <SearchIcon width={20} height={20} />
+            <Iconify icon={'eva:search-fill'} width={20} height={20} />
           </IconButtonAnimate>
         )}
 
@@ -68,12 +68,13 @@ export default function Searchbar() {
               placeholder="Search…"
               startAdornment={
                 <InputAdornment position="start">
-                  <SearchIcon
-                    sx={{ color: "text.disabled", width: 20, height: 20 }}
+                  <Iconify
+                    icon="eva:search-fill"
+                    sx={{ color: 'text.disabled', width: 20, height: 20 }}
                   />
                 </InputAdornment>
               }
-              sx={{ mr: 1, fontWeight: "fontWeightBold" }}
+              sx={{ mr: 1, fontWeight: 'fontWeightBold' }}
             />
             <Button variant="contained" onClick={handleClose}>
               Search

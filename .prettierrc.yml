@@ -1,8 +1,4 @@
-bracketSpacing: true
-printWidth: 80
-proseWrap: always
-singleQuote: false
-arrowParens: avoid
+trailingComma: 'es5'
 tabWidth: 2
-trailingComma: "all"
-useTabs: false
+semi: true
+singleQuote: true

@@ -1,24 +1,24 @@
-import { AppBar, Container } from "@mui/material";
-
-// config
-import { HEADER } from "~/config";
-// components
-import { NavSectionHorizontal } from "~/components/nav-section";
-import { memo } from "react";
-//
-import navConfig from "./NavConfig";
+import { AppBar, Container } from '@mui/material';
 // @mui
-import { styled } from "@mui/material/styles";
+import { styled } from '@mui/material/styles';
+// components
+import { NavSectionHorizontal } from '../../../components/nav-section';
+// config
+import { HEADER } from '../../../config';
+import { memo } from 'react';
+
+//
+import navConfig from './NavConfig';
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(AppBar)(({ theme }) => ({
-  transition: theme.transitions.create("top", {
+  transition: theme.transitions.create('top', {
     easing: theme.transitions.easing.easeInOut,
     duration: theme.transitions.duration.shorter,
   }),
-  width: "100%",
-  position: "fixed",
+  width: '100%',
+  position: 'fixed',
   zIndex: theme.zIndex.appBar,
   padding: theme.spacing(1, 0),
   boxShadow: theme.customShadows.z8,
@@ -28,12 +28,14 @@ const RootStyle = styled(AppBar)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const NavbarHorizontal: React.FC = () => (
-  <RootStyle>
-    <Container maxWidth={false}>
-      <NavSectionHorizontal navConfig={navConfig} />
-    </Container>
-  </RootStyle>
-);
+function NavbarHorizontal() {
+  return (
+    <RootStyle>
+      <Container maxWidth={false}>
+        <NavSectionHorizontal navConfig={navConfig} />
+      </Container>
+    </RootStyle>
+  );
+}
 
 export default memo(NavbarHorizontal);

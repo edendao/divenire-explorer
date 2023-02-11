@@ -1,5 +1,5 @@
 // form
-import { useFormContext, Controller } from "react-hook-form";
+import { useFormContext, Controller } from 'react-hook-form';
 // @mui
 import {
   Radio,
@@ -7,7 +7,7 @@ import {
   FormHelperText,
   RadioGroupProps,
   FormControlLabel,
-} from "@mui/material";
+} from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ export function RHFRadioGroup({ name, options, ...other }: RHFRadioGroupProps) {
       render={({ field, fieldState: { error } }) => (
         <div>
           <RadioGroup {...field} row {...other}>
-            {options.map(option => (
+            {options.map((option) => (
               <FormControlLabel
                 key={option.value}
                 value={option.value}

@@ -1,11 +1,11 @@
 // @mui
-import { useTheme } from "@mui/material/styles";
-import { Box, Rating, Typography, Stack } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
+import { Box, Rating, Typography, Stack } from '@mui/material';
 // utils
-import { fCurrency, fShortenNumber } from "../../utils/formatNumber";
+import { fCurrency, fShortenNumber } from '../../utils/formatNumber';
 // components
-import Label from "../../components/Label";
-import Image from "../../components/Image";
+import Label from '../../components/Label';
+import Image from '../../components/Image';
 
 export type SetListItemProps<T extends Record<string, any>> = {
   data: T;
@@ -24,11 +24,11 @@ export function SetListItem<T extends Record<string, any>>({
           width: 48,
           height: 48,
           flexShrink: 0,
-          display: "flex",
+          display: 'flex',
           borderRadius: 1.5,
-          alignItems: "center",
-          justifyContent: "center",
-          bgcolor: "background.neutral",
+          alignItems: 'center',
+          justifyContent: 'center',
+          bgcolor: 'background.neutral',
         }}
       >
         <Image src={shortcut} alt={name} sx={{ width: 24, height: 24 }} />
@@ -39,17 +39,17 @@ export function SetListItem<T extends Record<string, any>>({
         <Stack
           direction="row"
           alignItems="center"
-          sx={{ mt: 0.5, color: "text.secondary" }}
+          sx={{ mt: 0.5, color: 'text.secondary' }}
         >
           <Typography variant="caption" sx={{ ml: 0.5, mr: 1 }}>
             {system}
           </Typography>
 
           <Label
-            variant={theme.palette.mode === "light" ? "ghost" : "filled"}
-            color={price === 0 ? "success" : "error"}
+            variant={theme.palette.mode === 'light' ? 'ghost' : 'filled'}
+            color={price === 0 ? 'success' : 'error'}
           >
-            {price === 0 ? "Free" : fCurrency(price)}
+            {price === 0 ? 'Free' : fCurrency(price)}
           </Label>
         </Stack>
       </Box>
@@ -62,7 +62,7 @@ export function SetListItem<T extends Record<string, any>>({
           name="reviews"
           value={rating}
         />
-        <Typography variant="caption" sx={{ mt: 0.5, color: "text.secondary" }}>
+        <Typography variant="caption" sx={{ mt: 0.5, color: 'text.secondary' }}>
           {fShortenNumber(review)}&nbsp;reviews
         </Typography>
       </Stack>

@@ -4,8 +4,8 @@ function path(root: string, sublink: string) {
   return `${root}${sublink}`;
 }
 
-const ROOTS_DASHBOARD = "/dashboard";
-const ROOTS_ATTESTATIONS = "/attestations";
+const ROOTS_DASHBOARD = '/dashboard';
+const ROOTS_ATTESTATIONS = '/attestations';
 
 // ----------------------------------------------------------------------
 

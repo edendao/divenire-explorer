@@ -1,10 +1,10 @@
 // @mui
-import { Box, Tooltip, ListItemButtonProps } from "@mui/material";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { Box, Tooltip, ListItemButtonProps } from '@mui/material';
+// components
+import Iconify from '../../Iconify';
 //
-import { NavItemProps } from "../type";
-import { ListItemStyle, ListItemTextStyle, ListItemIconStyle } from "./style";
+import { NavItemProps } from '../type';
+import { ListItemStyle, ListItemTextStyle, ListItemIconStyle } from './style';
 
 // ----------------------------------------------------------------------
 
@@ -19,8 +19,6 @@ export default function NavItem({
   ...other
 }: Props) {
   const { title, icon, info, children, disabled, caption } = item;
-
-  const ArrowIcon = open ? ArrowDownwardIcon : ArrowForwardIcon;
 
   const renderContent = (
     <ListItemStyle depth={depth} active={active} disabled={disabled} {...other}>
@@ -40,11 +38,11 @@ export default function NavItem({
         }
         primaryTypographyProps={{
           noWrap: true,
-          variant: active ? "subtitle2" : "body2",
+          variant: active ? 'subtitle2' : 'body2',
         }}
         secondaryTypographyProps={{
           noWrap: true,
-          variant: "caption",
+          variant: 'caption',
         }}
       />
 
@@ -57,7 +55,14 @@ export default function NavItem({
           )}
 
           {!!children && (
-            <ArrowIcon sx={{ width: 16, height: 16, ml: 1, flexShrink: 0 }} />
+            <Iconify
+              icon={
+                open
+                  ? 'eva:arrow-ios-downward-fill'
+                  : 'eva:arrow-ios-forward-fill'
+              }
+              sx={{ width: 16, height: 16, ml: 1, flexShrink: 0 }}
+            />
           )}
         </>
       )}
@@ -81,15 +86,15 @@ export function DotIcon({ active }: DotIconProps) {
         sx={{
           width: 4,
           height: 4,
-          borderRadius: "50%",
-          bgcolor: "text.disabled",
-          transition: theme =>
-            theme.transitions.create("transform", {
+          borderRadius: '50%',
+          bgcolor: 'text.disabled',
+          transition: (theme) =>
+            theme.transitions.create('transform', {
               duration: theme.transitions.duration.shorter,
             }),
           ...(active && {
-            transform: "scale(2)",
-            bgcolor: "primary.main",
+            transform: 'scale(2)',
+            bgcolor: 'primary.main',
           }),
         }}
       />
