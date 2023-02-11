@@ -1,13 +1,14 @@
-// next
-import { GetStaticProps, GetStaticPaths } from 'next';
 // @mui
 import { Container } from '@mui/material';
+// config
+import { CONTRACTS } from '../../config';
 // components
 import Page from '../../components/Page';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 // sections
 import { FactoryNewEditForm, Factory } from '../../sections/factory';
-import { CONTRACTS } from '../../config';
+// next
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +19,7 @@ type PageProps = {
 type FactoryDetail = { name: string };
 
 const FACTORY: Record<Factory['type'], FactoryDetail> = {
-  generators: { name: 'Credit class' },
+  generators: { name: 'Claim class' },
   methodologies: { name: 'Methodology' },
 };
 
@@ -26,9 +27,7 @@ const FACTORY: Record<Factory['type'], FactoryDetail> = {
 
 export default function FactoryNew({ factory }: PageProps) {
   const factoryDetails = FACTORY[factory.type];
-
   const heading = `Create a new ${factoryDetails.name}`;
-  const handleSubmit = () => Promise.resolve();
 
   return (
     <Page title={`Factory: ${heading}`}>
@@ -43,7 +42,7 @@ export default function FactoryNew({ factory }: PageProps) {
             { name: 'New ' + factoryDetails.name },
           ]}
         />
-        <FactoryNewEditForm factory={factory} onSubmit={handleSubmit} />
+        <FactoryNewEditForm factory={factory} />
       </Container>
     </Page>
   );

@@ -8,7 +8,7 @@ export type UseFormControllerProps<
   TResult = any
 > = UseFormProps<TFieldValues, TContext> & {
   redirect?: string | ((result: TResult) => string | false) | false;
-  onSubmit: (values: TFieldValues) => Promise<TResult>;
+  onSubmit: (values: TFieldValues) => Promise<TResult> | TResult;
   onSubmitSuccess?: (result: TResult) => void | Promise<void>;
   onSubmitError?: (error: any) => void | Promise<void>;
 };
