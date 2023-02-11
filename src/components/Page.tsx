@@ -11,8 +11,11 @@ type PageProps = BoxProps & {
   title: string;
 };
 
-const Page = forwardRef<HTMLDivElement, PageProps>(
-  ({ children, title = '', meta, ...other }, ref) => (
+const Page = forwardRef<HTMLDivElement, PageProps>(function PageInner(
+  { children, title = '', meta, ...other },
+  ref
+) {
+  return (
     <>
       <Head>
         <title>{`${title} | ${APP.title}`}</title>
@@ -23,7 +26,7 @@ const Page = forwardRef<HTMLDivElement, PageProps>(
         {children}
       </Box>
     </>
-  )
-);
+  );
+});
 
 export default Page;

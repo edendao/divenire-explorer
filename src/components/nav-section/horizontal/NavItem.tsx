@@ -22,7 +22,7 @@ import { ListItemStyle } from './style';
 type Props = NavItemProps & ListItemButtonProps;
 
 const NavItem = forwardRef<HTMLDivElement & HTMLAnchorElement, Props>(
-  ({ item, depth, active, open, ...other }, ref) => {
+  function NavItemInner({ item, depth, active, open, ...other }, ref) {
     const { title, icon, info, children, disabled, caption } = item;
 
     const ArrowIcon = depth > 1 ? ArrowForwardIcon : ArrowDownwardIcon;
