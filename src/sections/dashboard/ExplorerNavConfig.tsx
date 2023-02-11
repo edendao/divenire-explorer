@@ -2,7 +2,7 @@ import Iconify from '../../components/Iconify';
 
 export const ExplorerNavConfig = [
   {
-    subheader: 'Marketing',
+    subheader: 'Display',
     items: [
       {
         title: 'Generators',

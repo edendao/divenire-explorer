@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useRouter } from 'next/router';
 // @mui
 import { Card, Container, Stack, Box } from '@mui/material';
@@ -17,7 +18,11 @@ const RENDER_MAP: Record<string, () => React.ReactNode> = {
 export default function DashboardIndex() {
   const { query } = useRouter();
   const type = String(query.type || 'generators');
-  const renderComponent = RENDER_MAP[type];
+
+  const content = useMemo(() => {
+    const renderComponent = RENDER_MAP[type];
+    return renderComponent ? renderComponent() : null;
+  }, [type]);
 
   return (
     <Page title="General: Dashboard">
@@ -26,7 +31,7 @@ export default function DashboardIndex() {
           <Card sx={{ width: 240 }}>
             <NavSectionVertical pb={3} navConfig={ExplorerNavConfig} />
           </Card>
-          <Box flex="1">{renderComponent && renderComponent()}</Box>
+          <Box flex="1">{content}</Box>
         </Stack>
       </Container>
     </Page>
