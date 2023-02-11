@@ -4,13 +4,13 @@ import { styled } from '@mui/material/styles';
 // rainbowkit
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 // components
-import EnsAvatar from '~/components/EnsAvatar';
+import EnsAvatar from '../../../components/EnsAvatar';
 // hooks
-import { useMainnetEnsName } from '~/hooks/useMainnet';
+import { useMainnetEnsName } from '../../../hooks/useMainnet';
 // utils
-import { fAddress } from '~/utils/formatAddress';
-import { fBalance } from '~/utils/formatBalance';
-import { fENS } from '~/utils/formatENS';
+import { fAddress } from '../../../utils/formatAddress';
+import { fBalance } from '../../../utils/formatBalance';
+import { fENS } from '../../../utils/formatENS';
 // wagmi
 import { useAccount, useBalance } from 'wagmi';
 

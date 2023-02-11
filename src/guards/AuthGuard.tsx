@@ -1,6 +1,6 @@
 // components
-import ConnectButton from '~/components/ConnectButton';
-import LoadingScreen from '~/components/LoadingScreen';
+import ConnectButton from '../components/ConnectButton';
+import LoadingScreen from '../components/LoadingScreen';
 // next
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';

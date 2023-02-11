@@ -12,7 +12,10 @@ export const APP = {
   keywords: [],
 };
 
-export const CHAINS = process.env.NODE_ENV === 'development' ? [goerli] : [];
+export const CHAINS = [
+  mainnet,
+  ...(process.env.NODE_ENV === 'development' ? [goerli] : []),
+];
 
 export const CONTRACTS = {
   systemAcl: '0x6Dc0f8bbcC4B5E0bbbF197311782760B25E5Ca63',

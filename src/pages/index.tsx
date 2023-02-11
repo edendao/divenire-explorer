@@ -1,4 +1,4 @@
-import { PATH_DASHBOARD } from '~/paths';
+import { PATH_DASHBOARD } from '../paths';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 

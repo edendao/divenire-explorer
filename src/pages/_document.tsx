@@ -1,8 +1,8 @@
 import createEmotionServer from '@emotion/server/create-instance';
-import { APP } from '~/config';
-import { inter } from '~/theme/fonts';
-import palette from '~/theme/palette';
-import createEmotionCache from '~/utils/createEmotionCache';
+import { APP } from '../config';
+import { inter } from '../theme/fonts';
+import palette from '../theme/palette';
+import createEmotionCache from '../utils/createEmotionCache';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
 export default class AppDocument extends Document {
