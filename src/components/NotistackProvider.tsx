@@ -1,13 +1,14 @@
-import { ReactNode, useRef } from 'react';
+import { useRef } from 'react';
+import { IconifyIcon } from '@iconify/react';
 import { SnackbarProvider, SnackbarKey } from 'notistack';
 // @mui
 import { alpha, useTheme } from '@mui/material/styles';
 import { Box, GlobalStyles } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
 // theme
 import { ColorSchema } from '../theme/palette';
 //
 import { IconButtonAnimate } from './animate';
+import Iconify from './Iconify';
 
 // ----------------------------------------------------------------------
 
@@ -54,7 +55,7 @@ function SnackbarStyles() {
 // ----------------------------------------------------------------------
 
 export type NotistackProviderProps = {
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
 export default function NotistackProvider({
@@ -98,7 +99,7 @@ export default function NotistackProvider({
             onClick={onClose(key)}
             sx={{ p: 0.5 }}
           >
-            <CloseIcon />
+            <Iconify icon={'eva:close-fill'} />
           </IconButtonAnimate>
         )}
       >
@@ -111,7 +112,7 @@ export default function NotistackProvider({
 // ----------------------------------------------------------------------
 
 type SnackbarIconProps = {
-  icon: React.ReactNode;
+  icon: IconifyIcon | string;
   color: ColorSchema;
 };
 
@@ -131,7 +132,7 @@ function SnackbarIcon({ icon, color }: SnackbarIconProps) {
         bgcolor: (theme) => alpha(theme.palette[color].main, 0.16),
       }}
     >
-      {icon}
+      <Iconify icon={icon} width={24} height={24} />
     </Box>
   );
 }
