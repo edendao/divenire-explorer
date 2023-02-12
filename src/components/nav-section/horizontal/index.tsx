@@ -1,7 +1,7 @@
-import { memo } from 'react';
 // @mui
 import { Stack } from '@mui/material';
-//
+import { memo } from 'react';
+
 import { NavSectionProps } from '../type';
 import NavList from './NavList';
 
@@ -16,23 +16,21 @@ const hideScrollbar = {
   },
 } as const;
 
-function NavSectionHorizontal({ navConfig }: NavSectionProps) {
-  return (
-    <Stack direction="row" sx={{ margin: '0 auto', ...hideScrollbar }}>
-      {navConfig.map((group) => (
-        <Stack key={group.subheader} direction="row" flexShrink={0}>
-          {group.items.map((list) => (
-            <NavList
-              key={list.title + list.path}
-              data={list}
-              depth={1}
-              hasChildren={!!list.children}
-            />
-          ))}
-        </Stack>
-      ))}
-    </Stack>
-  );
-}
+const NavSectionHorizontal: React.FC<NavSectionProps> = ({ navConfig }) => (
+  <Stack direction="row" sx={{ margin: '0 auto', ...hideScrollbar }}>
+    {navConfig.map((group) => (
+      <Stack key={group.subheader} direction="row" flexShrink={0}>
+        {group.items.map((list) => (
+          <NavList
+            key={list.title + list.path}
+            data={list}
+            depth={1}
+            hasChildren={!!list.children}
+          />
+        ))}
+      </Stack>
+    ))}
+  </Stack>
+);
 
 export default memo(NavSectionHorizontal);

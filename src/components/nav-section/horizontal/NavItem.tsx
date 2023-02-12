@@ -1,17 +1,18 @@
-import { forwardRef } from 'react';
 // @mui
 import {
   Box,
-  Tooltip,
   ListItemButtonProps,
-  ListItemText,
   ListItemIcon,
+  ListItemText,
+  Tooltip,
 } from '@mui/material';
+import { forwardRef } from 'react';
+
 // config
 import { ICON } from '../../../config';
+import Iconify from '../../Iconify';
 //
 import { NavItemProps } from '../type';
-import Iconify from '../../Iconify';
 import { ListItemStyle } from './style';
 
 // ----------------------------------------------------------------------

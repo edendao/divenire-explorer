@@ -1,13 +1,14 @@
-import { memo } from 'react';
+import { AppBar, Box, Container, Toolbar } from '@mui/material';
 // @mui
 import { styled } from '@mui/material/styles';
-import { AppBar, Box, Container, Toolbar } from '@mui/material';
-// utils
-import cssStyles from '../../../utils/cssStyles';
-// config
-import { HEADER } from '../../../config';
+import { memo } from 'react';
+
 // components
 import { NavSectionHorizontal } from '../../../components/nav-section';
+// config
+import { HEADER } from '../../../config';
+// utils
+import cssStyles from '../../../utils/cssStyles';
 //
 import navConfig from './NavConfig';
 

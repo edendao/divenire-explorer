@@ -3,7 +3,7 @@ import { PATH_DASHBOARD } from '../../paths';
 
 export const ExplorerNavConfig = [
   {
-    subheader: 'Display',
+    subheader: 'EXPLORE',
     items: [
       {
         title: 'Generators',

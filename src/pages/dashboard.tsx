@@ -1,20 +1,21 @@
-import { useEffect, useMemo } from 'react';
-import { useRouter } from 'next/router';
 // @mui
-import { Card, Container, Stack, Box } from '@mui/material';
-// path
-import { PATH_DASHBOARD } from '../paths';
+import { Box, Card, Container, Stack } from '@mui/material';
+import { useRouter } from 'next/router';
+import { useEffect, useMemo } from 'react';
+
+import { NavSectionVertical } from '../components/nav-section';
 // components
 import Page from '../components/Page';
-import { NavSectionVertical } from '../components/nav-section';
+// path
+import { PATH_DASHBOARD } from '../paths';
 // sections
 import {
-  GeneratorsList,
-  ClaimsList,
-  ExplorerNavConfig,
-  EvaluationsList,
-  MethodologiesList,
   CertificatesList,
+  ClaimsList,
+  EvaluationsList,
+  ExplorerNavConfig,
+  GeneratorsList,
+  MethodologiesList,
 } from '../sections/dashboard';
 
 // ----------------------------------------------------------------------
@@ -55,7 +56,7 @@ export default function DashboardIndex() {
           alignItems="flex-start"
         >
           <Card sx={{ width: 240 }}>
-            <NavSectionVertical pb={3} navConfig={ExplorerNavConfig} />
+            <NavSectionVertical pb={1} navConfig={ExplorerNavConfig} />
           </Card>
           <Box flex="1">{content}</Box>
         </Stack>

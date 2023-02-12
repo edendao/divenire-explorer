@@ -3,10 +3,10 @@ import { PATH_CLAIM } from '../../paths';
 
 export const ClaimNavConfig = [
   {
-    subheader: 'Display',
+    subheader: 'Claims',
     items: [
       {
-        title: 'Generators',
+        title: 'Projects',
         path: PATH_CLAIM.list('generators'),
         icon: <Iconify icon="carbon:3d-mpr-toggle" />,
       },
